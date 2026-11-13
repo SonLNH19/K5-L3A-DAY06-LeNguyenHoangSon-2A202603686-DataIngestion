@@ -45,3 +45,51 @@ Dùng cùng dữ liệu, model và câu hỏi cho cả ba cấu hình. Tách **1
 | Cách nộp bài | [SUBMISSION.md](SUBMISSION.md) |
 
 [data/format-example.json](data/format-example.json) chỉ minh họa định dạng, không phải corpus đủ điều kiện. Phần xử lý và benchmark do bạn tự hiện thực; không bắt buộc xây chatbot.
+
+## Cách chạy bài
+
+Bài làm sử dụng corpus [Transformer NLP](data/transformers-nlp) và [manifest](data/manifest.json), Python 3.12, Chroma local và embedding ONNX `all-MiniLM-L6-v2`. Chi tiết cài đặt và giới hạn nằm trong [starter/README.md](starter/README.md).
+
+### 1. Kiểm tra Python
+
+Trên Windows PowerShell, mở **thư mục gốc repo vừa clone** và kiểm tra:
+
+```powershell
+python --version
+```
+
+Dùng Python **3.12** như môi trường đã ghi trong báo cáo. Nếu `python` hiện phiên bản khác, thử `py -3.12 --version` để kiểm tra bản 3.12 đã cài. Nếu chưa có Python 3.12, tải và cài [Python 3.12.10 từ python.org](https://www.python.org/downloads/release/python-31210/), chọn bản Windows phù hợp với máy. Sau đó mở terminal mới và kiểm tra lại.
+
+### 2. Tạo môi trường và chạy pipeline
+
+Trong bản clone sạch, khi `python --version` hiện 3.12 và `starter/.venv` chưa tồn tại, chạy lần lượt:
+
+```powershell
+cd starter
+python -m venv .venv
+.\.venv\Scripts\python.exe --version
+.\.venv\Scripts\python.exe -m pip install -r requirements-chroma.txt
+.\.venv\Scripts\python.exe -m src.run
+```
+
+Nếu `python` không phải 3.12 nhưng `py -3.12 --version` hoạt động, thay riêng lệnh tạo môi trường bằng `py -3.12 -m venv .venv`. Nếu không có `py`, thay bằng `& "<đường-dẫn-Python-3.12>\python.exe" -m venv .venv`, sau khi thay phần trong dấu `<...>` bằng đường dẫn thật.
+
+Nếu đang đứng sẵn trong `starter`, bỏ qua lệnh `cd starter`. Trước khi cài thư viện, dòng kiểm tra `.venv` phải hiện Python 3.12. Không tạo đè `.venv` cũ bằng phiên bản Python khác; dùng bản clone sạch hoặc một môi trường mới. Nếu đã có môi trường Python 3.12 hoạt động ở nơi khác, dùng đường dẫn `python.exe` của môi trường đó cho các lệnh cài và chạy.
+
+Lần đầu cần mạng để tải thư viện và model khoảng 79 MiB; model được kiểm tra hash và index lưu tại `starter/.chroma-lab/`. Lệnh ingest ghi thống kê vào `results/`; nên chạy trong bản clone riêng nếu muốn giữ nguyên kết quả đã nộp.
+
+### 3. Kiểm tra dữ liệu và trace
+
+Từ thư mục `starter`, chạy:
+
+```powershell
+.\.venv\Scripts\python.exe ..\data\verify_submission.py
+```
+
+Kết quả mong đợi bắt đầu bằng `OK: 30 source files and hashes; 20 evidence passages; dev/test top-3 trace provenance.` Kiểm tra này không thay thế việc đọc và đánh giá nhãn audit.
+
+Xem [benchmark](benchmark/README.md), [kết quả và phương pháp audit](results/README.md), [hướng dẫn xác minh nguồn dữ liệu](data/README.md) và [báo cáo cá nhân](report/individual/2A202603686_LeNguyenHoangSon.md). Tập test đã được chạy; chạy lại benchmark có thể ghi đè kết quả đã lưu, và không dùng kết quả test để chỉnh cấu hình rồi báo như holdout độc lập.
+
+Để chạy lại retrieval trên bản clone dùng kiểm tra, từ `starter` có thể dùng `.\.venv\Scripts\python.exe -m src.run --split dev` và sau đó `.\.venv\Scripts\python.exe -m src.run --split test`. Hai lệnh ghi đè trace và metric tương ứng trong `results/`; test yêu cầu file chọn cấu hình đã chốt và hash benchmark/index khớp.
+
+Điểm được in khi chạy lại là kết quả **khớp chính xác tự động** trong `metrics_dev.json` / `metrics_test.json`. Điểm dev trong báo cáo dùng `metrics_dev_reviewed.json`, có tính thêm evidence tương đương đã được rà soát; vì vậy hai số có thể khác nhau. Xem [results/README.md](results/README.md) để đối chiếu từng nhãn.

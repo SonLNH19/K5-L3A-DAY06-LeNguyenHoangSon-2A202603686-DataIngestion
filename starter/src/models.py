@@ -1,22 +1,23 @@
-"""Shared data contracts; keep traceability from chunk back to source."""
-from dataclasses import dataclass, field
-from typing import Any
+"""Data contracts for source units and persisted chunks."""
+from typing import TypedDict
 
 
-@dataclass
-class DocumentPage:
+class UnitMetadata(TypedDict):
+    unit_id: str
+    chapter: str
+    path: str
+    sha256: str
+
+
+class ChunkMetadata(TypedDict):
     document_id: str
     source: str
-    page: int
-    text: str
-    metadata: dict[str, Any] = field(default_factory=dict)
+    page: str
+    chapter: str
+    chunk_index: int
 
 
-@dataclass
-class Chunk:
-    chunk_id: str
-    document_id: str
-    source: str
-    page: int
+class Chunk(TypedDict):
+    id: str
     text: str
-    metadata: dict[str, Any] = field(default_factory=dict)
+    metadata: ChunkMetadata

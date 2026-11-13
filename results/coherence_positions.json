@@ -1,0 +1,82 @@
+[
+  {
+    "page": "chapter1/2",
+    "offset_nfc": 250,
+    "anchor": "overview of what natural language processing is, how large language models have ",
+    "A_chunk_id": "823219c6a5ce9b5c569ac8187aa5bd8e7945d08f6d9fb8641590f1fe1609378e",
+    "B_chunk_id": "1949d0714244ddd490b831dd8b3321f7a0539fe577a8dff7396c76684a888b4d",
+    "C_chunk_id": "1949d0714244ddd490b831dd8b3321f7a0539fe577a8dff7396c76684a888b4d"
+  },
+  {
+    "page": "chapter1/3",
+    "offset_nfc": 250,
+    "anchor": "/blob/master/course/en/chapter1/section3.ipynb\"},\n{label: \"Aws Studio\", value: \"",
+    "A_chunk_id": "c0adabf30e7a674d91bac2d91d1f261e29cba58beae9625121dc24e4a4193a7e",
+    "B_chunk_id": "060b6cfeece727625a4f961cde46585daa66f47a1bf29caee0c04eb8cd4d137f",
+    "C_chunk_id": "060b6cfeece727625a4f961cde46585daa66f47a1bf29caee0c04eb8cd4d137f"
+  },
+  {
+    "page": "chapter1/4",
+    "offset_nfc": 250,
+    "anchor": "f attention, encoder-decoder architecture, and more.\n\n> [!WARNING]\n> 🚀 We're tak",
+    "A_chunk_id": "527f5a6ccc9a153c556ed30d59e7f8b9863ad4d0444949f2a904f29b1f60ecaf",
+    "B_chunk_id": "3ab2e8b817aa50ea40b97d0a5e3f625ebab51bab088d35930c63d3daabc49d5a",
+    "C_chunk_id": "3ab2e8b817aa50ea40b97d0a5e3f625ebab51bab088d35930c63d3daabc49d5a"
+  },
+  {
+    "page": "chapter1/5",
+    "offset_nfc": 250,
+    "anchor": " them. This page will look closely at how models solve these tasks and explain w",
+    "A_chunk_id": "6ab034bf069a9c305b8e2ba02e0b6aa57d90bbb7ec4b4a1270e4640beb3386b5",
+    "B_chunk_id": "f3da7833a52c4564f14c61a6795c4ad139e4f89fa6b1df10b818b2e0002eed31",
+    "C_chunk_id": "f3da7833a52c4564f14c61a6795c4ad139e4f89fa6b1df10b818b2e0002eed31"
+  },
+  {
+    "page": "chapter1/6",
+    "offset_nfc": 250,
+    "anchor": "lve various tasks. Now, let's take a closer look at the three main architectural",
+    "A_chunk_id": "e5f3bbc3bd220e15a9dfd0a1bff0527d97bbbeb3d758e86c61a35e4874aa059c",
+    "B_chunk_id": "3095b444c892c8002ad5210ea25f99a97ba90ee57a23f29573190377829129ef",
+    "C_chunk_id": "3095b444c892c8002ad5210ea25f99a97ba90ee57a23f29573190377829129ef"
+  },
+  {
+    "page": "chapter1/8",
+    "offset_nfc": 250,
+    "anchor": "to a range of discrete tasks, like text classification or summarization. However",
+    "A_chunk_id": "5d459f7f2b91a4c97eb39225e41616a0f533e57a5dde0a74e75addbbb69a7f04",
+    "B_chunk_id": "f25afc7bfaee1845b5b468ff70d4394847af0010a39281c17b04e6aeeb3c27ee",
+    "C_chunk_id": "f25afc7bfaee1845b5b468ff70d4394847af0010a39281c17b04e6aeeb3c27ee"
+  },
+  {
+    "page": "chapter2/2",
+    "offset_nfc": 250,
+    "anchor": "/notebooks/blob/master/course/en/chapter2/section2_pt.ipynb\"},\n{label: \"Aws Stud",
+    "A_chunk_id": "7eb6ae343d0936099524f1ecc9e723f35b1fc9ce80b6d2e3ab10582b5b88717a",
+    "B_chunk_id": "750dc03417a11690e5a995073989efd36696c0660a853b405519df57feda03d1",
+    "C_chunk_id": "750dc03417a11690e5a995073989efd36696c0660a853b405519df57feda03d1"
+  },
+  {
+    "page": "chapter2/3",
+    "offset_nfc": 250,
+    "anchor": "/course/en/chapter2/section3_pt.ipynb\"},\n{label: \"Aws Studio\", value: \"https://s",
+    "A_chunk_id": "0c5c5b5d1b6d2f0c7eb392aefa0ff80505d873373351ed2b5de30de22279c330",
+    "B_chunk_id": "46c4aa60877ed407a98b8125c68bd58efe580fe15b1e9b4b0c1a0542b9534528",
+    "C_chunk_id": "46c4aa60877ed407a98b8125c68bd58efe580fe15b1e9b4b0c1a0542b9534528"
+  },
+  {
+    "page": "chapter2/4",
+    "offset_nfc": 250,
+    "anchor": "ster/course/en/chapter2/section4_pt.ipynb\"},\n{label: \"Aws Studio\", value: \"https",
+    "A_chunk_id": "82058991ff237ba010cb79d9f5bf22ebe1bd1df1a26fff52ed960e5d2f60c7c2",
+    "B_chunk_id": "dd6d61bcc98672692dc4c5496294a71a32cf816abfa9b5206a2085ba7e0b64d8",
+    "C_chunk_id": "dd6d61bcc98672692dc4c5496294a71a32cf816abfa9b5206a2085ba7e0b64d8"
+  },
+  {
+    "page": "chapter2/5",
+    "offset_nfc": 250,
+    "anchor": "thub/huggingface/notebooks/blob/master/course/en/chapter2/section5_pt.ipynb\"},\n{",
+    "A_chunk_id": "ff700474538769409b8fc78c89b99cdbf7072563fde642d5e15a683d674e365c",
+    "B_chunk_id": "25760ca961aa30f5bb0a4d531e9077b36ff81a6eef6f99185b9aa488e62e82cb",
+    "C_chunk_id": "25760ca961aa30f5bb0a4d531e9077b36ff81a6eef6f99185b9aa488e62e82cb"
+  }
+]

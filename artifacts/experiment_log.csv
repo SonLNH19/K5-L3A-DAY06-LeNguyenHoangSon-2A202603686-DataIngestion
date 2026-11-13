@@ -1,4 +1,4 @@
 strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
-A,,,,,,,,,,,,
-B,,,,,,,,,,,,
-C,,,,,,,,,,,,
+A,fixed,500,50,document_id|source|page|chapter,none,all-MiniLM-L6-v2,Fixed windows may split context,6/15,8/15,3/5,3/5,AI-assisted equivalent evidence review; student confirmed after test (2026-11-13)
+B,paragraph,900,50,document_id|source|page|chapter,none,all-MiniLM-L6-v2,Paragraph boundaries may improve coherence,8/15,11/15,2/5,2/5,Overlap applies only to oversized paragraphs; AI-assisted review; student confirmed after test (2026-11-13)
+C,paragraph,900,50,document_id|source|page|chapter,chapter when provided,all-MiniLM-L6-v2,Filtering may improve retrieval for scoped questions,9/15,12/15,2/5,2/5,Same chunks as B; overlap only for oversized paragraphs; AI-assisted review; student confirmed after test (2026-11-13)

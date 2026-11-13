@@ -1,0 +1,281 @@
+﻿{
+    "source_id":  "huggingface_transformers_nlp",
+    "title":  "Tokenization and text processing with Transformers",
+    "source_path_or_url":  "https://github.com/huggingface/course",
+    "license_or_permission":  "Apache-2.0; see data/transformers-nlp/LICENSE and original file notices",
+    "accessed_at":  "2026-11-13",
+    "snapshot_commit":  "8b893f0ede6c781045692a7f892f25a0c92b4805",
+    "unit_rule":  "30 distinct English MDX lessons selected for NLP, Transformers, tokenization, and text model use. Each file is a source unit. Lengths count UTF-16 code units after NFC and CRLF-to-LF, including MDX markup and code; not cleaned text counts.",
+    "units":  [
+                  {
+                      "unit_id":  "chapter1/2",
+                      "title":  "Natural Language Processing and Large Language Models[[natural-language-processing-and-large-language-models]]",
+                      "chapter":  "chapter1",
+                      "path":  "data/transformers-nlp/chapter1/2.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter1/2.mdx",
+                      "characters_utf16_source_mdx":  4733,
+                      "sha256":  "2efb77f9e016900d0b6d73c79b7822aa3ced78c111b576d7d73dd3b5fb58c3bc"
+                  },
+                  {
+                      "unit_id":  "chapter1/3",
+                      "title":  "Transformers, what can they do?[[transformers-what-can-they-do]]",
+                      "chapter":  "chapter1",
+                      "path":  "data/transformers-nlp/chapter1/3.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter1/3.mdx",
+                      "characters_utf16_source_mdx":  19159,
+                      "sha256":  "ddc51f939479ad6c49db67fd94c5c5d960f2421ff52732094ee3685492568c5e"
+                  },
+                  {
+                      "unit_id":  "chapter1/4",
+                      "title":  "How do Transformers work?[[how-do-transformers-work]]",
+                      "chapter":  "chapter1",
+                      "path":  "data/transformers-nlp/chapter1/4.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter1/4.mdx",
+                      "characters_utf16_source_mdx":  19024,
+                      "sha256":  "96cec7d075920e1cd69c1e064233bbba441e86f6d6951a98043d8b489ffa961e"
+                  },
+                  {
+                      "unit_id":  "chapter1/5",
+                      "title":  "How Transformers solve tasks",
+                      "chapter":  "chapter1",
+                      "path":  "data/transformers-nlp/chapter1/5.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter1/5.mdx",
+                      "characters_utf16_source_mdx":  23912,
+                      "sha256":  "58893ebffc1d2bd3e73a7d7d1954a2fdc8a27809d29e318c9f20c8469789b8d5"
+                  },
+                  {
+                      "unit_id":  "chapter1/6",
+                      "title":  "Transformer Architectures[[transformer-architectures]]",
+                      "chapter":  "chapter1",
+                      "path":  "data/transformers-nlp/chapter1/6.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter1/6.mdx",
+                      "characters_utf16_source_mdx":  13101,
+                      "sha256":  "62df158ae54f24eceeb9be4df5223f58f9097bf74dce122b4e224f6b47fc3a9f"
+                  },
+                  {
+                      "unit_id":  "chapter1/8",
+                      "title":  "Deep dive into Text Generation Inference with LLMs[[inference-with-llms]]",
+                      "chapter":  "chapter1",
+                      "path":  "data/transformers-nlp/chapter1/8.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter1/8.mdx",
+                      "characters_utf16_source_mdx":  15476,
+                      "sha256":  "938f5f6191b4ab8479e1b840b3fbdc0cd747add7aa12041e7e6294713530f38f"
+                  },
+                  {
+                      "unit_id":  "chapter2/2",
+                      "title":  "Behind the pipeline[[behind-the-pipeline]]",
+                      "chapter":  "chapter2",
+                      "path":  "data/transformers-nlp/chapter2/2.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter2/2.mdx",
+                      "characters_utf16_source_mdx":  12229,
+                      "sha256":  "63b729985790e2c07fdef1563320571dd09c4b9af7a084397b8539b2c988e9bb"
+                  },
+                  {
+                      "unit_id":  "chapter2/3",
+                      "title":  "Models[[the-models]]",
+                      "chapter":  "chapter2",
+                      "path":  "data/transformers-nlp/chapter2/3.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter2/3.mdx",
+                      "characters_utf16_source_mdx":  12521,
+                      "sha256":  "7287a0d9d168e46519d311d3e8a019d298a8fa8d30c2dc724c569874cb66889d"
+                  },
+                  {
+                      "unit_id":  "chapter2/4",
+                      "title":  "Tokenizers[[tokenizers]]",
+                      "chapter":  "chapter2",
+                      "path":  "data/transformers-nlp/chapter2/4.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter2/4.mdx",
+                      "characters_utf16_source_mdx":  13197,
+                      "sha256":  "ccb28f0ed2fbfd52b651cd852ea6b226a767f7957f7acda9fbcb91059ee97631"
+                  },
+                  {
+                      "unit_id":  "chapter2/5",
+                      "title":  "Handling multiple sequences[[handling-multiple-sequences]]",
+                      "chapter":  "chapter2",
+                      "path":  "data/transformers-nlp/chapter2/5.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter2/5.mdx",
+                      "characters_utf16_source_mdx":  8801,
+                      "sha256":  "05652222697ba66c3303478818d33638562898d603ec9271c9d18f572c8fd8a7"
+                  },
+                  {
+                      "unit_id":  "chapter2/6",
+                      "title":  "Putting it all together[[putting-it-all-together]]",
+                      "chapter":  "chapter2",
+                      "path":  "data/transformers-nlp/chapter2/6.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter2/6.mdx",
+                      "characters_utf16_source_mdx":  5717,
+                      "sha256":  "55faf69625119ead8d8e9bb05d99727d1262620cf83c695f6b0333dd8eb2de53"
+                  },
+                  {
+                      "unit_id":  "chapter2/8",
+                      "title":  "Optimized Inference Deployment",
+                      "chapter":  "chapter2",
+                      "path":  "data/transformers-nlp/chapter2/8.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter2/8.mdx",
+                      "characters_utf16_source_mdx":  26649,
+                      "sha256":  "bb2681185b39620f2080a48468761aad001d09748927d6f6f0a24c9c65989d3e"
+                  },
+                  {
+                      "unit_id":  "chapter3/2",
+                      "title":  "Processing the data[[processing-the-data]]",
+                      "chapter":  "chapter3",
+                      "path":  "data/transformers-nlp/chapter3/2.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter3/2.mdx",
+                      "characters_utf16_source_mdx":  22932,
+                      "sha256":  "1dd4c7f986e022f47fbda734b08e7d6b3087b238f3426c39142b427e9bc4e56f"
+                  },
+                  {
+                      "unit_id":  "chapter3/3",
+                      "title":  "Fine-tuning a model with the Trainer API[[fine-tuning-a-model-with-the-trainer-api]]",
+                      "chapter":  "chapter3",
+                      "path":  "data/transformers-nlp/chapter3/3.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter3/3.mdx",
+                      "characters_utf16_source_mdx":  17877,
+                      "sha256":  "e8070bf3158a89e010b80d45731d2452af86ef7dc543c0a0aaa04fb8e0302635"
+                  },
+                  {
+                      "unit_id":  "chapter3/4",
+                      "title":  "A full training loop[[a-full-training]]",
+                      "chapter":  "chapter3",
+                      "path":  "data/transformers-nlp/chapter3/4.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter3/4.mdx",
+                      "characters_utf16_source_mdx":  22798,
+                      "sha256":  "f01b048e259de469100df736f36c0692d4f5ec65cb46f30bc3d7c576fad74672"
+                  },
+                  {
+                      "unit_id":  "chapter3/5",
+                      "title":  "Understanding Learning Curves[[understanding-learning-curves]]",
+                      "chapter":  "chapter3",
+                      "path":  "data/transformers-nlp/chapter3/5.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter3/5.mdx",
+                      "characters_utf16_source_mdx":  19953,
+                      "sha256":  "87da44ac6f448f258b892dc965d9a18fe198349de401a06e4e61c34f9cfa9291"
+                  },
+                  {
+                      "unit_id":  "chapter4/2",
+                      "title":  "Using pretrained models[[using-pretrained-models]]",
+                      "chapter":  "chapter4",
+                      "path":  "data/transformers-nlp/chapter4/2.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter4/2.mdx",
+                      "characters_utf16_source_mdx":  5129,
+                      "sha256":  "c7fb9bae8d91ef8230f47076c1aa89c8ccba5d2d49cfdb64d17ee59b3903f3d4"
+                  },
+                  {
+                      "unit_id":  "chapter4/3",
+                      "title":  "Sharing pretrained models[[sharing-pretrained-models]]",
+                      "chapter":  "chapter4",
+                      "path":  "data/transformers-nlp/chapter4/3.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter4/3.mdx",
+                      "characters_utf16_source_mdx":  26422,
+                      "sha256":  "3bfae4f4e52b4dac69ff588a840c64be22ab26513e3bf8707f824169db7e1aa6"
+                  },
+                  {
+                      "unit_id":  "chapter4/4",
+                      "title":  "Building a model card[[building-a-model-card]]",
+                      "chapter":  "chapter4",
+                      "path":  "data/transformers-nlp/chapter4/4.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter4/4.mdx",
+                      "characters_utf16_source_mdx":  5877,
+                      "sha256":  "0cbc4dfcdab820f5cc6ca0d9124b93f3748175b25e079d4347916951ddf92a91"
+                  },
+                  {
+                      "unit_id":  "chapter6/2",
+                      "title":  "Training a new tokenizer from an old one[[training-a-new-tokenizer-from-an-old-one]]",
+                      "chapter":  "chapter6",
+                      "path":  "data/transformers-nlp/chapter6/2.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter6/2.mdx",
+                      "characters_utf16_source_mdx":  15027,
+                      "sha256":  "9e1b71873be971dc3b308add22337adab2b4c42999dcfe7b1f43f95a5d3ca982"
+                  },
+                  {
+                      "unit_id":  "chapter6/3",
+                      "title":  "Fast tokenizers\u0027 special powers[[fast-tokenizers-special-powers]]",
+                      "chapter":  "chapter6",
+                      "path":  "data/transformers-nlp/chapter6/3.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter6/3.mdx",
+                      "characters_utf16_source_mdx":  22849,
+                      "sha256":  "ce74a5c03bc8d9a3bebdcd08aeb3254959eebf802aec181a9f7b3f2a43f000a4"
+                  },
+                  {
+                      "unit_id":  "chapter6/3b",
+                      "title":  "Fast tokenizers in the QA pipeline[[fast-tokenizers-in-the-qa-pipeline]]",
+                      "chapter":  "chapter6",
+                      "path":  "data/transformers-nlp/chapter6/3b.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter6/3b.mdx",
+                      "characters_utf16_source_mdx":  24048,
+                      "sha256":  "24e4c2efd1f373afb2a693a458bad27df58fe4e83e1a11f64a2d4d7481e2a5a4"
+                  },
+                  {
+                      "unit_id":  "chapter6/4",
+                      "title":  "Normalization and pre-tokenization[[normalization-and-pre-tokenization]]",
+                      "chapter":  "chapter6",
+                      "path":  "data/transformers-nlp/chapter6/4.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter6/4.mdx",
+                      "characters_utf16_source_mdx":  8074,
+                      "sha256":  "ebd93b52d9bb8a124a27380719ca75ea25faaa790e84a8d7a351fb542b2080e6"
+                  },
+                  {
+                      "unit_id":  "chapter6/5",
+                      "title":  "Byte-Pair Encoding tokenization[[byte-pair-encoding-tokenization]]",
+                      "chapter":  "chapter6",
+                      "path":  "data/transformers-nlp/chapter6/5.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter6/5.mdx",
+                      "characters_utf16_source_mdx":  13965,
+                      "sha256":  "586c5a1fbc317baeab1e62ba1689fe23a102d63c57de940b93e750c68444741c"
+                  },
+                  {
+                      "unit_id":  "chapter6/6",
+                      "title":  "WordPiece tokenization[[wordpiece-tokenization]]",
+                      "chapter":  "chapter6",
+                      "path":  "data/transformers-nlp/chapter6/6.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter6/6.mdx",
+                      "characters_utf16_source_mdx":  15026,
+                      "sha256":  "43a711603eb1e91d0a5ac7760304e896e09f3053b777b820ca57e0b3f8710c24"
+                  },
+                  {
+                      "unit_id":  "chapter6/7",
+                      "title":  "Unigram tokenization[[unigram-tokenization]]",
+                      "chapter":  "chapter6",
+                      "path":  "data/transformers-nlp/chapter6/7.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter6/7.mdx",
+                      "characters_utf16_source_mdx":  18419,
+                      "sha256":  "49c066fd75c2939012feeb21bf837855216ac5028a0435fafa5871fab85e2345"
+                  },
+                  {
+                      "unit_id":  "chapter6/8",
+                      "title":  "Building a tokenizer, block by block[[building-a-tokenizer-block-by-block]]",
+                      "chapter":  "chapter6",
+                      "path":  "data/transformers-nlp/chapter6/8.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter6/8.mdx",
+                      "characters_utf16_source_mdx":  23639,
+                      "sha256":  "aab55c4cb61643be248f79ddf538d3ff1d7df10e087a7eb685054065b9aebece"
+                  },
+                  {
+                      "unit_id":  "chapter7/2",
+                      "title":  "Token classification[[token-classification]]",
+                      "chapter":  "chapter7",
+                      "path":  "data/transformers-nlp/chapter7/2.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter7/2.mdx",
+                      "characters_utf16_source_mdx":  44302,
+                      "sha256":  "4c0f05a665fcabeca2ed48cb031453cca872f34f0896d96cb5eb2a891e9d101c"
+                  },
+                  {
+                      "unit_id":  "chapter7/3",
+                      "title":  "Fine-tuning a masked language model[[fine-tuning-a-masked-language-model]]",
+                      "chapter":  "chapter7",
+                      "path":  "data/transformers-nlp/chapter7/3.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter7/3.mdx",
+                      "characters_utf16_source_mdx":  50872,
+                      "sha256":  "b874a0dfda6b80889f3f35cd88f3a333c3ffcf3ef2b027b8e223adb24b08b52d"
+                  },
+                  {
+                      "unit_id":  "chapter7/7",
+                      "title":  "Question answering[[question-answering]]",
+                      "chapter":  "chapter7",
+                      "path":  "data/transformers-nlp/chapter7/7.mdx",
+                      "source_url":  "https://github.com/huggingface/course/blob/8b893f0ede6c781045692a7f892f25a0c92b4805/chapters/en/chapter7/7.mdx",
+                      "characters_utf16_source_mdx":  58096,
+                      "sha256":  "8612707315ef67e6a458b227b840289d52c4df9cb0a5a790fb9a1b1bb271ab2e"
+                  }
+              ]
+}

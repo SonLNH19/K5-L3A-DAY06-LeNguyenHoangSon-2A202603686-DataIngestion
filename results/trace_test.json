@@ -1,0 +1,769 @@
+[
+  {
+    "strategy": "A",
+    "id": "Q16",
+    "split": "test",
+    "question": "In chapter 6, which two preprocessing steps occur before the tokenizer splits text into subtokens?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter6/4",
+    "evidence_quote": "Before splitting a text into subtokens (according to its model), the tokenizer performs two steps: _normalization_ and _pre-tokenization_.",
+    "hits": [
+      {
+        "chunk_id": "b86544077887b3c5d2426b42b98851e14f906429ba1eaa09ebb83db1d58eddd1",
+        "text": "we need to use the same vocabulary used when the model was pretrained.\n\nTo get a better understanding of the two steps, we'll explore them separately. Note that we will use some methods that perform parts of the tokenization pipeline separately to show you the intermediate results of those steps, but in practice, you should call the tokenizer directly on your inputs (as shown in the section 2).\n\n### Tokenization[[tokenization]]\n\nThe tokenization process is done by the `tokenize()` method of the",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter2",
+          "chunk_index": 23,
+          "page": "chapter2/4",
+          "source": "data/transformers-nlp/chapter2/4.mdx"
+        },
+        "cosine_similarity": 0.6358097791671753,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "7e12cb1338be0e658e102bede9a0727689790a0daa7ea005b3bdf361d0f5eb29",
+        "text": "start to explore the underlying algorithms themselves. We'll begin with a quick look at the broadly widely applicable SentencePiece; then, over the next three sections, we'll examine how the three main algorithms used for subword tokenization work.\n\n## SentencePiece[[sentencepiece]]\n\n[SentencePiece](https://github.com/google/sentencepiece) is a tokenization algorithm for the preprocessing of text that you can use with any of the models we will see in the next three sections. It considers the te",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter6/4.mdx",
+          "chapter": "chapter6",
+          "page": "chapter6/4",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 12
+        },
+        "cosine_similarity": 0.6270431876182556,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "fa778aed838e06eaeae215288adc38b0a3ffe71cf7a4496335d4fce184fa540a",
+        "text": "re-tokenization[[pre-tokenization]]\n\n<Youtube id=\"grlLV8AIXug\"/>\n\nAs we will see in the next sections, a tokenizer cannot be trained on raw text alone. Instead, we first need to split the texts into small entities, like words. That's where the pre-tokenization step comes in. As we saw in [Chapter 2](/course/chapter2), a word-based tokenizer can simply split a raw text into words on whitespace and punctuation. Those words will be the boundaries of the subtokens the tokenizer can learn during its",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter6/4.mdx",
+          "chapter": "chapter6",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 6,
+          "page": "chapter6/4"
+        },
+        "cosine_similarity": 0.621542751789093,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q16",
+    "split": "test",
+    "question": "In chapter 6, which two preprocessing steps occur before the tokenizer splits text into subtokens?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter6/4",
+    "evidence_quote": "Before splitting a text into subtokens (according to its model), the tokenizer performs two steps: _normalization_ and _pre-tokenization_.",
+    "hits": [
+      {
+        "chunk_id": "a5f08d2480321b80c3be5c33bde5fadded72d7c5cb5da07c4c68360bcd29faa2",
+        "text": "Now that we've seen a little of how some different tokenizers process text, we can start to explore the underlying algorithms themselves. We'll begin with a quick look at the broadly widely applicable SentencePiece; then, over the next three sections, we'll examine how the three main algorithms used for subword tokenization work.\n\n## SentencePiece[[sentencepiece]]",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter6",
+          "source": "data/transformers-nlp/chapter6/4.mdx",
+          "chunk_index": 7,
+          "page": "chapter6/4"
+        },
+        "cosine_similarity": 0.656602144241333,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "49b0c8b9fd31adc08191e6bc36e026dd8b8002c024728ed052df8243b59b04ca",
+        "text": "We can see that the tokenizer's special tokens `[CLS]` and `[SEP]` are mapped to `None`, and then each token is mapped to the word it originates from. This is especially useful to determine if a token is at the start of a word or if two tokens are in the same word. We could rely on the `##` prefix for that, but it only works for BERT-like tokenizers; this method works for any type of tokenizer as long as it's a fast one. In the next chapter, we'll see how we can use this capability to apply the labels we have for each word properly to the tokens in tasks like named entity recognition (NER) and part-of-speech (POS) tagging. We can also use it to mask all the tokens coming from the same word in masked language modeling (a technique called _whole word masking_).",
+        "metadata": {
+          "chapter": "chapter6",
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter6/3",
+          "chunk_index": 8,
+          "source": "data/transformers-nlp/chapter6/3.mdx"
+        },
+        "cosine_similarity": 0.6152609586715698,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "946fc7151fcee670db0b37bafdc46ca0c60d83c98d53768fdd7147557538573b",
+        "text": "Besides their parallelization capabilities, the key functionality of fast tokenizers is that they always keep track of the original span of texts the final tokens come from -- a feature we call *offset mapping*. This in turn unlocks features like mapping each word to the tokens it generated or mapping each character of the original text to the token it's inside, and vice versa.\n\nLet's take a look at an example:\n\n```py\nfrom transformers import AutoTokenizer\n\ntokenizer = AutoTokenizer.from_pretrained(\"bert-base-cased\")\nexample = \"My name is Sylvain and I work at Hugging Face in Brooklyn.\"\nencoding = tokenizer(example)\nprint(type(encoding))\n```\n\nAs mentioned previously, we get a `BatchEncoding` object in the tokenizer's output:\n\n```python out\n<class 'transformers.tokenization_utils_base.BatchEncoding'>\n```",
+        "metadata": {
+          "chunk_index": 5,
+          "chapter": "chapter6",
+          "page": "chapter6/3",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter6/3.mdx"
+        },
+        "cosine_similarity": 0.6114745140075684,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q16",
+    "split": "test",
+    "question": "In chapter 6, which two preprocessing steps occur before the tokenizer splits text into subtokens?",
+    "filter": {
+      "chapter": "chapter6"
+    },
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter6/4",
+    "evidence_quote": "Before splitting a text into subtokens (according to its model), the tokenizer performs two steps: _normalization_ and _pre-tokenization_.",
+    "hits": [
+      {
+        "chunk_id": "a5f08d2480321b80c3be5c33bde5fadded72d7c5cb5da07c4c68360bcd29faa2",
+        "text": "Now that we've seen a little of how some different tokenizers process text, we can start to explore the underlying algorithms themselves. We'll begin with a quick look at the broadly widely applicable SentencePiece; then, over the next three sections, we'll examine how the three main algorithms used for subword tokenization work.\n\n## SentencePiece[[sentencepiece]]",
+        "metadata": {
+          "chunk_index": 7,
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter6/4",
+          "source": "data/transformers-nlp/chapter6/4.mdx",
+          "chapter": "chapter6"
+        },
+        "cosine_similarity": 0.656602144241333,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "49b0c8b9fd31adc08191e6bc36e026dd8b8002c024728ed052df8243b59b04ca",
+        "text": "We can see that the tokenizer's special tokens `[CLS]` and `[SEP]` are mapped to `None`, and then each token is mapped to the word it originates from. This is especially useful to determine if a token is at the start of a word or if two tokens are in the same word. We could rely on the `##` prefix for that, but it only works for BERT-like tokenizers; this method works for any type of tokenizer as long as it's a fast one. In the next chapter, we'll see how we can use this capability to apply the labels we have for each word properly to the tokens in tasks like named entity recognition (NER) and part-of-speech (POS) tagging. We can also use it to mask all the tokens coming from the same word in masked language modeling (a technique called _whole word masking_).",
+        "metadata": {
+          "chapter": "chapter6",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 8,
+          "source": "data/transformers-nlp/chapter6/3.mdx",
+          "page": "chapter6/3"
+        },
+        "cosine_similarity": 0.6152609586715698,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "946fc7151fcee670db0b37bafdc46ca0c60d83c98d53768fdd7147557538573b",
+        "text": "Besides their parallelization capabilities, the key functionality of fast tokenizers is that they always keep track of the original span of texts the final tokens come from -- a feature we call *offset mapping*. This in turn unlocks features like mapping each word to the tokens it generated or mapping each character of the original text to the token it's inside, and vice versa.\n\nLet's take a look at an example:\n\n```py\nfrom transformers import AutoTokenizer\n\ntokenizer = AutoTokenizer.from_pretrained(\"bert-base-cased\")\nexample = \"My name is Sylvain and I work at Hugging Face in Brooklyn.\"\nencoding = tokenizer(example)\nprint(type(encoding))\n```\n\nAs mentioned previously, we get a `BatchEncoding` object in the tokenizer's output:\n\n```python out\n<class 'transformers.tokenization_utils_base.BatchEncoding'>\n```",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 5,
+          "chapter": "chapter6",
+          "source": "data/transformers-nlp/chapter6/3.mdx",
+          "page": "chapter6/3"
+        },
+        "cosine_similarity": 0.6114745140075684,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q17",
+    "split": "test",
+    "question": "What happens in the described BPE approach if an input character was absent from the training corpus?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter6/5",
+    "evidence_quote": "If an example you are tokenizing uses a character that is not in the training corpus, that character will be converted to the unknown token.",
+    "hits": [
+      {
+        "chunk_id": "6db6c4d02a8449f60e6fe4fb03ad7eb41d77f42074e04d9c3c7e16267564b8d5",
+        "text": "ing to handle them. GPT-2 doesn't actually have an unknown token (it's impossible to get an unknown character when using byte-level BPE), but this could happen here because we did not include all the possible bytes in the initial vocabulary. This aspect of BPE is beyond the scope of this section, so we've left the details out.\n\nThat's it for the BPE algorithm! Next, we'll have a look at WordPiece.",
+        "metadata": {
+          "chapter": "chapter6",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter6/5.mdx",
+          "chunk_index": 29,
+          "page": "chapter6/5"
+        },
+        "cosine_similarity": 0.5139749646186829,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "507a653b2dc06af1a3169b186bd1ca13c993a625ea2a31f689241448626a3ed0",
+        "text": "nd applying the merge rules results first in `\"u\"` and `\"g\"` being merged and then `\"h\"` and `\"ug\"` being merged.\n\n> [!TIP]\n> ✏️ **Now your turn!** How do you think the word `\"unhug\"` will be tokenized?\n\n## Implementing BPE[[implementing-bpe]]\n\nNow let's take a look at an implementation of the BPE algorithm. This won't be an optimized version you can actually use on a big corpus; we just want to show you the code so you can understand the algorithm a little bit better.\n\nFirst we need a corpus, s",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter6/5.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter6/5",
+          "chunk_index": 13,
+          "chapter": "chapter6"
+        },
+        "cosine_similarity": 0.48228198289871216,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "0c2d3276110cbdc7548194ea214069e2c6c34f956d6c68e2a15a4fd5a9786167",
+        "text": "nization algorithm.\n\n## Training algorithm[[training-algorithm]]\n\nBPE training starts by computing the unique set of words used in the corpus (after the normalization and pre-tokenization steps are completed), then building the vocabulary by taking all the symbols used to write those words. As a very simple example, let's say our corpus uses these five words:\n\n```\n\"hug\", \"pug\", \"pun\", \"bun\", \"hugs\"\n```\n\nThe base vocabulary will then be `[\"b\", \"g\", \"h\", \"n\", \"p\", \"s\", \"u\"]`. For real-world cases,",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter6/5.mdx",
+          "chapter": "chapter6",
+          "chunk_index": 2,
+          "page": "chapter6/5"
+        },
+        "cosine_similarity": 0.4530222415924072,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q17",
+    "split": "test",
+    "question": "What happens in the described BPE approach if an input character was absent from the training corpus?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter6/5",
+    "evidence_quote": "If an example you are tokenizing uses a character that is not in the training corpus, that character will be converted to the unknown token.",
+    "hits": [
+      {
+        "chunk_id": "9ef248c0fa097e6ef2265782d563bbc1da3ef91443ad5f825fd389b8c8f96dee",
+        "text": "Now let's dive into BPE!",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter6/4.mdx",
+          "chunk_index": 12,
+          "chapter": "chapter6",
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter6/4"
+        },
+        "cosine_similarity": 0.46764981746673584,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "6384e3aad4f51c8ab4dcf733ad88d708b02e1583fb8a32d7bc638ecd1e543306",
+        "text": "> [!TIP]\n> 💡 This section covers BPE in depth, going as far as showing a full implementation. You can skip to the end if you just want a general overview of the tokenization algorithm.\n\n## Training algorithm[[training-algorithm]]\n\nBPE training starts by computing the unique set of words used in the corpus (after the normalization and pre-tokenization steps are completed), then building the vocabulary by taking all the symbols used to write those words. As a very simple example, let's say our corpus uses these five words:\n\n```\n\"hug\", \"pug\", \"pun\", \"bun\", \"hugs\"\n```",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter6/5.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter6/5",
+          "chapter": "chapter6",
+          "chunk_index": 1
+        },
+        "cosine_similarity": 0.46126383543014526,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "42ca7885a58fbcdbb98532e6ac2015f7569c861ed110f4e8bf543007f1d32bba",
+        "text": "Compared to BPE and WordPiece, Unigram works in the other direction: it starts from a big vocabulary and removes tokens from it until it reaches the desired vocabulary size. There are several options to use to build that base vocabulary: we can take the most common substrings in pre-tokenized words, for instance, or apply BPE on the initial corpus with a large vocabulary size.\n\nAt each step of the training, the Unigram algorithm computes a loss over the corpus given the current vocabulary. Then, for each symbol in the vocabulary, the algorithm computes how much the overall loss would increase if the symbol was removed, and looks for the symbols that would increase it the least. Those symbols have a lower effect on the overall loss over the corpus, so in a sense they are \"less needed\" and are the best candidates for removal.",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter6/7.mdx",
+          "page": "chapter6/7",
+          "chunk_index": 2,
+          "chapter": "chapter6",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.4475112557411194,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q17",
+    "split": "test",
+    "question": "What happens in the described BPE approach if an input character was absent from the training corpus?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter6/5",
+    "evidence_quote": "If an example you are tokenizing uses a character that is not in the training corpus, that character will be converted to the unknown token.",
+    "hits": [
+      {
+        "chunk_id": "9ef248c0fa097e6ef2265782d563bbc1da3ef91443ad5f825fd389b8c8f96dee",
+        "text": "Now let's dive into BPE!",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter6",
+          "source": "data/transformers-nlp/chapter6/4.mdx",
+          "page": "chapter6/4",
+          "chunk_index": 12
+        },
+        "cosine_similarity": 0.46764981746673584,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "6384e3aad4f51c8ab4dcf733ad88d708b02e1583fb8a32d7bc638ecd1e543306",
+        "text": "> [!TIP]\n> 💡 This section covers BPE in depth, going as far as showing a full implementation. You can skip to the end if you just want a general overview of the tokenization algorithm.\n\n## Training algorithm[[training-algorithm]]\n\nBPE training starts by computing the unique set of words used in the corpus (after the normalization and pre-tokenization steps are completed), then building the vocabulary by taking all the symbols used to write those words. As a very simple example, let's say our corpus uses these five words:\n\n```\n\"hug\", \"pug\", \"pun\", \"bun\", \"hugs\"\n```",
+        "metadata": {
+          "chapter": "chapter6",
+          "page": "chapter6/5",
+          "source": "data/transformers-nlp/chapter6/5.mdx",
+          "chunk_index": 1,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.46126383543014526,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "42ca7885a58fbcdbb98532e6ac2015f7569c861ed110f4e8bf543007f1d32bba",
+        "text": "Compared to BPE and WordPiece, Unigram works in the other direction: it starts from a big vocabulary and removes tokens from it until it reaches the desired vocabulary size. There are several options to use to build that base vocabulary: we can take the most common substrings in pre-tokenized words, for instance, or apply BPE on the initial corpus with a large vocabulary size.\n\nAt each step of the training, the Unigram algorithm computes a loss over the corpus given the current vocabulary. Then, for each symbol in the vocabulary, the algorithm computes how much the overall loss would increase if the symbol was removed, and looks for the symbols that would increase it the least. Those symbols have a lower effect on the overall loss over the corpus, so in a sense they are \"less needed\" and are the best candidates for removal.",
+        "metadata": {
+          "chapter": "chapter6",
+          "page": "chapter6/7",
+          "chunk_index": 2,
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter6/7.mdx"
+        },
+        "cosine_similarity": 0.4475112557411194,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q18",
+    "split": "test",
+    "question": "How certain is the course’s explanation of the WordPiece training algorithm?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter6/6",
+    "evidence_quote": "Google never open-sourced its implementation of the training algorithm of WordPiece, so what follows is our best guess based on the published literature. It may not be 100% accurate.",
+    "hits": [
+      {
+        "chunk_id": "5dacfacb1abaa3c195271537dd85f772951d2883700e2225f2c997c81a2f4efa",
+        "text": "end if you just want a general overview of the tokenization algorithm.\n\n## Training algorithm[[training-algorithm]]\n\n> [!WARNING]\n> ⚠️ Google never open-sourced its implementation of the training algorithm of WordPiece, so what follows is our best guess based on the published literature. It may not be 100% accurate.\n\nLike BPE, WordPiece starts from a small vocabulary including the special tokens used by the model and the initial alphabet. Since it identifies subwords by adding a prefix (like `#",
+        "metadata": {
+          "chapter": "chapter6",
+          "chunk_index": 2,
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter6/6.mdx",
+          "page": "chapter6/6"
+        },
+        "cosine_similarity": 0.6455010175704956,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "0c2d3276110cbdc7548194ea214069e2c6c34f956d6c68e2a15a4fd5a9786167",
+        "text": "nization algorithm.\n\n## Training algorithm[[training-algorithm]]\n\nBPE training starts by computing the unique set of words used in the corpus (after the normalization and pre-tokenization steps are completed), then building the vocabulary by taking all the symbols used to write those words. As a very simple example, let's say our corpus uses these five words:\n\n```\n\"hug\", \"pug\", \"pun\", \"bun\", \"hugs\"\n```\n\nThe base vocabulary will then be `[\"b\", \"g\", \"h\", \"n\", \"p\", \"s\", \"u\"]`. For real-world cases,",
+        "metadata": {
+          "chapter": "chapter6",
+          "chunk_index": 2,
+          "source": "data/transformers-nlp/chapter6/5.mdx",
+          "page": "chapter6/5",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5462062358856201,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "3376a5c6d1251cfb87bb599af66e5d68077f460f7a0790982862ba7500bf5de4",
+        "text": "it identifies subwords by adding a prefix (like `##` for BERT), each word is initially split by adding that prefix to all the characters inside the word. So, for instance, `\"word\"` gets split like this:\n\n```\nw ##o ##r ##d\n```\n\nThus, the initial alphabet contains all the characters present at the beginning of a word and the characters present inside a word preceded by the WordPiece prefix.\n\nThen, again like BPE, WordPiece learns merge rules. The main difference is the way the pair to be merged is",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter6/6.mdx",
+          "chunk_index": 3,
+          "page": "chapter6/6",
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter6"
+        },
+        "cosine_similarity": 0.5150454640388489,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q18",
+    "split": "test",
+    "question": "How certain is the course’s explanation of the WordPiece training algorithm?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter6/6",
+    "evidence_quote": "Google never open-sourced its implementation of the training algorithm of WordPiece, so what follows is our best guess based on the published literature. It may not be 100% accurate.",
+    "hits": [
+      {
+        "chunk_id": "e16b5ca0653ac3e8067b2705d1a366786e005cbe0e3b07948c8cc11bfb02fb69",
+        "text": "> [!TIP]\n> 💡 This section covers WordPiece in depth, going as far as showing a full implementation. You can skip to the end if you just want a general overview of the tokenization algorithm.\n\n## Training algorithm[[training-algorithm]]\n\n> [!WARNING]\n> ⚠️ Google never open-sourced its implementation of the training algorithm of WordPiece, so what follows is our best guess based on the published literature. It may not be 100% accurate.\n\nLike BPE, WordPiece starts from a small vocabulary including the special tokens used by the model and the initial alphabet. Since it identifies subwords by adding a prefix (like `##` for BERT), each word is initially split by adding that prefix to all the characters inside the word. So, for instance, `\"word\"` gets split like this:\n\n```\nw ##o ##r ##d\n```",
+        "metadata": {
+          "chunk_index": 1,
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter6",
+          "source": "data/transformers-nlp/chapter6/6.mdx",
+          "page": "chapter6/6"
+        },
+        "cosine_similarity": 0.633653998374939,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "49599bc501e9abb9559c36e84642b06fc2a1cdaa694e5be64682574c82df256b",
+        "text": "SentencePiece addresses the fact that not all languages use spaces to separate words. Instead, SentencePiece treats the input as a raw input stream which includes the space in the set of characters to use. Then it can use the Unigram algorithm to construct the appropriate vocabulary.\n\n<Youtube id=\"TGZfZVuF9Yc\"/>\n\n> [!TIP]\n> 💡 This section covers Unigram in depth, going as far as showing a full implementation. You can skip to the end if you just want a general overview of the tokenization algorithm.\n\n## Training algorithm[[training-algorithm]]",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter6/7.mdx",
+          "chunk_index": 1,
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter6/7",
+          "chapter": "chapter6"
+        },
+        "cosine_similarity": 0.5494216680526733,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "73cce2e8f3ea1dc75a3a4d0f1d270b6102d48006fd871545e436d89d0f32c1b0",
+        "text": "Thus, the initial alphabet contains all the characters present at the beginning of a word and the characters present inside a word preceded by the WordPiece prefix.\n\nThen, again like BPE, WordPiece learns merge rules. The main difference is the way the pair to be merged is selected. Instead of selecting the most frequent pair, WordPiece computes a score for each pair, using the following formula:\n\n$$\\mathrm{score} = (\\mathrm{freq\\_of\\_pair}) / (\\mathrm{freq\\_of\\_first\\_element} \\times \\mathrm{freq\\_of\\_second\\_element})$$",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter6/6.mdx",
+          "page": "chapter6/6",
+          "chapter": "chapter6",
+          "chunk_index": 2,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5406622886657715,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q18",
+    "split": "test",
+    "question": "How certain is the course’s explanation of the WordPiece training algorithm?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter6/6",
+    "evidence_quote": "Google never open-sourced its implementation of the training algorithm of WordPiece, so what follows is our best guess based on the published literature. It may not be 100% accurate.",
+    "hits": [
+      {
+        "chunk_id": "e16b5ca0653ac3e8067b2705d1a366786e005cbe0e3b07948c8cc11bfb02fb69",
+        "text": "> [!TIP]\n> 💡 This section covers WordPiece in depth, going as far as showing a full implementation. You can skip to the end if you just want a general overview of the tokenization algorithm.\n\n## Training algorithm[[training-algorithm]]\n\n> [!WARNING]\n> ⚠️ Google never open-sourced its implementation of the training algorithm of WordPiece, so what follows is our best guess based on the published literature. It may not be 100% accurate.\n\nLike BPE, WordPiece starts from a small vocabulary including the special tokens used by the model and the initial alphabet. Since it identifies subwords by adding a prefix (like `##` for BERT), each word is initially split by adding that prefix to all the characters inside the word. So, for instance, `\"word\"` gets split like this:\n\n```\nw ##o ##r ##d\n```",
+        "metadata": {
+          "chapter": "chapter6",
+          "chunk_index": 1,
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter6/6",
+          "source": "data/transformers-nlp/chapter6/6.mdx"
+        },
+        "cosine_similarity": 0.633653998374939,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "49599bc501e9abb9559c36e84642b06fc2a1cdaa694e5be64682574c82df256b",
+        "text": "SentencePiece addresses the fact that not all languages use spaces to separate words. Instead, SentencePiece treats the input as a raw input stream which includes the space in the set of characters to use. Then it can use the Unigram algorithm to construct the appropriate vocabulary.\n\n<Youtube id=\"TGZfZVuF9Yc\"/>\n\n> [!TIP]\n> 💡 This section covers Unigram in depth, going as far as showing a full implementation. You can skip to the end if you just want a general overview of the tokenization algorithm.\n\n## Training algorithm[[training-algorithm]]",
+        "metadata": {
+          "chapter": "chapter6",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 1,
+          "page": "chapter6/7",
+          "source": "data/transformers-nlp/chapter6/7.mdx"
+        },
+        "cosine_similarity": 0.5494216680526733,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "73cce2e8f3ea1dc75a3a4d0f1d270b6102d48006fd871545e436d89d0f32c1b0",
+        "text": "Thus, the initial alphabet contains all the characters present at the beginning of a word and the characters present inside a word preceded by the WordPiece prefix.\n\nThen, again like BPE, WordPiece learns merge rules. The main difference is the way the pair to be merged is selected. Instead of selecting the most frequent pair, WordPiece computes a score for each pair, using the following formula:\n\n$$\\mathrm{score} = (\\mathrm{freq\\_of\\_pair}) / (\\mathrm{freq\\_of\\_first\\_element} \\times \\mathrm{freq\\_of\\_second\\_element})$$",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter6/6",
+          "chapter": "chapter6",
+          "chunk_index": 2,
+          "source": "data/transformers-nlp/chapter6/6.mdx"
+        },
+        "cosine_similarity": 0.5406622886657715,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q19",
+    "split": "test",
+    "question": "How does Unigram change its vocabulary during training compared with BPE and WordPiece?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter6/7",
+    "evidence_quote": "Compared to BPE and WordPiece, Unigram works in the other direction: it starts from a big vocabulary and removes tokens from it until it reaches the desired vocabulary size.",
+    "hits": [
+      {
+        "chunk_id": "4455fb05b9d35f4eb77182efa87cd83e06a0b8ebe4e3d384a2956766b90aa90a",
+        "text": "appropriate vocabulary.\n\n<Youtube id=\"TGZfZVuF9Yc\"/>\n\n> [!TIP]\n> 💡 This section covers Unigram in depth, going as far as showing a full implementation. You can skip to the end if you just want a general overview of the tokenization algorithm.\n\n## Training algorithm[[training-algorithm]]\n\nCompared to BPE and WordPiece, Unigram works in the other direction: it starts from a big vocabulary and removes tokens from it until it reaches the desired vocabulary size. There are several options to use to",
+        "metadata": {
+          "chunk_index": 2,
+          "source": "data/transformers-nlp/chapter6/7.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter6",
+          "page": "chapter6/7"
+        },
+        "cosine_similarity": 0.6649580597877502,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "a47e3eabd15be82f94ef9d66e35edc44fbe21663ae9c859cfdaa1f3630acbc2a",
+        "text": "ordPiece (used for example by BERT), and Unigram (used by T5 and others). Before we get started, here's a quick overview of how they each work. Don't hesitate to come back to this table after reading each of the next sections if it doesn't make sense to you yet.\n\n\nModel | BPE | WordPiece | Unigram\n:----:|:---:|:---------:|:------:\nTraining | Starts from a small vocabulary and learns rules to merge tokens | Starts from a small vocabulary and learns rules to merge tokens | Starts from a large voca",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter6/4.mdx",
+          "chapter": "chapter6",
+          "chunk_index": 15,
+          "page": "chapter6/4"
+        },
+        "cosine_similarity": 0.6378718614578247,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "b325a0a2fba799ae469588eb7bc2698ecd28e8740a979a3f726699779f81ef6b",
+        "text": "abulary size. There are several options to use to build that base vocabulary: we can take the most common substrings in pre-tokenized words, for instance, or apply BPE on the initial corpus with a large vocabulary size.\n\nAt each step of the training, the Unigram algorithm computes a loss over the corpus given the current vocabulary. Then, for each symbol in the vocabulary, the algorithm computes how much the overall loss would increase if the symbol was removed, and looks for the symbols that wo",
+        "metadata": {
+          "page": "chapter6/7",
+          "chapter": "chapter6",
+          "chunk_index": 3,
+          "source": "data/transformers-nlp/chapter6/7.mdx",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.6146174073219299,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q19",
+    "split": "test",
+    "question": "How does Unigram change its vocabulary during training compared with BPE and WordPiece?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter6/7",
+    "evidence_quote": "Compared to BPE and WordPiece, Unigram works in the other direction: it starts from a big vocabulary and removes tokens from it until it reaches the desired vocabulary size.",
+    "hits": [
+      {
+        "chunk_id": "42ca7885a58fbcdbb98532e6ac2015f7569c861ed110f4e8bf543007f1d32bba",
+        "text": "Compared to BPE and WordPiece, Unigram works in the other direction: it starts from a big vocabulary and removes tokens from it until it reaches the desired vocabulary size. There are several options to use to build that base vocabulary: we can take the most common substrings in pre-tokenized words, for instance, or apply BPE on the initial corpus with a large vocabulary size.\n\nAt each step of the training, the Unigram algorithm computes a loss over the corpus given the current vocabulary. Then, for each symbol in the vocabulary, the algorithm computes how much the overall loss would increase if the symbol was removed, and looks for the symbols that would increase it the least. Those symbols have a lower effect on the overall loss over the corpus, so in a sense they are \"less needed\" and are the best candidates for removal.",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter6/7.mdx",
+          "chunk_index": 2,
+          "page": "chapter6/7",
+          "chapter": "chapter6"
+        },
+        "cosine_similarity": 0.7840780019760132,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "ef042235974fcac58020a4dd7d9254f2289e3c93de25d9f7ef3262564bc09f9c",
+        "text": "A very important argument not to forget for the `UnigramTrainer` is the `unk_token`. We can also pass along other arguments specific to the Unigram algorithm, such as the `shrinking_factor` for each step where we remove tokens (defaults to 0.75) or the `max_piece_length` to specify the maximum length of a given token (defaults to 16).\n\nThis tokenizer can also be trained on text files:\n\n```python\ntokenizer.model = models.Unigram()\ntokenizer.train([\"wikitext-2.txt\"], trainer=trainer)\n```\n\nLet's have a look at the tokenization of a sample text:\n\n```python\nencoding = tokenizer.encode(\"Let's test this tokenizer.\")\nprint(encoding.tokens)\n```\n\n```python out\n['▁Let', \"'\", 's', '▁test', '▁this', '▁to', 'ken', 'izer', '.']\n```",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter6/8.mdx",
+          "page": "chapter6/8",
+          "chunk_index": 26,
+          "chapter": "chapter6",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5744937658309937,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "d31469f6894f7f2865c1d8529672a5cba3433cb8f659d882786200549d0d380e",
+        "text": "and for this example, we will take all strict substrings for the initial vocabulary :\n\n```\n[\"h\", \"u\", \"g\", \"hu\", \"ug\", \"p\", \"pu\", \"n\", \"un\", \"b\", \"bu\", \"s\", \"hug\", \"gs\", \"ugs\"]\n```\n\n## Tokenization algorithm[[tokenization-algorithm]]\n\nA Unigram model is a type of language model that considers each token to be independent of the tokens before it. It's the simplest language model, in the sense that the probability of token X given the previous context is just the probability of token X. So, if we used a Unigram language model to generate text, we would always predict the most common token.",
+        "metadata": {
+          "chunk_index": 4,
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter6/7.mdx",
+          "chapter": "chapter6",
+          "page": "chapter6/7"
+        },
+        "cosine_similarity": 0.5700597167015076,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q19",
+    "split": "test",
+    "question": "How does Unigram change its vocabulary during training compared with BPE and WordPiece?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter6/7",
+    "evidence_quote": "Compared to BPE and WordPiece, Unigram works in the other direction: it starts from a big vocabulary and removes tokens from it until it reaches the desired vocabulary size.",
+    "hits": [
+      {
+        "chunk_id": "42ca7885a58fbcdbb98532e6ac2015f7569c861ed110f4e8bf543007f1d32bba",
+        "text": "Compared to BPE and WordPiece, Unigram works in the other direction: it starts from a big vocabulary and removes tokens from it until it reaches the desired vocabulary size. There are several options to use to build that base vocabulary: we can take the most common substrings in pre-tokenized words, for instance, or apply BPE on the initial corpus with a large vocabulary size.\n\nAt each step of the training, the Unigram algorithm computes a loss over the corpus given the current vocabulary. Then, for each symbol in the vocabulary, the algorithm computes how much the overall loss would increase if the symbol was removed, and looks for the symbols that would increase it the least. Those symbols have a lower effect on the overall loss over the corpus, so in a sense they are \"less needed\" and are the best candidates for removal.",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter6/7.mdx",
+          "chunk_index": 2,
+          "page": "chapter6/7",
+          "chapter": "chapter6"
+        },
+        "cosine_similarity": 0.7840780019760132,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "ef042235974fcac58020a4dd7d9254f2289e3c93de25d9f7ef3262564bc09f9c",
+        "text": "A very important argument not to forget for the `UnigramTrainer` is the `unk_token`. We can also pass along other arguments specific to the Unigram algorithm, such as the `shrinking_factor` for each step where we remove tokens (defaults to 0.75) or the `max_piece_length` to specify the maximum length of a given token (defaults to 16).\n\nThis tokenizer can also be trained on text files:\n\n```python\ntokenizer.model = models.Unigram()\ntokenizer.train([\"wikitext-2.txt\"], trainer=trainer)\n```\n\nLet's have a look at the tokenization of a sample text:\n\n```python\nencoding = tokenizer.encode(\"Let's test this tokenizer.\")\nprint(encoding.tokens)\n```\n\n```python out\n['▁Let', \"'\", 's', '▁test', '▁this', '▁to', 'ken', 'izer', '.']\n```",
+        "metadata": {
+          "chunk_index": 26,
+          "source": "data/transformers-nlp/chapter6/8.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter6/8",
+          "chapter": "chapter6"
+        },
+        "cosine_similarity": 0.5744937658309937,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "d31469f6894f7f2865c1d8529672a5cba3433cb8f659d882786200549d0d380e",
+        "text": "and for this example, we will take all strict substrings for the initial vocabulary :\n\n```\n[\"h\", \"u\", \"g\", \"hu\", \"ug\", \"p\", \"pu\", \"n\", \"un\", \"b\", \"bu\", \"s\", \"hug\", \"gs\", \"ugs\"]\n```\n\n## Tokenization algorithm[[tokenization-algorithm]]\n\nA Unigram model is a type of language model that considers each token to be independent of the tokens before it. It's the simplest language model, in the sense that the probability of token X given the previous context is just the probability of token X. So, if we used a Unigram language model to generate text, we would always predict the most common token.",
+        "metadata": {
+          "page": "chapter6/7",
+          "source": "data/transformers-nlp/chapter6/7.mdx",
+          "chapter": "chapter6",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 4
+        },
+        "cosine_similarity": 0.5700597167015076,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q20",
+    "split": "test",
+    "question": "When the pretraining corpus differs little from the fine-tuning corpus, what does the course say about transfer learning?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter7/3",
+    "evidence_quote": "Provided that the corpus used for pretraining is not too different from the corpus used for fine-tuning, transfer learning will usually produce good results.",
+    "hits": [
+      {
+        "chunk_id": "cde0aa1918f8599db06b62309ceeafc394b42ff9b21db3d71cb55c12d1d7c11d",
+        "text": "n3_tf.ipynb\"},\n]} />\n\n{/if}\n\nFor many NLP applications involving Transformer models, you can simply take a pretrained model from the Hugging Face Hub and fine-tune it directly on your data for the task at hand. Provided that the corpus used for pretraining is not too different from the corpus used for fine-tuning, transfer learning will usually produce good results.\n\nHowever, there are a few cases where you'll want to first fine-tune the language models on your data, before training a task-speci",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter7/3",
+          "chapter": "chapter7",
+          "chunk_index": 2,
+          "source": "data/transformers-nlp/chapter7/3.mdx"
+        },
+        "cosine_similarity": 0.5649921894073486,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "88974e6e8b1b2ea9fd4b6b974a4cc5a0fad27ac709fdfdf510ad4980e103f5e3",
+        "text": "require a limited amount of data: the knowledge the pretrained model has acquired is \"transferred,\" hence the term *transfer learning*.\n\n<div class=\"flex justify-center\">\n<img class=\"block dark:hidden\" src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter1/finetuning.svg\" alt=\"The fine-tuning of a language model is cheaper than pretraining in both time and money.\">\n<img class=\"hidden dark:block\" src=\"https://huggingface.co/datasets/huggingface-cour",
+        "metadata": {
+          "chunk_index": 24,
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter1",
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "page": "chapter1/4"
+        },
+        "cosine_similarity": 0.5462238192558289,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "0f6c0488599df802793e756c439bb0771c817e234f30bfcfada7433161ad2f0f",
+        "text": "y have to do this step once!\n\nThis process of fine-tuning a pretrained language model on in-domain data is usually called _domain adaptation_. It was popularized in 2018 by [ULMFiT](https://arxiv.org/abs/1801.06146), which was one of the first neural architectures (based on LSTMs) to make transfer learning really work for NLP. An example of domain adaptation with ULMFiT is shown in the image below; in this section we'll do something similar, but with a Transformer instead of an LSTM!\n\n<div class",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter7",
+          "chunk_index": 4,
+          "source": "data/transformers-nlp/chapter7/3.mdx",
+          "page": "chapter7/3"
+        },
+        "cosine_similarity": 0.5047261714935303,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q20",
+    "split": "test",
+    "question": "When the pretraining corpus differs little from the fine-tuning corpus, what does the course say about transfer learning?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter7/3",
+    "evidence_quote": "Provided that the corpus used for pretraining is not too different from the corpus used for fine-tuning, transfer learning will usually produce good results.",
+    "hits": [
+      {
+        "chunk_id": "1013254cf90efee3ebc06d9d983f6bc66f7be9f737bbbff16a5a58a824a4038e",
+        "text": "For example, one could leverage a pretrained model trained on the English language and then fine-tune it on an arXiv corpus, resulting in a science/research-based model. The fine-tuning will only require a limited amount of data: the knowledge the pretrained model has acquired is \"transferred,\" hence the term *transfer learning*.\n\n<div class=\"flex justify-center\">\n<img class=\"block dark:hidden\" src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter1/finetuning.svg\" alt=\"The fine-tuning of a language model is cheaper than pretraining in both time and money.\">\n<img class=\"hidden dark:block\" src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter1/finetuning-dark.svg\" alt=\"The fine-tuning of a language model is cheaper than pretraining in both time and money.\">\n</div>",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "page": "chapter1/4",
+          "chunk_index": 16,
+          "chapter": "chapter1",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5817593932151794,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "e7a53480a382a2da54b0f66ceba30ae7e7e90c34780fa90d5ad0c8cf2aeb0d96",
+        "text": "This process of fine-tuning a pretrained language model on in-domain data is usually called _domain adaptation_. It was popularized in 2018 by [ULMFiT](https://arxiv.org/abs/1801.06146), which was one of the first neural architectures (based on LSTMs) to make transfer learning really work for NLP. An example of domain adaptation with ULMFiT is shown in the image below; in this section we'll do something similar, but with a Transformer instead of an LSTM!\n\n<div class=\"flex justify-center\">\n<img class=\"block dark:hidden\" src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter7/ulmfit.svg\" alt=\"ULMFiT.\"/>\n<img class=\"hidden dark:block\" src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter7/ulmfit-dark.svg\" alt=\"ULMFiT.\"/>\n</div>",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter7/3",
+          "chunk_index": 3,
+          "source": "data/transformers-nlp/chapter7/3.mdx",
+          "chapter": "chapter7"
+        },
+        "cosine_similarity": 0.531757116317749,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "dcdfa1883b87823fc1f488e05d45c5aae6a367736fad84b63ed7a3d7ab3104a2",
+        "text": "*Fine-tuning*, on the other hand, is the training done **after** a model has been pretrained. To perform fine-tuning, you first acquire a pretrained language model, then perform additional training with a dataset specific to your task. Wait -- why not simply train the model for your final use case from the start (**scratch**)? There are a couple of reasons:",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "chapter": "chapter1",
+          "page": "chapter1/4",
+          "chunk_index": 14,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.47400689125061035,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q20",
+    "split": "test",
+    "question": "When the pretraining corpus differs little from the fine-tuning corpus, what does the course say about transfer learning?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter7/3",
+    "evidence_quote": "Provided that the corpus used for pretraining is not too different from the corpus used for fine-tuning, transfer learning will usually produce good results.",
+    "hits": [
+      {
+        "chunk_id": "1013254cf90efee3ebc06d9d983f6bc66f7be9f737bbbff16a5a58a824a4038e",
+        "text": "For example, one could leverage a pretrained model trained on the English language and then fine-tune it on an arXiv corpus, resulting in a science/research-based model. The fine-tuning will only require a limited amount of data: the knowledge the pretrained model has acquired is \"transferred,\" hence the term *transfer learning*.\n\n<div class=\"flex justify-center\">\n<img class=\"block dark:hidden\" src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter1/finetuning.svg\" alt=\"The fine-tuning of a language model is cheaper than pretraining in both time and money.\">\n<img class=\"hidden dark:block\" src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter1/finetuning-dark.svg\" alt=\"The fine-tuning of a language model is cheaper than pretraining in both time and money.\">\n</div>",
+        "metadata": {
+          "chunk_index": 16,
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "chapter": "chapter1",
+          "page": "chapter1/4",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5817593932151794,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "e7a53480a382a2da54b0f66ceba30ae7e7e90c34780fa90d5ad0c8cf2aeb0d96",
+        "text": "This process of fine-tuning a pretrained language model on in-domain data is usually called _domain adaptation_. It was popularized in 2018 by [ULMFiT](https://arxiv.org/abs/1801.06146), which was one of the first neural architectures (based on LSTMs) to make transfer learning really work for NLP. An example of domain adaptation with ULMFiT is shown in the image below; in this section we'll do something similar, but with a Transformer instead of an LSTM!\n\n<div class=\"flex justify-center\">\n<img class=\"block dark:hidden\" src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter7/ulmfit.svg\" alt=\"ULMFiT.\"/>\n<img class=\"hidden dark:block\" src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter7/ulmfit-dark.svg\" alt=\"ULMFiT.\"/>\n</div>",
+        "metadata": {
+          "chapter": "chapter7",
+          "source": "data/transformers-nlp/chapter7/3.mdx",
+          "chunk_index": 3,
+          "page": "chapter7/3",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.531757116317749,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "dcdfa1883b87823fc1f488e05d45c5aae6a367736fad84b63ed7a3d7ab3104a2",
+        "text": "*Fine-tuning*, on the other hand, is the training done **after** a model has been pretrained. To perform fine-tuning, you first acquire a pretrained language model, then perform additional training with a dataset specific to your task. Wait -- why not simply train the model for your final use case from the start (**scratch**)? There are a couple of reasons:",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter1/4",
+          "chunk_index": 14,
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.47400689125061035,
+        "gold_evidence_match": false
+      }
+    ]
+  }
+]

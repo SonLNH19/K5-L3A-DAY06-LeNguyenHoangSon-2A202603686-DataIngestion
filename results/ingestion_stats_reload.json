@@ -1,0 +1,51 @@
+{
+  "time_utc": "2026-11-13T16:42:10.682440+00:00",
+  "model": "Chroma ONNX all-MiniLM-L6-v2",
+  "model_archive_sha256": "913d7300ceae3b2dbc2c50d1de4baacab4be7b9380491c27fab7418616a16ec3",
+  "dimensions": 384,
+  "provider": "local CPU",
+  "python_version": "3.12.10",
+  "chroma_version": "1.5.9",
+  "onnxruntime_version": "1.31.1",
+  "tokenizers_version": "0.23.3",
+  "query_document_processing": "same ONNX tokenizer and mean pooling; L2 normalized; 256-token maximum",
+  "metric": "cosine",
+  "search": "Chroma local HNSW approximate",
+  "A": {
+    "chunk_count": 1290,
+    "characters": 638577,
+    "min_length": 53,
+    "median_length": 500.0,
+    "max_length": 500,
+    "ingest_seconds": 0.096,
+    "embedded_chunks": 0,
+    "previously_present": 1290,
+    "cost_usd": 0,
+    "fingerprint": "5b2b32283c455b95e4cfc9e9dfbdeaa02e5b64b49654afb89fdacfad76e44e1f"
+  },
+  "B": {
+    "chunk_count": 784,
+    "characters": 574847,
+    "min_length": 24,
+    "median_length": 780.0,
+    "max_length": 900,
+    "ingest_seconds": 0.053,
+    "embedded_chunks": 0,
+    "previously_present": 784,
+    "cost_usd": 0,
+    "fingerprint": "03e5e21e7819a5ff43d5869f1bfe89552915934723ceaf22e13bc2c31c4f6f81"
+  },
+  "C": {
+    "chunk_count": 784,
+    "characters": 574847,
+    "min_length": 24,
+    "median_length": 780.0,
+    "max_length": 900,
+    "ingest_seconds": 0.053,
+    "embedded_chunks": 0,
+    "previously_present": 784,
+    "cost_usd": 0,
+    "fingerprint": "03e5e21e7819a5ff43d5869f1bfe89552915934723ceaf22e13bc2c31c4f6f81",
+    "note": "same index and chunks as B; filter only when supplied"
+  }
+}

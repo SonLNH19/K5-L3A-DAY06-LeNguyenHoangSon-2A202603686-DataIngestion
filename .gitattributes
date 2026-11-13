@@ -1,0 +1,4 @@
+# Preserve the snapshot bytes used by data/manifest.json across operating systems.
+data/transformers-nlp/**/*.mdx -text
+# The selected strategy records the SHA-256 of this exact benchmark file.
+benchmark/questions.json -text

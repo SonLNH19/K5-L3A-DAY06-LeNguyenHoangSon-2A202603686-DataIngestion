@@ -1,0 +1,2301 @@
+[
+  {
+    "strategy": "A",
+    "id": "Q01",
+    "split": "dev",
+    "question": "Why is the zero-shot classification pipeline described as zero-shot?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/3",
+    "evidence_quote": "This pipeline is called _zero-shot_ because you don't need to fine-tune the model on your data to use it. It can directly return probability scores for any list of labels you want!",
+    "hits": [
+      {
+        "chunk_id": "6cda4011c2445089d4cb2d508b24664bf71105e95287100c4eb9e0b5a268d21d",
+        "text": "ine\n\nclassifier = pipeline(\"zero-shot-classification\")\nclassifier(\n\"This is a course about the Transformers library\",\ncandidate_labels=[\"education\", \"politics\", \"business\"],\n)\n```\n\n```python out\n{'sequence': 'This is a course about the Transformers library',\n'labels': ['education', 'business', 'politics'],\n'scores': [0.8445963859558105, 0.111976258456707, 0.043427448719739914]}\n```\n\nThis pipeline is called _zero-shot_ because you don't need to fine-tune the model on your data to use it. It can d",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/3.mdx",
+          "page": "chapter1/3",
+          "chapter": "chapter1",
+          "chunk_index": 13
+        },
+        "cosine_similarity": 0.5568805932998657,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "691cacc98483d69a075be79833794bfc920fe94e81ded8fb9e1024078d2832eb",
+        "text": "text to spoken audio\n\n### Multimodal pipelines\n\n- `image-text-to-text`: Respond to an image based on a text prompt\n\nLet's explore some of these pipelines in more detail!\n\n## Zero-shot classification[[zero-shot-classification]]\n\nWe'll start by tackling a more challenging task where we need to classify texts that haven't been labelled. This is a common scenario in real-world projects because annotating text is usually time-consuming and requires domain expertise. For this use case, the `zero-shot",
+        "metadata": {
+          "chapter": "chapter1",
+          "source": "data/transformers-nlp/chapter1/3.mdx",
+          "chunk_index": 11,
+          "page": "chapter1/3",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.43187570571899414,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "86041071432e43482a98fcbe8ed2328c2c01aa3c1139e2cdfb058c9dc1095582",
+        "text": "## Conclusion\n\nThe pipelines shown in this chapter are mostly for demonstrative purposes. They were programmed for specific tasks and cannot perform variations of them. In the next chapter, you'll learn what's inside a `pipeline()` function and how to customize its behavior.",
+        "metadata": {
+          "page": "chapter1/3",
+          "chunk_index": 41,
+          "chapter": "chapter1",
+          "source": "data/transformers-nlp/chapter1/3.mdx",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.4291943311691284,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q01",
+    "split": "dev",
+    "question": "Why is the zero-shot classification pipeline described as zero-shot?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/3",
+    "evidence_quote": "This pipeline is called _zero-shot_ because you don't need to fine-tune the model on your data to use it. It can directly return probability scores for any list of labels you want!",
+    "hits": [
+      {
+        "chunk_id": "6d1f257b4b2c3588e1a5647cc9196ac4827b81eb11a6f62d53545fdb76408198",
+        "text": "### Image pipelines\n\n- `image-to-text`: Generate text descriptions of images\n- `image-classification`: Identify objects in an image\n- `object-detection`: Locate and identify objects in images\n\n### Audio pipelines\n\n- `automatic-speech-recognition`: Convert speech to text\n- `audio-classification`: Classify audio into categories\n- `text-to-speech`: Convert text to spoken audio\n\n### Multimodal pipelines\n\n- `image-text-to-text`: Respond to an image based on a text prompt\n\nLet's explore some of these pipelines in more detail!\n\n## Zero-shot classification[[zero-shot-classification]]",
+        "metadata": {
+          "chunk_index": 6,
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/3.mdx",
+          "page": "chapter1/3",
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.5728381872177124,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "879d186fd31176ae101311e403083204034181c54705255d362d945011feb9b6",
+        "text": "We'll start by tackling a more challenging task where we need to classify texts that haven't been labelled. This is a common scenario in real-world projects because annotating text is usually time-consuming and requires domain expertise. For this use case, the `zero-shot-classification` pipeline is very powerful: it allows you to specify which labels to use for the classification, so you don't have to rely on the labels of the pretrained model. You've already seen how the model can classify a sentence as positive or negative using those two labels — but it can also classify the text using any other set of labels you like.\n\n```python\nfrom transformers import pipeline\n\nclassifier = pipeline(\"zero-shot-classification\")\nclassifier(\n\"This is a course about the Transformers library\",\ncandidate_labels=[\"education\", \"politics\", \"business\"],\n)\n```",
+        "metadata": {
+          "page": "chapter1/3",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/3.mdx",
+          "chunk_index": 7,
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.3950374126434326,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "a62e30a1e7795033a48f7c8f70e8e6b49f8a5e584b146727b25e41160ed60681",
+        "text": "In [Chapter 1](/course/chapter1) we got our first taste of applying NER -- where the task is to identify which parts of the text correspond to entities like persons, locations, or organizations -- with the 🤗 Transformers `pipeline()` function. Then, in [Chapter 2](/course/chapter2), we saw how a pipeline groups together the three stages necessary to get the predictions from a raw text: tokenization, passing the inputs through the model, and post-processing. The first two steps in the `token-classification` pipeline are the same as in any other pipeline, but the post-processing is a little more complex -- let's see how!\n\n{#if fw === 'pt'}\n\n<Youtube id=\"0E7ltQB7fM8\"/>\n\n{:else}\n\n<Youtube id=\"PrX4CjrVnNc\"/>\n\n{/if}\n\n### Getting the base results with the pipeline[[getting-the-base-results-with-the-pipeline]]",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter6/3.mdx",
+          "chapter": "chapter6",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 12,
+          "page": "chapter6/3"
+        },
+        "cosine_similarity": 0.36118054389953613,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q01",
+    "split": "dev",
+    "question": "Why is the zero-shot classification pipeline described as zero-shot?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/3",
+    "evidence_quote": "This pipeline is called _zero-shot_ because you don't need to fine-tune the model on your data to use it. It can directly return probability scores for any list of labels you want!",
+    "hits": [
+      {
+        "chunk_id": "6d1f257b4b2c3588e1a5647cc9196ac4827b81eb11a6f62d53545fdb76408198",
+        "text": "### Image pipelines\n\n- `image-to-text`: Generate text descriptions of images\n- `image-classification`: Identify objects in an image\n- `object-detection`: Locate and identify objects in images\n\n### Audio pipelines\n\n- `automatic-speech-recognition`: Convert speech to text\n- `audio-classification`: Classify audio into categories\n- `text-to-speech`: Convert text to spoken audio\n\n### Multimodal pipelines\n\n- `image-text-to-text`: Respond to an image based on a text prompt\n\nLet's explore some of these pipelines in more detail!\n\n## Zero-shot classification[[zero-shot-classification]]",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/3.mdx",
+          "chapter": "chapter1",
+          "page": "chapter1/3",
+          "chunk_index": 6,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5728381872177124,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "879d186fd31176ae101311e403083204034181c54705255d362d945011feb9b6",
+        "text": "We'll start by tackling a more challenging task where we need to classify texts that haven't been labelled. This is a common scenario in real-world projects because annotating text is usually time-consuming and requires domain expertise. For this use case, the `zero-shot-classification` pipeline is very powerful: it allows you to specify which labels to use for the classification, so you don't have to rely on the labels of the pretrained model. You've already seen how the model can classify a sentence as positive or negative using those two labels — but it can also classify the text using any other set of labels you like.\n\n```python\nfrom transformers import pipeline\n\nclassifier = pipeline(\"zero-shot-classification\")\nclassifier(\n\"This is a course about the Transformers library\",\ncandidate_labels=[\"education\", \"politics\", \"business\"],\n)\n```",
+        "metadata": {
+          "page": "chapter1/3",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 7,
+          "source": "data/transformers-nlp/chapter1/3.mdx",
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.3950374126434326,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "a62e30a1e7795033a48f7c8f70e8e6b49f8a5e584b146727b25e41160ed60681",
+        "text": "In [Chapter 1](/course/chapter1) we got our first taste of applying NER -- where the task is to identify which parts of the text correspond to entities like persons, locations, or organizations -- with the 🤗 Transformers `pipeline()` function. Then, in [Chapter 2](/course/chapter2), we saw how a pipeline groups together the three stages necessary to get the predictions from a raw text: tokenization, passing the inputs through the model, and post-processing. The first two steps in the `token-classification` pipeline are the same as in any other pipeline, but the post-processing is a little more complex -- let's see how!\n\n{#if fw === 'pt'}\n\n<Youtube id=\"0E7ltQB7fM8\"/>\n\n{:else}\n\n<Youtube id=\"PrX4CjrVnNc\"/>\n\n{/if}\n\n### Getting the base results with the pipeline[[getting-the-base-results-with-the-pipeline]]",
+        "metadata": {
+          "chapter": "chapter6",
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter6/3",
+          "source": "data/transformers-nlp/chapter6/3.mdx",
+          "chunk_index": 12
+        },
+        "cosine_similarity": 0.36118054389953613,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q02",
+    "split": "dev",
+    "question": "What happens when the same default sentiment analysis model is used again after its first download?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/3",
+    "evidence_quote": "The model is downloaded and cached when you create the `classifier` object. If you rerun the command, the cached model will be used instead and there is no need to download the model again.",
+    "hits": [
+      {
+        "chunk_id": "048a380e02ba94dfb052890cbe73918c9ef906396b6a590f421073ddf4d9758b",
+        "text": "or sentiment analysis in English. The model is downloaded and cached when you create the `classifier` object. If you rerun the command, the cached model will be used instead and there is no need to download the model again.\n\nThere are three main steps involved when you pass some text to a pipeline:\n\n1. The text is preprocessed into a format the model can understand.\n2. The preprocessed inputs are passed to the model.\n3. The predictions of the model are post-processed, so you can make sense of th",
+        "metadata": {
+          "page": "chapter1/3",
+          "source": "data/transformers-nlp/chapter1/3.mdx",
+          "chapter": "chapter1",
+          "chunk_index": 7,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5150293111801147,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "1e80a1ab28ddc48b026308d4f2c025923e1df8cf901715e1627e0dcee6cfd19f",
+        "text": "a. Let's see how we can change this domain to something a bit more niche -- highly polarized movie reviews!\n\n\n## The dataset[[the-dataset]]\n\nTo showcase domain adaptation, we'll use the famous [Large Movie Review Dataset](https://huggingface.co/datasets/imdb) (or IMDb for short), which is a corpus of movie reviews that is often used to benchmark sentiment analysis models. By fine-tuning DistilBERT on this corpus, we expect the language model will adapt its vocabulary from the factual data of Wik",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter7/3.mdx",
+          "chunk_index": 22,
+          "chapter": "chapter7",
+          "page": "chapter7/3",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.3285832405090332,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "2b394ba795ae61e8ad203219bcc49416873ee38c660fbc70169423e3c0d0dc83",
+        "text": "the model for your final use case from the start (**scratch**)? There are a couple of reasons:\n\n* The pretrained model was already trained on a dataset that has some similarities with the fine-tuning dataset. The fine-tuning process is thus able to take advantage of knowledge acquired by the initial model during pretraining (for instance, with NLP problems, the pretrained model will have some kind of statistical understanding of the language you are using for your task).\n* Since the pretrained",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "page": "chapter1/4",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 22,
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.32043182849884033,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q02",
+    "split": "dev",
+    "question": "What happens when the same default sentiment analysis model is used again after its first download?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/3",
+    "evidence_quote": "The model is downloaded and cached when you create the `classifier` object. If you rerun the command, the cached model will be used instead and there is no need to download the model again.",
+    "hits": [
+      {
+        "chunk_id": "8e0a0ee7d20eb54c83f6f62278cad8ea916321c6af0aab39aa196fe42d28c726",
+        "text": "By default, this pipeline selects a particular pretrained model that has been fine-tuned for sentiment analysis in English. The model is downloaded and cached when you create the `classifier` object. If you rerun the command, the cached model will be used instead and there is no need to download the model again.\n\nThere are three main steps involved when you pass some text to a pipeline:\n\n1. The text is preprocessed into a format the model can understand.\n2. The preprocessed inputs are passed to the model.\n3. The predictions of the model are post-processed, so you can make sense of them.\n\n## Available pipelines for different modalities",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/3.mdx",
+          "chapter": "chapter1",
+          "chunk_index": 4,
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter1/3"
+        },
+        "cosine_similarity": 0.4968831539154053,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "624334e84f1a0976adfb950062101456d19472f0eec399507a96c1a59ea76067",
+        "text": "All this preprocessing needs to be done in exactly the same way as when the model was pretrained, so we first need to download that information from the [Model Hub](https://huggingface.co/models). To do this, we use the `AutoTokenizer` class and its `from_pretrained()` method. Using the checkpoint name of our model, it will automatically fetch the data associated with the model's tokenizer and cache it (so it's only downloaded the first time you run the code below).\n\nSince the default checkpoint of the `sentiment-analysis` pipeline is `distilbert-base-uncased-finetuned-sst-2-english` (you can see its model card [here](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english)), we run the following:\n\n```python\nfrom transformers import AutoTokenizer\n\ncheckpoint = \"distilbert-base-uncased-finetuned-sst-2-english\"\ntokenizer = AutoTokenizer.from_pretrained(checkpoint)\n```",
+        "metadata": {
+          "page": "chapter2/2",
+          "source": "data/transformers-nlp/chapter2/2.mdx",
+          "chapter": "chapter2",
+          "chunk_index": 4,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.3687160015106201,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "25246381e80467c5321f3ab2bf9f0d2aa899951b67b241db37c9934ec9fda6be",
+        "text": "We can see from the outputs that the model's predictions refer to everyday terms, which is perhaps not surprising given the foundation of English Wikipedia. Let's see how we can change this domain to something a bit more niche -- highly polarized movie reviews!\n\n## The dataset[[the-dataset]]\n\nTo showcase domain adaptation, we'll use the famous [Large Movie Review Dataset](https://huggingface.co/datasets/imdb) (or IMDb for short), which is a corpus of movie reviews that is often used to benchmark sentiment analysis models. By fine-tuning DistilBERT on this corpus, we expect the language model will adapt its vocabulary from the factual data of Wikipedia that it was pretrained on to the more subjective elements of movie reviews. We can get the data from the Hugging Face Hub with the `load_dataset()` function from 🤗 Datasets:\n\n```python\nfrom datasets import load_dataset",
+        "metadata": {
+          "page": "chapter7/3",
+          "chunk_index": 15,
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter7",
+          "source": "data/transformers-nlp/chapter7/3.mdx"
+        },
+        "cosine_similarity": 0.3604581952095032,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q02",
+    "split": "dev",
+    "question": "What happens when the same default sentiment analysis model is used again after its first download?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/3",
+    "evidence_quote": "The model is downloaded and cached when you create the `classifier` object. If you rerun the command, the cached model will be used instead and there is no need to download the model again.",
+    "hits": [
+      {
+        "chunk_id": "8e0a0ee7d20eb54c83f6f62278cad8ea916321c6af0aab39aa196fe42d28c726",
+        "text": "By default, this pipeline selects a particular pretrained model that has been fine-tuned for sentiment analysis in English. The model is downloaded and cached when you create the `classifier` object. If you rerun the command, the cached model will be used instead and there is no need to download the model again.\n\nThere are three main steps involved when you pass some text to a pipeline:\n\n1. The text is preprocessed into a format the model can understand.\n2. The preprocessed inputs are passed to the model.\n3. The predictions of the model are post-processed, so you can make sense of them.\n\n## Available pipelines for different modalities",
+        "metadata": {
+          "chunk_index": 4,
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter1/3",
+          "chapter": "chapter1",
+          "source": "data/transformers-nlp/chapter1/3.mdx"
+        },
+        "cosine_similarity": 0.4968831539154053,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "624334e84f1a0976adfb950062101456d19472f0eec399507a96c1a59ea76067",
+        "text": "All this preprocessing needs to be done in exactly the same way as when the model was pretrained, so we first need to download that information from the [Model Hub](https://huggingface.co/models). To do this, we use the `AutoTokenizer` class and its `from_pretrained()` method. Using the checkpoint name of our model, it will automatically fetch the data associated with the model's tokenizer and cache it (so it's only downloaded the first time you run the code below).\n\nSince the default checkpoint of the `sentiment-analysis` pipeline is `distilbert-base-uncased-finetuned-sst-2-english` (you can see its model card [here](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english)), we run the following:\n\n```python\nfrom transformers import AutoTokenizer\n\ncheckpoint = \"distilbert-base-uncased-finetuned-sst-2-english\"\ntokenizer = AutoTokenizer.from_pretrained(checkpoint)\n```",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter2",
+          "page": "chapter2/2",
+          "source": "data/transformers-nlp/chapter2/2.mdx",
+          "chunk_index": 4
+        },
+        "cosine_similarity": 0.3687160015106201,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "25246381e80467c5321f3ab2bf9f0d2aa899951b67b241db37c9934ec9fda6be",
+        "text": "We can see from the outputs that the model's predictions refer to everyday terms, which is perhaps not surprising given the foundation of English Wikipedia. Let's see how we can change this domain to something a bit more niche -- highly polarized movie reviews!\n\n## The dataset[[the-dataset]]\n\nTo showcase domain adaptation, we'll use the famous [Large Movie Review Dataset](https://huggingface.co/datasets/imdb) (or IMDb for short), which is a corpus of movie reviews that is often used to benchmark sentiment analysis models. By fine-tuning DistilBERT on this corpus, we expect the language model will adapt its vocabulary from the factual data of Wikipedia that it was pretrained on to the more subjective elements of movie reviews. We can get the data from the Hugging Face Hub with the `load_dataset()` function from 🤗 Datasets:\n\n```python\nfrom datasets import load_dataset",
+        "metadata": {
+          "page": "chapter7/3",
+          "chunk_index": 15,
+          "source": "data/transformers-nlp/chapter7/3.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter7"
+        },
+        "cosine_similarity": 0.3604581952095032,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q03",
+    "split": "dev",
+    "question": "In chapter 1, how is the general pretrained language model adapted to a specific task?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/4",
+    "evidence_quote": "Because of this, the general pretrained model then goes through a process called *transfer learning* or *fine-tuning*. During this process, the model is fine-tuned in a supervised way -- that is, using human-annotated labels -- on a given task.",
+    "hits": [
+      {
+        "chunk_id": "6d2bf3cb3f3532efe7ef843a3656ab97bc08c031915a23b9ca832fa2ba447bcf",
+        "text": "the data!\n\nThis type of model develops a statistical understanding of the language it has been trained on, but it's less useful for specific practical tasks. Because of this, the general pretrained model then goes through a process called *transfer learning* or *fine-tuning*. During this process, the model is fine-tuned in a supervised way -- that is, using human-annotated labels -- on a given task.\n\nAn example of a task is predicting the next word in a sentence having read the *n* previous wor",
+        "metadata": {
+          "page": "chapter1/4",
+          "chapter": "chapter1",
+          "chunk_index": 10,
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/4.mdx"
+        },
+        "cosine_similarity": 0.6683977842330933,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "1e70dcddf513f9e4eadc50e26dd9b6401dca5f811032420f98f73f62650eba52",
+        "text": "-language](https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter1/transformers_architecture.png)\n\nAs we covered in the previous section, language models are typically pretrained on large amounts of text data in a self-supervised manner (without human annotations), then fine-tuned on specific tasks. This approach, known as transfer learning, allows these models to adapt to many different NLP tasks with relatively small amounts of task-specific data.\n\nIn t",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter1/5",
+          "chunk_index": 11,
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.6115354895591736,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "3184077308e1a6f58bd84a973989ab0c3228360145d743ce00c09cd3d1e6a4a3",
+        "text": "structure.\n\n### How language models work\n\nLanguage models work by being trained to predict the probability of a word given the context of surrounding words. This gives them a foundational understanding of language that can generalize to other tasks.\n\nThere are two main approaches for training a transformer model:\n\n1. **Masked language modeling (MLM)**: Used by encoder models like BERT, this approach randomly masks some tokens in the input and trains the model to predict the original tokens base",
+        "metadata": {
+          "chunk_index": 7,
+          "chapter": "chapter1",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "page": "chapter1/5"
+        },
+        "cosine_similarity": 0.5558565258979797,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q03",
+    "split": "dev",
+    "question": "In chapter 1, how is the general pretrained language model adapted to a specific task?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/4",
+    "evidence_quote": "Because of this, the general pretrained model then goes through a process called *transfer learning* or *fine-tuning*. During this process, the model is fine-tuned in a supervised way -- that is, using human-annotated labels -- on a given task.",
+    "hits": [
+      {
+        "chunk_id": "b2f0424f4ad991aacd23c03603578dff39a8fc34934d1684bbe63985d38c4af7",
+        "text": "This type of model develops a statistical understanding of the language it has been trained on, but it's less useful for specific practical tasks. Because of this, the general pretrained model then goes through a process called *transfer learning* or *fine-tuning*. During this process, the model is fine-tuned in a supervised way -- that is, using human-annotated labels -- on a given task.\n\nAn example of a task is predicting the next word in a sentence having read the *n* previous words. This is called *causal language modeling* because the output depends on the past and present inputs, but not the future ones.",
+        "metadata": {
+          "chapter": "chapter1",
+          "page": "chapter1/4",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "chunk_index": 6
+        },
+        "cosine_similarity": 0.6690226793289185,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "d4e7b5439f16bf79a203c58b3b5b2d7cc69815e288503136bb1fd8522c654b94",
+        "text": "The pretraining of these models can take different forms, but it often involves reconstructing a sentence for which the input has been somehow corrupted (for instance by masking random words). The pretraining of the T5 model consists of replacing random spans of text (that can contain several words) with a single mask special token, and the task is then to predict the text that this mask token replaces.\n\nSequence-to-sequence models are best suited for tasks revolving around generating new sentences depending on a given input, such as summarization, translation, or generative question answering.",
+        "metadata": {
+          "page": "chapter1/6",
+          "chunk_index": 8,
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/6.mdx",
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.6219946146011353,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "42becd7a80653fc6c9bf7114d1cfd2c3c25e62ba46a28fb054851452bf27668c",
+        "text": "![transformer-models-for-language](https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter1/transformers_architecture.png)\n\nAs we covered in the previous section, language models are typically pretrained on large amounts of text data in a self-supervised manner (without human annotations), then fine-tuned on specific tasks. This approach, known as transfer learning, allows these models to adapt to many different NLP tasks with relatively small amounts of task-specific data.\n\nIn the following sections, we'll explore specific model architectures and how they're applied to various tasks across speech, vision, and text domains.",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter1",
+          "chunk_index": 8,
+          "page": "chapter1/5",
+          "source": "data/transformers-nlp/chapter1/5.mdx"
+        },
+        "cosine_similarity": 0.5789070725440979,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q03",
+    "split": "dev",
+    "question": "In chapter 1, how is the general pretrained language model adapted to a specific task?",
+    "filter": {
+      "chapter": "chapter1"
+    },
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/4",
+    "evidence_quote": "Because of this, the general pretrained model then goes through a process called *transfer learning* or *fine-tuning*. During this process, the model is fine-tuned in a supervised way -- that is, using human-annotated labels -- on a given task.",
+    "hits": [
+      {
+        "chunk_id": "b2f0424f4ad991aacd23c03603578dff39a8fc34934d1684bbe63985d38c4af7",
+        "text": "This type of model develops a statistical understanding of the language it has been trained on, but it's less useful for specific practical tasks. Because of this, the general pretrained model then goes through a process called *transfer learning* or *fine-tuning*. During this process, the model is fine-tuned in a supervised way -- that is, using human-annotated labels -- on a given task.\n\nAn example of a task is predicting the next word in a sentence having read the *n* previous words. This is called *causal language modeling* because the output depends on the past and present inputs, but not the future ones.",
+        "metadata": {
+          "chunk_index": 6,
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "page": "chapter1/4",
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.6690226793289185,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "d4e7b5439f16bf79a203c58b3b5b2d7cc69815e288503136bb1fd8522c654b94",
+        "text": "The pretraining of these models can take different forms, but it often involves reconstructing a sentence for which the input has been somehow corrupted (for instance by masking random words). The pretraining of the T5 model consists of replacing random spans of text (that can contain several words) with a single mask special token, and the task is then to predict the text that this mask token replaces.\n\nSequence-to-sequence models are best suited for tasks revolving around generating new sentences depending on a given input, such as summarization, translation, or generative question answering.",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/6.mdx",
+          "page": "chapter1/6",
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter1",
+          "chunk_index": 8
+        },
+        "cosine_similarity": 0.6219946146011353,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "42becd7a80653fc6c9bf7114d1cfd2c3c25e62ba46a28fb054851452bf27668c",
+        "text": "![transformer-models-for-language](https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter1/transformers_architecture.png)\n\nAs we covered in the previous section, language models are typically pretrained on large amounts of text data in a self-supervised manner (without human annotations), then fine-tuned on specific tasks. This approach, known as transfer learning, allows these models to adapt to many different NLP tasks with relatively small amounts of task-specific data.\n\nIn the following sections, we'll explore specific model architectures and how they're applied to various tasks across speech, vision, and text domains.",
+        "metadata": {
+          "chapter": "chapter1",
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "page": "chapter1/5",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 8
+        },
+        "cosine_similarity": 0.5789070725440979,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q04",
+    "split": "dev",
+    "question": "In masked language modeling, how does an encoder learn from a sentence?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/5",
+    "evidence_quote": "**Masked language modeling (MLM)**: Used by encoder models like BERT, this approach randomly masks some tokens in the input and trains the model to predict the original tokens based on the surrounding context.",
+    "hits": [
+      {
+        "chunk_id": "6020f20878220e16f53c10fcb1a2d9dec13f5fa957ed68fd41034956fbf142fd",
+        "text": ". It can thus access the whole input sentence to best predict the current word. This is very useful as different languages can have grammatical rules that put the words in different orders, or some context provided later in the sentence may be helpful to determine the best translation of a given word.\n\nThe *attention mask* can also be used in the encoder/decoder to prevent the model from paying attention to some special words -- for instance, the special padding word used to make all the inputs",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 39,
+          "chapter": "chapter1",
+          "page": "chapter1/4",
+          "source": "data/transformers-nlp/chapter1/4.mdx"
+        },
+        "cosine_similarity": 0.6413503885269165,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "3f9d11ee2912299d70b977ebeaff02bbc36c7791bbbc95f4be72f818cc6dbf15",
+        "text": "to-sequence-models]]\n\n<Youtube id=\"0_4KEb08xrE\" />\n\nEncoder-decoder models (also called *sequence-to-sequence models*) use both parts of the Transformer architecture. At each stage, the attention layers of the encoder can access all the words in the initial sentence, whereas the attention layers of the decoder can only access the words positioned before a given word in the input.\n\nThe pretraining of these models can take different forms, but it often involves reconstructing a sentence for which",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/6.mdx",
+          "chunk_index": 12,
+          "chapter": "chapter1",
+          "page": "chapter1/6"
+        },
+        "cosine_similarity": 0.6118136644363403,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "68768749e6801c504e7caafc3912d9e79ea6dd62e6b0bb373fdaa2e15392da37",
+        "text": "mqElG5QJWUg\"/>\n\n> [!TIP]\n> 🙋 If the terms \"masked language modeling\" and \"pretrained model\" sound unfamiliar to you, go check out [Chapter 1](/course/chapter1), where we explain all these core concepts, complete with videos!\n\n## Picking a pretrained model for masked language modeling[[picking-a-pretrained-model-for-masked-language-modeling]]\n\nTo get started, let's pick a suitable pretrained model for masked language modeling. As shown in the following screenshot, you can find a list of candidate",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter7/3.mdx",
+          "chapter": "chapter7",
+          "page": "chapter7/3",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 8
+        },
+        "cosine_similarity": 0.6109027862548828,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q04",
+    "split": "dev",
+    "question": "In masked language modeling, how does an encoder learn from a sentence?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/5",
+    "evidence_quote": "**Masked language modeling (MLM)**: Used by encoder models like BERT, this approach randomly masks some tokens in the input and trains the model to predict the original tokens based on the surrounding context.",
+    "hits": [
+      {
+        "chunk_id": "01ddea870cf816d76ec72f91fc89ba6af87904b81903138a8de003d81591916e",
+        "text": "2. BERT is pretrained with two objectives: masked language modeling and next-sentence prediction. In masked language modeling, some percentage of the input tokens are randomly masked, and the model needs to predict these. This solves the issue of bidirectionality, where the model could cheat and see all the words and \"predict\" the next word. The final hidden states of the predicted mask tokens are passed to a feedforward network with a softmax over the vocabulary to predict the masked word.\n\nThe second pretraining object is next-sentence prediction. The model must predict whether sentence B follows sentence A. Half of the time sentence B is the next sentence, and the other half of the time, sentence B is a random sentence. The prediction, whether it is the next sentence or not, is passed to a feedforward network with a softmax over the two classes (`IsNext` and `NotNext`).",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter1",
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "chunk_index": 14,
+          "page": "chapter1/5"
+        },
+        "cosine_similarity": 0.6112985014915466,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "28696bdf83a5020734272700bbcee41f0c8bf67c607b34da8b3dcc9c48679fca",
+        "text": "1. BART's encoder architecture is very similar to BERT and accepts a token and positional embedding of the text. BART is pretrained by corrupting the input and then reconstructing it with the decoder. Unlike other encoders with specific corruption strategies, BART can apply any type of corruption. The *text infilling* corruption strategy works the best though. In text infilling, a number of text spans are replaced with a **single** [`mask`] token. This is important because the model has to predict the masked tokens, and it teaches the model to predict the number of missing tokens. The input embeddings and masked spans are passed through the encoder to output some final hidden states, but unlike BERT, BART doesn't add a final feedforward network at the end to predict a word.",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "chapter": "chapter1",
+          "page": "chapter1/5",
+          "chunk_index": 19,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5992825627326965,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "e19730486364e2dcf295d798e3c2d6a556a5ef7e589b76f12b9fe5f983ab0f6a",
+        "text": "2. The encoder's output is passed to the decoder, which must predict the masked tokens and any uncorrupted tokens from the encoder's output. This gives additional context to help the decoder restore the original text. The output from the decoder is passed to a language modeling head, which performs a linear transformation to convert the hidden states into logits. The cross-entropy loss is calculated between the logits and the label, which is just the token shifted to the right.\n\nReady to try your hand at summarization? Check out our complete [summarization guide](https://huggingface.co/docs/transformers/tasks/summarization) to learn how to finetune T5 and use it for inference!\n\n> [!TIP]\n> For more information about text generation, check out the [text generation strategies](https://huggingface.co/docs/transformers/generation_strategies) guide!\n\n### Translation",
+        "metadata": {
+          "page": "chapter1/5",
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 20,
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.582836389541626,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q04",
+    "split": "dev",
+    "question": "In masked language modeling, how does an encoder learn from a sentence?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/5",
+    "evidence_quote": "**Masked language modeling (MLM)**: Used by encoder models like BERT, this approach randomly masks some tokens in the input and trains the model to predict the original tokens based on the surrounding context.",
+    "hits": [
+      {
+        "chunk_id": "01ddea870cf816d76ec72f91fc89ba6af87904b81903138a8de003d81591916e",
+        "text": "2. BERT is pretrained with two objectives: masked language modeling and next-sentence prediction. In masked language modeling, some percentage of the input tokens are randomly masked, and the model needs to predict these. This solves the issue of bidirectionality, where the model could cheat and see all the words and \"predict\" the next word. The final hidden states of the predicted mask tokens are passed to a feedforward network with a softmax over the vocabulary to predict the masked word.\n\nThe second pretraining object is next-sentence prediction. The model must predict whether sentence B follows sentence A. Half of the time sentence B is the next sentence, and the other half of the time, sentence B is a random sentence. The prediction, whether it is the next sentence or not, is passed to a feedforward network with a softmax over the two classes (`IsNext` and `NotNext`).",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter1/5",
+          "chapter": "chapter1",
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "chunk_index": 14
+        },
+        "cosine_similarity": 0.6112985014915466,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "28696bdf83a5020734272700bbcee41f0c8bf67c607b34da8b3dcc9c48679fca",
+        "text": "1. BART's encoder architecture is very similar to BERT and accepts a token and positional embedding of the text. BART is pretrained by corrupting the input and then reconstructing it with the decoder. Unlike other encoders with specific corruption strategies, BART can apply any type of corruption. The *text infilling* corruption strategy works the best though. In text infilling, a number of text spans are replaced with a **single** [`mask`] token. This is important because the model has to predict the masked tokens, and it teaches the model to predict the number of missing tokens. The input embeddings and masked spans are passed through the encoder to output some final hidden states, but unlike BERT, BART doesn't add a final feedforward network at the end to predict a word.",
+        "metadata": {
+          "chapter": "chapter1",
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "chunk_index": 19,
+          "page": "chapter1/5",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5992825627326965,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "e19730486364e2dcf295d798e3c2d6a556a5ef7e589b76f12b9fe5f983ab0f6a",
+        "text": "2. The encoder's output is passed to the decoder, which must predict the masked tokens and any uncorrupted tokens from the encoder's output. This gives additional context to help the decoder restore the original text. The output from the decoder is passed to a language modeling head, which performs a linear transformation to convert the hidden states into logits. The cross-entropy loss is calculated between the logits and the label, which is just the token shifted to the right.\n\nReady to try your hand at summarization? Check out our complete [summarization guide](https://huggingface.co/docs/transformers/tasks/summarization) to learn how to finetune T5 and use it for inference!\n\n> [!TIP]\n> For more information about text generation, check out the [text generation strategies](https://huggingface.co/docs/transformers/generation_strategies) guide!\n\n### Translation",
+        "metadata": {
+          "chapter": "chapter1",
+          "page": "chapter1/5",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "chunk_index": 20
+        },
+        "cosine_similarity": 0.582836389541626,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q05",
+    "split": "dev",
+    "question": "What prediction objective is usually used when pretraining decoder models?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/6",
+    "evidence_quote": "The pretraining of decoder models usually revolves around predicting the next word in the sentence.",
+    "hits": [
+      {
+        "chunk_id": "c7660296bbd32714d3b9ce17174d1867ec620158b3dfa8d1b04b149a3757d0bd",
+        "text": "nerated). For example, when we have predicted the first three words of the translated target, we give them to the decoder which then uses all the inputs of the encoder to try to predict the fourth word.\n\nTo speed things up during training (when the model has access to target sentences), the decoder is fed the whole target, but it is not allowed to use future words (if it had access to the word at position 2 when trying to predict the word at position 2, the problem would not be very hard!). For",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "chapter": "chapter1",
+          "page": "chapter1/4",
+          "chunk_index": 36,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.6616431474685669,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "337106e56758dca0f697da6b0be0e959f9d6f0a144c338da84713cfe3a2c4a7b",
+        "text": "hisper paper](https://huggingface.co/papers/2212.04356).\n\nThis model has two main components:\n\n1. An **encoder** processes the input audio. The raw audio is first converted into a log-Mel spectrogram. This spectrogram is then passed through a Transformer encoder network.\n\n2. A **decoder** takes the encoded audio representation and autoregressively predicts the corresponding text tokens. It's a standard Transformer decoder trained to predict the next text token given the previous tokens and the e",
+        "metadata": {
+          "page": "chapter1/5",
+          "chunk_index": 39,
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.5541388392448425,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "1eb0b44cc54707337b9d58c1e5db568eab84dd675396fb85182ab8f21db53321",
+        "text": "er models[[decoder-models]]\n\n<Youtube id=\"d_ixlCubqQw\" />\n\nDecoder models use only the decoder of a Transformer model. At each stage, for a given word the attention layers can only access the words positioned before it in the sentence. These models are often called *auto-regressive models*.\n\nThe pretraining of decoder models usually revolves around predicting the next word in the sentence.\n\nThese models are best suited for tasks involving text generation.\n\n> [!TIP]\n> Decoder models like GPT are",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/6.mdx",
+          "chunk_index": 5,
+          "page": "chapter1/6",
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.5450111031532288,
+        "gold_evidence_match": true
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q05",
+    "split": "dev",
+    "question": "What prediction objective is usually used when pretraining decoder models?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/6",
+    "evidence_quote": "The pretraining of decoder models usually revolves around predicting the next word in the sentence.",
+    "hits": [
+      {
+        "chunk_id": "eebed88841ee3f6dd33349043305c48dcb5e2fc32ee12779b28568fed05659a9",
+        "text": "The pretraining of decoder models usually revolves around predicting the next word in the sentence.\n\nThese models are best suited for tasks involving text generation.\n\n> [!TIP]\n> Decoder models like GPT are designed to generate text by predicting one token at a time. As we explored in [How 🤗 Transformers solve tasks](https://huggingface.co/learn/llm-course/chapter1/5), they can only see previous tokens, which makes them excellent for creative text generation but less ideal for tasks requiring bidirectional understanding.\n\nRepresentatives of this family of models include:",
+        "metadata": {
+          "chapter": "chapter1",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 3,
+          "source": "data/transformers-nlp/chapter1/6.mdx",
+          "page": "chapter1/6"
+        },
+        "cosine_similarity": 0.5713486075401306,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "bc08d298020170217caadefefc8913f5b5fadc682a15f54bd7afcf0a1a57c487",
+        "text": "To speed things up during training (when the model has access to target sentences), the decoder is fed the whole target, but it is not allowed to use future words (if it had access to the word at position 2 when trying to predict the word at position 2, the problem would not be very hard!). For instance, when trying to predict the fourth word, the attention layer will only have access to the words in positions 1 to 3.\n\nThe original Transformer architecture looked like this, with the encoder on the left and the decoder on the right:",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "chunk_index": 25,
+          "chapter": "chapter1",
+          "page": "chapter1/4",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5435978174209595,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "f31779594cb72b1f267c86a0cc9e7407f497f2f7ad7c4053ba618ec01d73fcb8",
+        "text": "To use the pretrained model for automatic speech recognition, you leverage its full encoder-decoder structure. The encoder processes the audio input, and the decoder autoregressively generates the transcript token by token. When fine-tuning, the model is typically trained using a standard sequence-to-sequence loss (like cross-entropy) to predict the correct text tokens based on the audio input.\n\nThe easiest way to use a fine-tuned model for inference is within a `pipeline`.\n\n```python\nfrom transformers import pipeline\n\ntranscriber = pipeline(\ntask=\"automatic-speech-recognition\", model=\"openai/whisper-base.en\"\n)\ntranscriber(\"https://huggingface.co/datasets/Narsil/asr_dummy/resolve/main/mlk.flac\")\n# Output: {'text': ' I have a dream that one day this nation will rise up and live out the true meaning of its creed.'}\n```",
+        "metadata": {
+          "page": "chapter1/5",
+          "chunk_index": 27,
+          "chapter": "chapter1",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/5.mdx"
+        },
+        "cosine_similarity": 0.5422268509864807,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q05",
+    "split": "dev",
+    "question": "What prediction objective is usually used when pretraining decoder models?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/6",
+    "evidence_quote": "The pretraining of decoder models usually revolves around predicting the next word in the sentence.",
+    "hits": [
+      {
+        "chunk_id": "eebed88841ee3f6dd33349043305c48dcb5e2fc32ee12779b28568fed05659a9",
+        "text": "The pretraining of decoder models usually revolves around predicting the next word in the sentence.\n\nThese models are best suited for tasks involving text generation.\n\n> [!TIP]\n> Decoder models like GPT are designed to generate text by predicting one token at a time. As we explored in [How 🤗 Transformers solve tasks](https://huggingface.co/learn/llm-course/chapter1/5), they can only see previous tokens, which makes them excellent for creative text generation but less ideal for tasks requiring bidirectional understanding.\n\nRepresentatives of this family of models include:",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/6.mdx",
+          "chunk_index": 3,
+          "page": "chapter1/6",
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.5713486075401306,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "bc08d298020170217caadefefc8913f5b5fadc682a15f54bd7afcf0a1a57c487",
+        "text": "To speed things up during training (when the model has access to target sentences), the decoder is fed the whole target, but it is not allowed to use future words (if it had access to the word at position 2 when trying to predict the word at position 2, the problem would not be very hard!). For instance, when trying to predict the fourth word, the attention layer will only have access to the words in positions 1 to 3.\n\nThe original Transformer architecture looked like this, with the encoder on the left and the decoder on the right:",
+        "metadata": {
+          "chunk_index": 25,
+          "chapter": "chapter1",
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter1/4",
+          "source": "data/transformers-nlp/chapter1/4.mdx"
+        },
+        "cosine_similarity": 0.5435978174209595,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "f31779594cb72b1f267c86a0cc9e7407f497f2f7ad7c4053ba618ec01d73fcb8",
+        "text": "To use the pretrained model for automatic speech recognition, you leverage its full encoder-decoder structure. The encoder processes the audio input, and the decoder autoregressively generates the transcript token by token. When fine-tuning, the model is typically trained using a standard sequence-to-sequence loss (like cross-entropy) to predict the correct text tokens based on the audio input.\n\nThe easiest way to use a fine-tuned model for inference is within a `pipeline`.\n\n```python\nfrom transformers import pipeline\n\ntranscriber = pipeline(\ntask=\"automatic-speech-recognition\", model=\"openai/whisper-base.en\"\n)\ntranscriber(\"https://huggingface.co/datasets/Narsil/asr_dummy/resolve/main/mlk.flac\")\n# Output: {'text': ' I have a dream that one day this nation will rise up and live out the true meaning of its creed.'}\n```",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "chapter": "chapter1",
+          "page": "chapter1/5",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 27
+        },
+        "cosine_similarity": 0.5422268509864807,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q06",
+    "split": "dev",
+    "question": "How should preprocessing compare with the preprocessing used when the model was pretrained?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter2/2",
+    "evidence_quote": "All this preprocessing needs to be done in exactly the same way as when the model was pretrained,",
+    "hits": [
+      {
+        "chunk_id": "2b394ba795ae61e8ad203219bcc49416873ee38c660fbc70169423e3c0d0dc83",
+        "text": "the model for your final use case from the start (**scratch**)? There are a couple of reasons:\n\n* The pretrained model was already trained on a dataset that has some similarities with the fine-tuning dataset. The fine-tuning process is thus able to take advantage of knowledge acquired by the initial model during pretraining (for instance, with NLP problems, the pretrained model will have some kind of statistical understanding of the language you are using for your task).\n* Since the pretrained",
+        "metadata": {
+          "page": "chapter1/4",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 22,
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.5432709455490112,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "8bfac9cc450788e6c86501670718c2df7e16c19dd8f85080bb848f8f532875a3",
+        "text": "time and money.\">\n</div>\n\nThis pretraining is usually done on very large amounts of data. Therefore, it requires a very large corpus of data, and training can take up to several weeks.\n\n*Fine-tuning*, on the other hand, is the training done **after** a model has been pretrained. To perform fine-tuning, you first acquire a pretrained language model, then perform additional training with a dataset specific to your task. Wait -- why not simply train the model for your final use case from the start",
+        "metadata": {
+          "page": "chapter1/4",
+          "chapter": "chapter1",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "chunk_index": 21
+        },
+        "cosine_similarity": 0.4987871050834656,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "48264b56e1a7d990a258fb581966e8ab7b5563a564c0aa0e2d9a171dbebc025e",
+        "text": "are using for your task).\n* Since the pretrained model was already trained on lots of data, the fine-tuning requires way less data to get decent results.\n* For the same reason, the amount of time and resources needed to get good results are much lower.\n\nFor example, one could leverage a pretrained model trained on the English language and then fine-tune it on an arXiv corpus, resulting in a science/research-based model. The fine-tuning will only require a limited amount of data: the knowledge t",
+        "metadata": {
+          "chapter": "chapter1",
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "chunk_index": 23,
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter1/4"
+        },
+        "cosine_similarity": 0.4704262614250183,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q06",
+    "split": "dev",
+    "question": "How should preprocessing compare with the preprocessing used when the model was pretrained?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter2/2",
+    "evidence_quote": "All this preprocessing needs to be done in exactly the same way as when the model was pretrained,",
+    "hits": [
+      {
+        "chunk_id": "85baea31c06240e4f29757c3fab5eecafdc136bf14f4375ca749dd98972c26db",
+        "text": "* The pretrained model was already trained on a dataset that has some similarities with the fine-tuning dataset. The fine-tuning process is thus able to take advantage of knowledge acquired by the initial model during pretraining (for instance, with NLP problems, the pretrained model will have some kind of statistical understanding of the language you are using for your task).\n* Since the pretrained model was already trained on lots of data, the fine-tuning requires way less data to get decent results.\n* For the same reason, the amount of time and resources needed to get good results are much lower.",
+        "metadata": {
+          "chapter": "chapter1",
+          "page": "chapter1/4",
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "chunk_index": 15,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5514175295829773,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "ef7f34fde5493b4bdc94d5efe71813c37e94b8762b668e99b6506f1514adabb9",
+        "text": "> [!TIP]\n> When using a pretrained model, make sure to check how it was trained, on which datasets, its limits, and its biases. All of this information should be indicated on its model card.",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter4/2.mdx",
+          "chunk_index": 6,
+          "chapter": "chapter4",
+          "page": "chapter4/2",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5278705358505249,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "624334e84f1a0976adfb950062101456d19472f0eec399507a96c1a59ea76067",
+        "text": "All this preprocessing needs to be done in exactly the same way as when the model was pretrained, so we first need to download that information from the [Model Hub](https://huggingface.co/models). To do this, we use the `AutoTokenizer` class and its `from_pretrained()` method. Using the checkpoint name of our model, it will automatically fetch the data associated with the model's tokenizer and cache it (so it's only downloaded the first time you run the code below).\n\nSince the default checkpoint of the `sentiment-analysis` pipeline is `distilbert-base-uncased-finetuned-sst-2-english` (you can see its model card [here](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english)), we run the following:\n\n```python\nfrom transformers import AutoTokenizer\n\ncheckpoint = \"distilbert-base-uncased-finetuned-sst-2-english\"\ntokenizer = AutoTokenizer.from_pretrained(checkpoint)\n```",
+        "metadata": {
+          "page": "chapter2/2",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 4,
+          "chapter": "chapter2",
+          "source": "data/transformers-nlp/chapter2/2.mdx"
+        },
+        "cosine_similarity": 0.46907758712768555,
+        "gold_evidence_match": true
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q06",
+    "split": "dev",
+    "question": "How should preprocessing compare with the preprocessing used when the model was pretrained?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter2/2",
+    "evidence_quote": "All this preprocessing needs to be done in exactly the same way as when the model was pretrained,",
+    "hits": [
+      {
+        "chunk_id": "85baea31c06240e4f29757c3fab5eecafdc136bf14f4375ca749dd98972c26db",
+        "text": "* The pretrained model was already trained on a dataset that has some similarities with the fine-tuning dataset. The fine-tuning process is thus able to take advantage of knowledge acquired by the initial model during pretraining (for instance, with NLP problems, the pretrained model will have some kind of statistical understanding of the language you are using for your task).\n* Since the pretrained model was already trained on lots of data, the fine-tuning requires way less data to get decent results.\n* For the same reason, the amount of time and resources needed to get good results are much lower.",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter1/4",
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "chapter": "chapter1",
+          "chunk_index": 15
+        },
+        "cosine_similarity": 0.5514175295829773,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "ef7f34fde5493b4bdc94d5efe71813c37e94b8762b668e99b6506f1514adabb9",
+        "text": "> [!TIP]\n> When using a pretrained model, make sure to check how it was trained, on which datasets, its limits, and its biases. All of this information should be indicated on its model card.",
+        "metadata": {
+          "page": "chapter4/2",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 6,
+          "source": "data/transformers-nlp/chapter4/2.mdx",
+          "chapter": "chapter4"
+        },
+        "cosine_similarity": 0.5278705358505249,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "624334e84f1a0976adfb950062101456d19472f0eec399507a96c1a59ea76067",
+        "text": "All this preprocessing needs to be done in exactly the same way as when the model was pretrained, so we first need to download that information from the [Model Hub](https://huggingface.co/models). To do this, we use the `AutoTokenizer` class and its `from_pretrained()` method. Using the checkpoint name of our model, it will automatically fetch the data associated with the model's tokenizer and cache it (so it's only downloaded the first time you run the code below).\n\nSince the default checkpoint of the `sentiment-analysis` pipeline is `distilbert-base-uncased-finetuned-sst-2-english` (you can see its model card [here](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english)), we run the following:\n\n```python\nfrom transformers import AutoTokenizer\n\ncheckpoint = \"distilbert-base-uncased-finetuned-sst-2-english\"\ntokenizer = AutoTokenizer.from_pretrained(checkpoint)\n```",
+        "metadata": {
+          "chunk_index": 4,
+          "source": "data/transformers-nlp/chapter2/2.mdx",
+          "chapter": "chapter2",
+          "page": "chapter2/2",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.46907758712768555,
+        "gold_evidence_match": true
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q07",
+    "split": "dev",
+    "question": "What does AutoModel do when given a checkpoint?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter2/3",
+    "evidence_quote": "The `AutoModel` class and its associates are actually simple wrappers designed to fetch the appropriate model architecture for a given checkpoint. It's an \"auto\" class meaning it will guess the appropriate model architecture for you and instantiate the correct model class.",
+    "hits": [
+      {
+        "chunk_id": "a594a91c91a32a743b2fc71460e8e7dce95e60462513e9bcaad2fa76b48f50df",
+        "text": "that happens within the model.\n* **Checkpoints**: These are the weights that will be loaded in a given architecture.\n* **Model**: This is an umbrella term that isn't as precise as \"architecture\" or \"checkpoint\": it can mean both. This course will specify *architecture* or *checkpoint* when it matters to reduce ambiguity.\n\nFor example, BERT is an architecture while `bert-base-cased`, a set of weights trained by the Google team for the first release of BERT, is a checkpoint. However, one can say",
+        "metadata": {
+          "chunk_index": 41,
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter1/4",
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.5957938432693481,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "4a45d2f81e71435931b172de732d9f83baa5c02cf9e8b820fa414268254647b6",
+        "text": "design architecture-agnostic. While the previous code sample limits users to checkpoints loadable in the CamemBERT architecture, using the `TFAuto*` classes makes switching checkpoints simple:\n\n```py\nfrom transformers import AutoTokenizer, TFAutoModelForMaskedLM\n\ntokenizer = AutoTokenizer.from_pretrained(\"camembert-base\")\nmodel = TFAutoModelForMaskedLM.from_pretrained(\"camembert-base\")\n```\n{/if}\n\n> [!TIP]\n> When using a pretrained model, make sure to check how it was trained, on which datasets,",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter4/2.mdx",
+          "page": "chapter4/2",
+          "chunk_index": 10,
+          "chapter": "chapter4",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5764021873474121,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "c09dbc0a20333f8f94f7a984900115261c478ceeb93865ff7b8cc4a1d88f7518",
+        "text": "mend using the [`Auto*` classes](https://huggingface.co/transformers/model_doc/auto?highlight=auto#auto-classes) instead, as these are by design architecture-agnostic. While the previous code sample limits users to checkpoints loadable in the CamemBERT architecture, using the `Auto*` classes makes switching checkpoints simple:\n\n```py\nfrom transformers import AutoTokenizer, AutoModelForMaskedLM\n\ntokenizer = AutoTokenizer.from_pretrained(\"camembert-base\")\nmodel = AutoModelForMaskedLM.from_pretrain",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter4/2.mdx",
+          "chunk_index": 8,
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter4/2",
+          "chapter": "chapter4"
+        },
+        "cosine_similarity": 0.4894448518753052,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q07",
+    "split": "dev",
+    "question": "What does AutoModel do when given a checkpoint?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter2/3",
+    "evidence_quote": "The `AutoModel` class and its associates are actually simple wrappers designed to fetch the appropriate model architecture for a given checkpoint. It's an \"auto\" class meaning it will guess the appropriate model architecture for you and instantiate the correct model class.",
+    "hits": [
+      {
+        "chunk_id": "40b328deaea1f04f9e4a1073461a76ad57406a5aaacb3504b2de6519e1259b5e",
+        "text": "As we dive into Transformer models in this course, you'll see mentions of *architectures* and *checkpoints* as well as *models*. These terms all have slightly different meanings:\n\n* **Architecture**: This is the skeleton of the model -- the definition of each layer and each operation that happens within the model.\n* **Checkpoints**: These are the weights that will be loaded in a given architecture.\n* **Model**: This is an umbrella term that isn't as precise as \"architecture\" or \"checkpoint\": it can mean both. This course will specify *architecture* or *checkpoint* when it matters to reduce ambiguity.\n\nFor example, BERT is an architecture while `bert-base-cased`, a set of weights trained by the Google team for the first release of BERT, is a checkpoint. However, one can say \"the BERT model\" and \"the `bert-base-cased` model.\"",
+        "metadata": {
+          "page": "chapter1/4",
+          "chunk_index": 28,
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.5510668754577637,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "4730212cdd5578cc043307d6f8de15517434296071197bccdb25d40c0b47ef08",
+        "text": "You can also instantiate the checkpoint using the model architecture directly:\n\n{#if fw === 'pt'}\n```py\nfrom transformers import CamembertTokenizer, CamembertForMaskedLM\n\ntokenizer = CamembertTokenizer.from_pretrained(\"camembert-base\")\nmodel = CamembertForMaskedLM.from_pretrained(\"camembert-base\")\n```\n\nHowever, we recommend using the [`Auto*` classes](https://huggingface.co/transformers/model_doc/auto?highlight=auto#auto-classes) instead, as these are by design architecture-agnostic. While the previous code sample limits users to checkpoints loadable in the CamemBERT architecture, using the `Auto*` classes makes switching checkpoints simple:\n\n```py\nfrom transformers import AutoTokenizer, AutoModelForMaskedLM",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter4/2.mdx",
+          "page": "chapter4/2",
+          "chapter": "chapter4",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 4
+        },
+        "cosine_similarity": 0.5411429405212402,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "f015234a3defba8c010b2e3629943d24fad3df2808b72b2984d7137fbba6c3e6",
+        "text": "To get an idea of how it works, let's first initialize a model and a tokenizer:\n\n{#if fw === 'pt'}\n```py\nfrom transformers import AutoModelForMaskedLM, AutoTokenizer\n\ncheckpoint = \"camembert-base\"\n\nmodel = AutoModelForMaskedLM.from_pretrained(checkpoint)\ntokenizer = AutoTokenizer.from_pretrained(checkpoint)\n```\n{:else}\n```py\nfrom transformers import TFAutoModelForMaskedLM, AutoTokenizer\n\ncheckpoint = \"camembert-base\"\n\nmodel = TFAutoModelForMaskedLM.from_pretrained(checkpoint)\ntokenizer = AutoTokenizer.from_pretrained(checkpoint)\n```\n{/if}\n\nYou're free to do whatever you want with these — add tokens to the tokenizer, train the model, fine-tune it. Once you're happy with the resulting model, weights, and tokenizer, you can leverage the `push_to_hub()` method directly available on the `model` object:\n\n```py\nmodel.push_to_hub(\"dummy-model\")\n```",
+        "metadata": {
+          "chunk_index": 7,
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter4",
+          "source": "data/transformers-nlp/chapter4/3.mdx",
+          "page": "chapter4/3"
+        },
+        "cosine_similarity": 0.5251122117042542,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q07",
+    "split": "dev",
+    "question": "What does AutoModel do when given a checkpoint?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter2/3",
+    "evidence_quote": "The `AutoModel` class and its associates are actually simple wrappers designed to fetch the appropriate model architecture for a given checkpoint. It's an \"auto\" class meaning it will guess the appropriate model architecture for you and instantiate the correct model class.",
+    "hits": [
+      {
+        "chunk_id": "40b328deaea1f04f9e4a1073461a76ad57406a5aaacb3504b2de6519e1259b5e",
+        "text": "As we dive into Transformer models in this course, you'll see mentions of *architectures* and *checkpoints* as well as *models*. These terms all have slightly different meanings:\n\n* **Architecture**: This is the skeleton of the model -- the definition of each layer and each operation that happens within the model.\n* **Checkpoints**: These are the weights that will be loaded in a given architecture.\n* **Model**: This is an umbrella term that isn't as precise as \"architecture\" or \"checkpoint\": it can mean both. This course will specify *architecture* or *checkpoint* when it matters to reduce ambiguity.\n\nFor example, BERT is an architecture while `bert-base-cased`, a set of weights trained by the Google team for the first release of BERT, is a checkpoint. However, one can say \"the BERT model\" and \"the `bert-base-cased` model.\"",
+        "metadata": {
+          "chapter": "chapter1",
+          "chunk_index": 28,
+          "source": "data/transformers-nlp/chapter1/4.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter1/4"
+        },
+        "cosine_similarity": 0.5510668754577637,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "4730212cdd5578cc043307d6f8de15517434296071197bccdb25d40c0b47ef08",
+        "text": "You can also instantiate the checkpoint using the model architecture directly:\n\n{#if fw === 'pt'}\n```py\nfrom transformers import CamembertTokenizer, CamembertForMaskedLM\n\ntokenizer = CamembertTokenizer.from_pretrained(\"camembert-base\")\nmodel = CamembertForMaskedLM.from_pretrained(\"camembert-base\")\n```\n\nHowever, we recommend using the [`Auto*` classes](https://huggingface.co/transformers/model_doc/auto?highlight=auto#auto-classes) instead, as these are by design architecture-agnostic. While the previous code sample limits users to checkpoints loadable in the CamemBERT architecture, using the `Auto*` classes makes switching checkpoints simple:\n\n```py\nfrom transformers import AutoTokenizer, AutoModelForMaskedLM",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter4",
+          "page": "chapter4/2",
+          "source": "data/transformers-nlp/chapter4/2.mdx",
+          "chunk_index": 4
+        },
+        "cosine_similarity": 0.5411429405212402,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "f015234a3defba8c010b2e3629943d24fad3df2808b72b2984d7137fbba6c3e6",
+        "text": "To get an idea of how it works, let's first initialize a model and a tokenizer:\n\n{#if fw === 'pt'}\n```py\nfrom transformers import AutoModelForMaskedLM, AutoTokenizer\n\ncheckpoint = \"camembert-base\"\n\nmodel = AutoModelForMaskedLM.from_pretrained(checkpoint)\ntokenizer = AutoTokenizer.from_pretrained(checkpoint)\n```\n{:else}\n```py\nfrom transformers import TFAutoModelForMaskedLM, AutoTokenizer\n\ncheckpoint = \"camembert-base\"\n\nmodel = TFAutoModelForMaskedLM.from_pretrained(checkpoint)\ntokenizer = AutoTokenizer.from_pretrained(checkpoint)\n```\n{/if}\n\nYou're free to do whatever you want with these — add tokens to the tokenizer, train the model, fine-tune it. Once you're happy with the resulting model, weights, and tokenizer, you can leverage the `push_to_hub()` method directly available on the `model` object:\n\n```py\nmodel.push_to_hub(\"dummy-model\")\n```",
+        "metadata": {
+          "page": "chapter4/3",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter4/3.mdx",
+          "chapter": "chapter4",
+          "chunk_index": 7
+        },
+        "cosine_similarity": 0.5251122117042542,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q08",
+    "split": "dev",
+    "question": "In chapter 2, what token is used to represent words absent from the vocabulary?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter2/4",
+    "evidence_quote": "Finally, we need a custom token to represent words that are not in our vocabulary. This is known as the \"unknown\" token, often represented as \"[UNK]\" or \"&lt;unk&gt;\".",
+    "hits": [
+      {
+        "chunk_id": "b05f6e9935616191cb86184b494b9da9548277313bcd5cd83f5459b2a4902117",
+        "text": "t see as being similar initially.\n\nFinally, we need a custom token to represent words that are not in our vocabulary. This is known as the \"unknown\" token, often represented as \"[UNK]\" or \"&lt;unk&gt;\". It's generally a bad sign if you see that the tokenizer is producing a lot of these tokens, as it wasn't able to retrieve a sensible representation of a word and you're losing information along the way. The goal when crafting the vocabulary is to do it in such a way that the tokenizer tokenizes a",
+        "metadata": {
+          "page": "chapter2/4",
+          "chapter": "chapter2",
+          "source": "data/transformers-nlp/chapter2/4.mdx",
+          "chunk_index": 8,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.6790306568145752,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "b3ed8f5e064e120ae2e3d89e156c80e422ca25aa35272794792baa4249c1260a",
+        "text": "of `\"##ugs\"` that is in the vocabulary, so we split there and get `[\"b\", \"##u, \"##gs\"]`. Finally, `\"##gs\"` is in the vocabulary, so this last list is the tokenization of `\"bugs\"`.\n\nWhen the tokenization gets to a stage where it's not possible to find a subword in the vocabulary, the whole word is tokenized as unknown -- so, for instance, `\"mug\"` would be tokenized as `[\"[UNK]\"]`, as would `\"bum\"` (even if we can begin with `\"b\"` and `\"##u\"`, `\"##m\"` is not the vocabulary, and the resulting toke",
+        "metadata": {
+          "page": "chapter6/6",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 13,
+          "source": "data/transformers-nlp/chapter6/6.mdx",
+          "chapter": "chapter6"
+        },
+        "cosine_similarity": 0.6404457092285156,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "f3f85a4595b525c4141fc57ad062a63b50666a8a1b9bb637f5f7a73b34d7d89c",
+        "text": ", \"h\", \"n\", \"p\", \"s\", \"u\"]`. For real-world cases, that base vocabulary will contain all the ASCII characters, at the very least, and probably some Unicode characters as well. If an example you are tokenizing uses a character that is not in the training corpus, that character will be converted to the unknown token. That's one reason why lots of NLP models are very bad at analyzing content with emojis, for instance.\n\n> [!TIP]\n> The GPT-2 and RoBERTa tokenizers (which are pretty similar) have a cl",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter6/5.mdx",
+          "chapter": "chapter6",
+          "page": "chapter6/5",
+          "chunk_index": 3,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.61602783203125,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q08",
+    "split": "dev",
+    "question": "In chapter 2, what token is used to represent words absent from the vocabulary?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter2/4",
+    "evidence_quote": "Finally, we need a custom token to represent words that are not in our vocabulary. This is known as the \"unknown\" token, often represented as \"[UNK]\" or \"&lt;unk&gt;\".",
+    "hits": [
+      {
+        "chunk_id": "a65f61217be0d0646029c2fe9be6e53d8b09eb419c09458730ee3fd46c8a1567",
+        "text": "When the tokenization gets to a stage where it's not possible to find a subword in the vocabulary, the whole word is tokenized as unknown -- so, for instance, `\"mug\"` would be tokenized as `[\"[UNK]\"]`, as would `\"bum\"` (even if we can begin with `\"b\"` and `\"##u\"`, `\"##m\"` is not the vocabulary, and the resulting tokenization will just be `[\"[UNK]\"]`, not `[\"b\", \"##u\", \"[UNK]\"]`). This is another difference from BPE, which would only classify the individual characters not in the vocabulary as unknown.\n\n> [!TIP]\n> ✏️ **Now your turn!** How will the word `\"pugs\"` be tokenized?\n\n## Implementing WordPiece[[implementing-wordpiece]]\n\nNow let's take a look at an implementation of the WordPiece algorithm. Like with BPE, this is just pedagogical, and you won't able to use this on a big corpus.\n\nWe will use the same corpus as in the BPE example:",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter6",
+          "chunk_index": 9,
+          "source": "data/transformers-nlp/chapter6/6.mdx",
+          "page": "chapter6/6"
+        },
+        "cosine_similarity": 0.6470429301261902,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "49b0c8b9fd31adc08191e6bc36e026dd8b8002c024728ed052df8243b59b04ca",
+        "text": "We can see that the tokenizer's special tokens `[CLS]` and `[SEP]` are mapped to `None`, and then each token is mapped to the word it originates from. This is especially useful to determine if a token is at the start of a word or if two tokens are in the same word. We could rely on the `##` prefix for that, but it only works for BERT-like tokenizers; this method works for any type of tokenizer as long as it's a fast one. In the next chapter, we'll see how we can use this capability to apply the labels we have for each word properly to the tokens in tasks like named entity recognition (NER) and part-of-speech (POS) tagging. We can also use it to mask all the tokens coming from the same word in masked language modeling (a technique called _whole word masking_).",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter6/3.mdx",
+          "chunk_index": 8,
+          "chapter": "chapter6",
+          "page": "chapter6/3"
+        },
+        "cosine_similarity": 0.6408244371414185,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "dbbd306cf54a1ee95f88900c97b0b214720be9014d6c6d963f8ea1a194e188a2",
+        "text": "As another example, let's see how the word `\"bugs\"` would be tokenized. `\"b\"` is the longest subword starting at the beginning of the word that is in the vocabulary, so we split there and get `[\"b\", \"##ugs\"]`. Then `\"##u\"` is the longest subword starting at the beginning of `\"##ugs\"` that is in the vocabulary, so we split there and get `[\"b\", \"##u, \"##gs\"]`. Finally, `\"##gs\"` is in the vocabulary, so this last list is the tokenization of `\"bugs\"`.",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter6/6.mdx",
+          "chapter": "chapter6",
+          "page": "chapter6/6",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 8
+        },
+        "cosine_similarity": 0.6270588040351868,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q08",
+    "split": "dev",
+    "question": "In chapter 2, what token is used to represent words absent from the vocabulary?",
+    "filter": {
+      "chapter": "chapter2"
+    },
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter2/4",
+    "evidence_quote": "Finally, we need a custom token to represent words that are not in our vocabulary. This is known as the \"unknown\" token, often represented as \"[UNK]\" or \"&lt;unk&gt;\".",
+    "hits": [
+      {
+        "chunk_id": "2af2c214333c153503723eb8dd9e9edee46a5b3b28270d45224ccfe34a09dd11",
+        "text": "Finally, we need a custom token to represent words that are not in our vocabulary. This is known as the \"unknown\" token, often represented as \"[UNK]\" or \"&lt;unk&gt;\". It's generally a bad sign if you see that the tokenizer is producing a lot of these tokens, as it wasn't able to retrieve a sensible representation of a word and you're losing information along the way. The goal when crafting the vocabulary is to do it in such a way that the tokenizer tokenizes as few words as possible into the unknown token.\n\nOne way to reduce the amount of unknown tokens is to go one level deeper, using a _character-based_ tokenizer.\n\n## Character-based[[character-based]]\n\n<Youtube id=\"ssLq_EK2jLE\"/>\n\nCharacter-based tokenizers split the text into characters, rather than words. This has two primary benefits:",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter2",
+          "source": "data/transformers-nlp/chapter2/4.mdx",
+          "page": "chapter2/4",
+          "chunk_index": 5
+        },
+        "cosine_similarity": 0.5749074220657349,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "f53714360798e551a58728d5fde25206d00eb5424ff7be516c579d871a0df2e0",
+        "text": "If we want to completely cover a language with a word-based tokenizer, we'll need to have an identifier for each word in the language, which will generate a huge amount of tokens. For example, there are over 500,000 words in the English language, so to build a map from each word to an input ID we'd need to keep track of that many IDs. Furthermore, words like \"dog\" are represented differently from words like \"dogs\", and the model will initially have no way of knowing that \"dog\" and \"dogs\" are similar: it will identify the two words as unrelated. The same applies to other similar words, like \"run\" and \"running\", which the model will not see as being similar initially.",
+        "metadata": {
+          "page": "chapter2/4",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter2/4.mdx",
+          "chunk_index": 4,
+          "chapter": "chapter2"
+        },
+        "cosine_similarity": 0.5497141480445862,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "76cb2c14c631f44fd47cd5a007d094a81c20adb66d2e97d94f694c1b3a4c1032",
+        "text": "Subword tokenization algorithms rely on the principle that frequently used words should not be split into smaller subwords, but rare words should be decomposed into meaningful subwords.\n\nFor instance, \"annoyingly\" might be considered a rare word and could be decomposed into \"annoying\" and \"ly\". These are both likely to appear more frequently as standalone subwords, while at the same time the meaning of \"annoyingly\" is kept by the composite meaning of \"annoying\" and \"ly\".\n\nHere is an example showing how a subword tokenization algorithm would tokenize the sequence \"Let's do tokenization!\":",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter2/4.mdx",
+          "chapter": "chapter2",
+          "chunk_index": 8,
+          "page": "chapter2/4",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5355165004730225,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q09",
+    "split": "dev",
+    "question": "For DistilBERT, what inputs does the tokenizer return as necessary for the model in the example?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter2/6",
+    "evidence_quote": "For DistilBERT, that includes the input IDs as well as the attention mask.",
+    "hits": [
+      {
+        "chunk_id": "b86544077887b3c5d2426b42b98851e14f906429ba1eaa09ebb83db1d58eddd1",
+        "text": "we need to use the same vocabulary used when the model was pretrained.\n\nTo get a better understanding of the two steps, we'll explore them separately. Note that we will use some methods that perform parts of the tokenization pipeline separately to show you the intermediate results of those steps, but in practice, you should call the tokenizer directly on your inputs (as shown in the section 2).\n\n### Tokenization[[tokenization]]\n\nThe tokenization process is done by the `tokenize()` method of the",
+        "metadata": {
+          "chapter": "chapter2",
+          "page": "chapter2/4",
+          "chunk_index": 23,
+          "source": "data/transformers-nlp/chapter2/4.mdx",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.7423479557037354,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "8f188d3f9d88f859e5ee65c08c99c04e1ed340bda3ca7f2c914bd8be3d0ec13c",
+        "text": "an govern that process, which is why we need to instantiate the tokenizer using the name of the model, to make sure we use the same rules that were used when the model was pretrained.\n\nThe second step is to convert those tokens into numbers, so we can build a tensor out of them and feed them to the model. To do this, the tokenizer has a *vocabulary*, which is the part we download when we instantiate it with the `from_pretrained()` method. Again, we need to use the same vocabulary used when the m",
+        "metadata": {
+          "page": "chapter2/4",
+          "chunk_index": 22,
+          "chapter": "chapter2",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter2/4.mdx"
+        },
+        "cosine_similarity": 0.6974855661392212,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "9e3bd5e677177802aaac37272f47b436644856ce5096a7337555296768b569c0",
+        "text": "[SEP]` at the end. This is because the model was pretrained with those, so to get the same results for inference we need to add them as well. Note that some models don't add special words, or add different ones; models may also add these special words only at the beginning, or only at the end. In any case, the tokenizer knows which ones are expected and will deal with this for you.\n\n## Wrapping up: From tokenizer to model[[wrapping-up-from-tokenizer-to-model]]\n\nNow that we've seen all the indivi",
+        "metadata": {
+          "chunk_index": 10,
+          "source": "data/transformers-nlp/chapter2/6.mdx",
+          "chapter": "chapter2",
+          "page": "chapter2/6",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.6558042168617249,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q09",
+    "split": "dev",
+    "question": "For DistilBERT, what inputs does the tokenizer return as necessary for the model in the example?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter2/6",
+    "evidence_quote": "For DistilBERT, that includes the input IDs as well as the attention mask.",
+    "hits": [
+      {
+        "chunk_id": "661596e85b5f48f59afc1dda51534006317113bb165d4b5515340a248a8291e1",
+        "text": "However, as we saw in section 2, the 🤗 Transformers API can handle all of this for us with a high-level function that we'll dive into here. When you call your `tokenizer` directly on the sentence, you get back inputs that are ready to pass through your model:\n\n```py\nfrom transformers import AutoTokenizer\n\ncheckpoint = \"distilbert-base-uncased-finetuned-sst-2-english\"\ntokenizer = AutoTokenizer.from_pretrained(checkpoint)\n\nsequence = \"I've been waiting for a HuggingFace course my whole life.\"\n\nmodel_inputs = tokenizer(sequence)\n```\n\nHere, the `model_inputs` variable contains everything that's necessary for a model to operate well. For DistilBERT, that includes the input IDs as well as the attention mask. Other models that accept additional inputs will also have those output by the `tokenizer` object.",
+        "metadata": {
+          "page": "chapter2/6",
+          "source": "data/transformers-nlp/chapter2/6.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter2",
+          "chunk_index": 1
+        },
+        "cosine_similarity": 0.6816086173057556,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "69ebd93bf128c7abebbcee212ae8c9cd2384030d215e3ca80317a40f129cc12c",
+        "text": "```py\nencoded_input = tokenizer(\"How are you?\")\nprint(encoded_input[\"input_ids\"])\ntokenizer.decode(encoded_input[\"input_ids\"])\n```\n\n```python out\n[101, 1731, 1132, 1128, 136, 102]\n'[CLS] How are you? [SEP]'\n```\n\nThese special tokens are automatically added by the tokenizer. Not all models need special tokens; they are primarily used when a model was pretrained with them, in which case the tokenizer will add them since the model expects them.\n\n### Why is all of this necessary?\n\nHere's a concrete example. Consider these encoded sequences:\n\n```py\nsequences = [\n\"I've been waiting for a HuggingFace course my whole life.\",\n\"I hate this so much!\",\n]\n```\n\nOnce tokenized, we have:\n\n```python\nencoded_sequences = [\n[\n101,\n1045,\n1005,\n2310,\n2042,\n3403,\n2005,\n1037,\n17662,\n12172,\n2607,\n2026,\n2878,\n2166,\n1012,\n102,\n],\n[101, 1045, 5223, 2023, 2061, 2172, 999, 102],\n]\n```",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter2/3.mdx",
+          "page": "chapter2/3",
+          "chunk_index": 14,
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter2"
+        },
+        "cosine_similarity": 0.6365512609481812,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "c5d9b4bec56aa18c87d01553e7e89e17b700a85fea51be8c6ce99520e92442ac",
+        "text": "This tokenizer is a subword tokenizer: it splits the words until it obtains tokens that can be represented by its vocabulary. That's the case here with `transformer`, which is split into two tokens: `transform` and `##er`.\n\n### From tokens to input IDs[[from-tokens-to-input-ids]]\n\nThe conversion to input IDs is handled by the `convert_tokens_to_ids()` tokenizer method:\n\n```py\nids = tokenizer.convert_tokens_to_ids(tokens)\n\nprint(ids)\n```\n\n```python out\n[7993, 170, 11303, 1200, 2443, 1110, 3014]\n```\n\nThese outputs, once converted to the appropriate framework tensor, can then be used as inputs to a model as seen earlier in this chapter.",
+        "metadata": {
+          "chunk_index": 15,
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter2",
+          "page": "chapter2/4",
+          "source": "data/transformers-nlp/chapter2/4.mdx"
+        },
+        "cosine_similarity": 0.6219086647033691,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q09",
+    "split": "dev",
+    "question": "For DistilBERT, what inputs does the tokenizer return as necessary for the model in the example?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter2/6",
+    "evidence_quote": "For DistilBERT, that includes the input IDs as well as the attention mask.",
+    "hits": [
+      {
+        "chunk_id": "661596e85b5f48f59afc1dda51534006317113bb165d4b5515340a248a8291e1",
+        "text": "However, as we saw in section 2, the 🤗 Transformers API can handle all of this for us with a high-level function that we'll dive into here. When you call your `tokenizer` directly on the sentence, you get back inputs that are ready to pass through your model:\n\n```py\nfrom transformers import AutoTokenizer\n\ncheckpoint = \"distilbert-base-uncased-finetuned-sst-2-english\"\ntokenizer = AutoTokenizer.from_pretrained(checkpoint)\n\nsequence = \"I've been waiting for a HuggingFace course my whole life.\"\n\nmodel_inputs = tokenizer(sequence)\n```\n\nHere, the `model_inputs` variable contains everything that's necessary for a model to operate well. For DistilBERT, that includes the input IDs as well as the attention mask. Other models that accept additional inputs will also have those output by the `tokenizer` object.",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 1,
+          "source": "data/transformers-nlp/chapter2/6.mdx",
+          "chapter": "chapter2",
+          "page": "chapter2/6"
+        },
+        "cosine_similarity": 0.6816086173057556,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "69ebd93bf128c7abebbcee212ae8c9cd2384030d215e3ca80317a40f129cc12c",
+        "text": "```py\nencoded_input = tokenizer(\"How are you?\")\nprint(encoded_input[\"input_ids\"])\ntokenizer.decode(encoded_input[\"input_ids\"])\n```\n\n```python out\n[101, 1731, 1132, 1128, 136, 102]\n'[CLS] How are you? [SEP]'\n```\n\nThese special tokens are automatically added by the tokenizer. Not all models need special tokens; they are primarily used when a model was pretrained with them, in which case the tokenizer will add them since the model expects them.\n\n### Why is all of this necessary?\n\nHere's a concrete example. Consider these encoded sequences:\n\n```py\nsequences = [\n\"I've been waiting for a HuggingFace course my whole life.\",\n\"I hate this so much!\",\n]\n```\n\nOnce tokenized, we have:\n\n```python\nencoded_sequences = [\n[\n101,\n1045,\n1005,\n2310,\n2042,\n3403,\n2005,\n1037,\n17662,\n12172,\n2607,\n2026,\n2878,\n2166,\n1012,\n102,\n],\n[101, 1045, 5223, 2023, 2061, 2172, 999, 102],\n]\n```",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter2/3.mdx",
+          "page": "chapter2/3",
+          "chapter": "chapter2",
+          "chunk_index": 14,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.6365512609481812,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "c5d9b4bec56aa18c87d01553e7e89e17b700a85fea51be8c6ce99520e92442ac",
+        "text": "This tokenizer is a subword tokenizer: it splits the words until it obtains tokens that can be represented by its vocabulary. That's the case here with `transformer`, which is split into two tokens: `transform` and `##er`.\n\n### From tokens to input IDs[[from-tokens-to-input-ids]]\n\nThe conversion to input IDs is handled by the `convert_tokens_to_ids()` tokenizer method:\n\n```py\nids = tokenizer.convert_tokens_to_ids(tokens)\n\nprint(ids)\n```\n\n```python out\n[7993, 170, 11303, 1200, 2443, 1110, 3014]\n```\n\nThese outputs, once converted to the appropriate framework tensor, can then be used as inputs to a model as seen earlier in this chapter.",
+        "metadata": {
+          "chapter": "chapter2",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter2/4.mdx",
+          "chunk_index": 15,
+          "page": "chapter2/4"
+        },
+        "cosine_similarity": 0.6219086647033691,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q10",
+    "split": "dev",
+    "question": "What limitation is mentioned for running Trainer.train() without a GPU?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter3/3",
+    "evidence_quote": "The hardest part is likely to be preparing the environment to run `Trainer.train()`, as it will run very slowly on a CPU.",
+    "hits": [
+      {
+        "chunk_id": "c8a049fb3a3a670d6caf3e83e3b58bb37f08f9aae0602e837d5ec19cc0dffa77",
+        "text": "ainer\",\neval_strategy=\"epoch\",\nfp16=True, # Enable mixed precision\n)\n```\n\n**Gradient Accumulation**: For effective larger batch sizes when GPU memory is limited:\n\n```py\ntraining_args = TrainingArguments(\n\"test-trainer\",\neval_strategy=\"epoch\",\nper_device_train_batch_size=4,\ngradient_accumulation_steps=4, # Effective batch size = 4 * 4 = 16\n)\n```\n\n**Learning Rate Scheduling**: The Trainer uses linear decay by default, but you can customize this:\n\n```py\ntraining_args = TrainingArguments(\n\"test-trai",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter3",
+          "chunk_index": 24,
+          "page": "chapter3/3",
+          "source": "data/transformers-nlp/chapter3/3.mdx"
+        },
+        "cosine_similarity": 0.5517902970314026,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "d98f2e024f4be6d25ce725d79d4dde6ea1c89a5c138049f19733f5d2aef678f6",
+        "text": "s important part of the processing pipeline.\n\n> [!TIP]\n> 📖 **Learn More**: For comprehensive details on the Trainer class and its parameters, visit the [Trainer API documentation](https://huggingface.co/docs/transformers/main/en/main_classes/trainer) and explore advanced usage patterns in the [training cookbook recipes](https://huggingface.co/learn/cookbook/en/fine_tuning_code_llm_on_single_gpu).\n\nTo fine-tune the model on our dataset, we just have to call the `train()` method of our `Trainer`:",
+        "metadata": {
+          "page": "chapter3/3",
+          "source": "data/transformers-nlp/chapter3/3.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 11,
+          "chapter": "chapter3"
+        },
+        "cosine_similarity": 0.514185905456543,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "2d67dcd133576b8f92ca48556a2895ecb10dd9995c2c639946ed493a879217c5",
+        "text": "``py\ntraining_args = TrainingArguments(\n\"test-trainer\",\neval_strategy=\"epoch\",\nlearning_rate=2e-5,\nlr_scheduler_type=\"cosine\", # Try different schedulers\n)\n```\n\n> [!TIP]\n> 🎯 **Performance Optimization**: For more advanced training techniques including distributed training, memory optimization, and hardware-specific optimizations, explore the [🤗 Transformers performance guide](https://huggingface.co/docs/transformers/main/en/performance).\n\nThe `Trainer` will work out of the box on multiple GPUs o",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter3/3",
+          "chunk_index": 25,
+          "source": "data/transformers-nlp/chapter3/3.mdx",
+          "chapter": "chapter3"
+        },
+        "cosine_similarity": 0.5127838850021362,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q10",
+    "split": "dev",
+    "question": "What limitation is mentioned for running Trainer.train() without a GPU?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter3/3",
+    "evidence_quote": "The hardest part is likely to be preparing the environment to run `Trainer.train()`, as it will run very slowly on a CPU.",
+    "hits": [
+      {
+        "chunk_id": "e79008906cf3be9ce3cc7b3c675e1df8832cc199d2b56fb1fd469ba13e993804",
+        "text": "> [!TIP]\n> 📖 **Learn More**: For comprehensive details on the Trainer class and its parameters, visit the [Trainer API documentation](https://huggingface.co/docs/transformers/main/en/main_classes/trainer) and explore advanced usage patterns in the [training cookbook recipes](https://huggingface.co/learn/cookbook/en/fine_tuning_code_llm_on_single_gpu).\n\nTo fine-tune the model on our dataset, we just have to call the `train()` method of our `Trainer`:\n\n```py\ntrainer.train()\n```\n\nThis will start the fine-tuning (which should take a couple of minutes on a GPU) and report the training loss every 500 steps. It won't, however, tell you how well (or badly) your model is performing. This is because:",
+        "metadata": {
+          "chunk_index": 7,
+          "page": "chapter3/3",
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter3",
+          "source": "data/transformers-nlp/chapter3/3.mdx"
+        },
+        "cosine_similarity": 0.5305368304252625,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "7464ee734977c8d1bf8e012418f3f35ae1bc3f44d37279b4973a44c7c032e8c3",
+        "text": "This is really where the `Trainer` API shows its limits and the 🤗 Accelerate library shines: customizing the class to a specific use case can be painful, but tweaking a fully exposed training loop is easy.\n\nLet's take a look at our `TrainingArguments`:\n\n```python\nfrom transformers import TrainingArguments\n\nargs = TrainingArguments(\n\"bert-finetuned-squad\",\nevaluation_strategy=\"no\",\nsave_strategy=\"epoch\",\nlearning_rate=2e-5,\nnum_train_epochs=3,\nweight_decay=0.01,\nfp16=True,\npush_to_hub=True,\n)\n```\n\nWe've seen most of these before: we set some hyperparameters (like the learning rate, the number of epochs we train for, and some weight decay) and indicate that we want to save the model at the end of every epoch, skip evaluation, and upload our results to the Model Hub. We also enable mixed-precision training with `fp16=True`, as it can speed up the training nicely on a recent GPU.\n\n{:else}",
+        "metadata": {
+          "chapter": "chapter7",
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter7/7",
+          "source": "data/transformers-nlp/chapter7/7.mdx",
+          "chunk_index": 54
+        },
+        "cosine_similarity": 0.49097055196762085,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "b01a54d7bc7cad807f0a18ca1cba19e1c31928fee2f6c14bbdecda9d5e8e29d2",
+        "text": "The `Trainer` will work out of the box on multiple GPUs or TPUs and provides lots of options for distributed training. We will go over everything it supports in Chapter 10.\n\nThis concludes the introduction to fine-tuning using the `Trainer` API. An example of doing this for most common NLP tasks will be given in [Chapter 7](/course/chapter7), but for now let's look at how to do the same thing with a pure PyTorch training loop.\n\n> [!TIP]\n> 📝 **More Examples**: Check out the comprehensive collection of [🤗 Transformers notebooks](https://huggingface.co/docs/transformers/main/en/notebooks).\n\n## Section Quiz[[section-quiz]]\n\nTest your understanding of the Trainer API and fine-tuning concepts:\n\n### 1. What is the purpose of the <code>processing_class</code> parameter in the Trainer?",
+        "metadata": {
+          "chunk_index": 16,
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter3/3.mdx",
+          "chapter": "chapter3",
+          "page": "chapter3/3"
+        },
+        "cosine_similarity": 0.4625375270843506,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q10",
+    "split": "dev",
+    "question": "What limitation is mentioned for running Trainer.train() without a GPU?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter3/3",
+    "evidence_quote": "The hardest part is likely to be preparing the environment to run `Trainer.train()`, as it will run very slowly on a CPU.",
+    "hits": [
+      {
+        "chunk_id": "e79008906cf3be9ce3cc7b3c675e1df8832cc199d2b56fb1fd469ba13e993804",
+        "text": "> [!TIP]\n> 📖 **Learn More**: For comprehensive details on the Trainer class and its parameters, visit the [Trainer API documentation](https://huggingface.co/docs/transformers/main/en/main_classes/trainer) and explore advanced usage patterns in the [training cookbook recipes](https://huggingface.co/learn/cookbook/en/fine_tuning_code_llm_on_single_gpu).\n\nTo fine-tune the model on our dataset, we just have to call the `train()` method of our `Trainer`:\n\n```py\ntrainer.train()\n```\n\nThis will start the fine-tuning (which should take a couple of minutes on a GPU) and report the training loss every 500 steps. It won't, however, tell you how well (or badly) your model is performing. This is because:",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter3",
+          "page": "chapter3/3",
+          "chunk_index": 7,
+          "source": "data/transformers-nlp/chapter3/3.mdx"
+        },
+        "cosine_similarity": 0.5305368304252625,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "7464ee734977c8d1bf8e012418f3f35ae1bc3f44d37279b4973a44c7c032e8c3",
+        "text": "This is really where the `Trainer` API shows its limits and the 🤗 Accelerate library shines: customizing the class to a specific use case can be painful, but tweaking a fully exposed training loop is easy.\n\nLet's take a look at our `TrainingArguments`:\n\n```python\nfrom transformers import TrainingArguments\n\nargs = TrainingArguments(\n\"bert-finetuned-squad\",\nevaluation_strategy=\"no\",\nsave_strategy=\"epoch\",\nlearning_rate=2e-5,\nnum_train_epochs=3,\nweight_decay=0.01,\nfp16=True,\npush_to_hub=True,\n)\n```\n\nWe've seen most of these before: we set some hyperparameters (like the learning rate, the number of epochs we train for, and some weight decay) and indicate that we want to save the model at the end of every epoch, skip evaluation, and upload our results to the Model Hub. We also enable mixed-precision training with `fp16=True`, as it can speed up the training nicely on a recent GPU.\n\n{:else}",
+        "metadata": {
+          "chunk_index": 54,
+          "source": "data/transformers-nlp/chapter7/7.mdx",
+          "page": "chapter7/7",
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter7"
+        },
+        "cosine_similarity": 0.49097055196762085,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "b01a54d7bc7cad807f0a18ca1cba19e1c31928fee2f6c14bbdecda9d5e8e29d2",
+        "text": "The `Trainer` will work out of the box on multiple GPUs or TPUs and provides lots of options for distributed training. We will go over everything it supports in Chapter 10.\n\nThis concludes the introduction to fine-tuning using the `Trainer` API. An example of doing this for most common NLP tasks will be given in [Chapter 7](/course/chapter7), but for now let's look at how to do the same thing with a pure PyTorch training loop.\n\n> [!TIP]\n> 📝 **More Examples**: Check out the comprehensive collection of [🤗 Transformers notebooks](https://huggingface.co/docs/transformers/main/en/notebooks).\n\n## Section Quiz[[section-quiz]]\n\nTest your understanding of the Trainer API and fine-tuning concepts:\n\n### 1. What is the purpose of the <code>processing_class</code> parameter in the Trainer?",
+        "metadata": {
+          "chapter": "chapter3",
+          "chunk_index": 16,
+          "page": "chapter3/3",
+          "source": "data/transformers-nlp/chapter3/3.mdx",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.4625375270843506,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q11",
+    "split": "dev",
+    "question": "What might a learning curve that is too erratic or too flat suggest about the learning rate?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter3/5",
+    "evidence_quote": "**Learning rate**: Are the curves too erratic (LR too high) or too flat (LR too low)?",
+    "hits": [
+      {
+        "chunk_id": "379fb61e89677f9c1ced0b52f0599dfa53e693951ffe02552e13e90c23c32e48",
+        "text": "erve erratic, highly fluctuating learning curves?\n\n<Question\nchoices={[\n{\ntext: \"Increase the learning rate to speed up convergence.\",\nexplain: \"Increasing the learning rate would likely make the fluctuations worse.\"\n},\n{\ntext: \"Reduce the learning rate and possibly increase the batch size.\",\nexplain: \"Correct! Lower learning rates and larger batch sizes typically lead to more stable training.\",\ncorrect: true\n},\n{\ntext: \"Stop training immediately as the model won't improve.\",\nexplain: \"Erratic c",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter3/5.mdx",
+          "page": "chapter3/5",
+          "chunk_index": 38,
+          "chapter": "chapter3",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.6525267362594604,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "2e49c151bec8c03226763ab9a93abb24ca622baf8bf095d8503f4b3c17b5cff7",
+        "text": "s in confidence may not change the final accuracy until a threshold is crossed.\",\ncorrect: true\n},\n{\ntext: \"The model is not learning effectively.\",\nexplain: \"Steppy accuracy curves are normal even when the model is learning well.\"\n},\n{\ntext: \"The batch size is too small.\",\nexplain: \"Batch size affects training stability but doesn't explain the inherently discrete nature of accuracy metrics.\"\n}\n]}\n/>\n\n### 3. What is the best approach when you observe erratic, highly fluctuating learning curves?",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter3",
+          "source": "data/transformers-nlp/chapter3/5.mdx",
+          "page": "chapter3/5",
+          "chunk_index": 37
+        },
+        "cosine_similarity": 0.588665246963501,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "f5554cf0f3fc8dcf7d8e8771c67174cadd937c4a9b357014508ef0bb5451f89d",
+        "text": "s[[key-takeaways]]\n\nUnderstanding learning curves is crucial for becoming an effective machine learning practitioner. These visual tools provide immediate feedback about your model's training progress and help you make informed decisions about when to stop training, adjust hyperparameters, or try different approaches. With practice, you'll develop an intuitive understanding of what healthy learning curves look like and how to address issues when they arise.\n\n> [!TIP]\n> 💡 **Key Takeaways:**\n> - L",
+        "metadata": {
+          "page": "chapter3/5",
+          "source": "data/transformers-nlp/chapter3/5.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter3",
+          "chunk_index": 31
+        },
+        "cosine_similarity": 0.5827338695526123,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q11",
+    "split": "dev",
+    "question": "What might a learning curve that is too erratic or too flat suggest about the learning rate?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter3/5",
+    "evidence_quote": "**Learning rate**: Are the curves too erratic (LR too high) or too flat (LR too low)?",
+    "hits": [
+      {
+        "chunk_id": "797795ed2899d17d917fa790fa83b2b035509423980cdd2e592ae4b707dfc198",
+        "text": "Let's work through some practical examples of learning curves. First, we will highlight some approaches to monitor the learning curves during training. Below, we will break down the different patterns that can be observed in the learning curves.\n\n#### During Training[[during-training]]\n\nDuring the training process (after you've hit `trainer.train()`), you can monitor these key indicators:\n\n1. **Loss convergence**: Is the loss still decreasing or has it plateaued?\n2. **Overfitting signs**: Is validation loss starting to increase while training loss decreases?\n3. **Learning rate**: Are the curves too erratic (LR too high) or too flat (LR too low)?\n4. **Stability**: Are there sudden spikes or drops that indicate problems?\n\n#### After Training[[after-training]]\n\nAfter the training process is complete, you can analyze the complete curves to understand the model's performance.",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter3/5.mdx",
+          "page": "chapter3/5",
+          "chunk_index": 10,
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter3"
+        },
+        "cosine_similarity": 0.621824324131012,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "5f848f85410951d7da5bf2a28b3efa290bbe80707b3d89a0084170cb409e3da8",
+        "text": "Understanding learning curves is crucial for becoming an effective machine learning practitioner. These visual tools provide immediate feedback about your model's training progress and help you make informed decisions about when to stop training, adjust hyperparameters, or try different approaches. With practice, you'll develop an intuitive understanding of what healthy learning curves look like and how to address issues when they arise.",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter3/5.mdx",
+          "chapter": "chapter3",
+          "chunk_index": 18,
+          "page": "chapter3/5",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5633813738822937,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "58ae8066077888d715e4ec4e1839c49a04d8d1678e7df377892c144d813d20d7",
+        "text": "> [!TIP]\n> 💡 **Key Takeaways:**\n> - Learning curves are essential tools for understanding model training progress\n> - Monitor both loss and accuracy curves, but remember they have different characteristics\n> - Overfitting shows as diverging training/validation performance\n> - Underfitting shows as poor performance on both training and validation data\n> - Tools like Weights & Biases make it easy to track and analyze learning curves\n> - Early stopping and proper regularization can address most common training issues\n>\n> 🔬 **Next Steps**: Practice analyzing learning curves on your own fine-tuning experiments. Try different hyperparameters and observe how they affect the curve shapes. This hands-on experience is the best way to develop intuition for reading training progress.\n\n## Section Quiz[[section-quiz]]\n\nTest your understanding of learning curves and training analysis:",
+        "metadata": {
+          "chapter": "chapter3",
+          "source": "data/transformers-nlp/chapter3/5.mdx",
+          "chunk_index": 19,
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter3/5"
+        },
+        "cosine_similarity": 0.5593824982643127,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q11",
+    "split": "dev",
+    "question": "What might a learning curve that is too erratic or too flat suggest about the learning rate?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter3/5",
+    "evidence_quote": "**Learning rate**: Are the curves too erratic (LR too high) or too flat (LR too low)?",
+    "hits": [
+      {
+        "chunk_id": "797795ed2899d17d917fa790fa83b2b035509423980cdd2e592ae4b707dfc198",
+        "text": "Let's work through some practical examples of learning curves. First, we will highlight some approaches to monitor the learning curves during training. Below, we will break down the different patterns that can be observed in the learning curves.\n\n#### During Training[[during-training]]\n\nDuring the training process (after you've hit `trainer.train()`), you can monitor these key indicators:\n\n1. **Loss convergence**: Is the loss still decreasing or has it plateaued?\n2. **Overfitting signs**: Is validation loss starting to increase while training loss decreases?\n3. **Learning rate**: Are the curves too erratic (LR too high) or too flat (LR too low)?\n4. **Stability**: Are there sudden spikes or drops that indicate problems?\n\n#### After Training[[after-training]]\n\nAfter the training process is complete, you can analyze the complete curves to understand the model's performance.",
+        "metadata": {
+          "chunk_index": 10,
+          "chapter": "chapter3",
+          "source": "data/transformers-nlp/chapter3/5.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter3/5"
+        },
+        "cosine_similarity": 0.621824324131012,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "5f848f85410951d7da5bf2a28b3efa290bbe80707b3d89a0084170cb409e3da8",
+        "text": "Understanding learning curves is crucial for becoming an effective machine learning practitioner. These visual tools provide immediate feedback about your model's training progress and help you make informed decisions about when to stop training, adjust hyperparameters, or try different approaches. With practice, you'll develop an intuitive understanding of what healthy learning curves look like and how to address issues when they arise.",
+        "metadata": {
+          "chapter": "chapter3",
+          "page": "chapter3/5",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter3/5.mdx",
+          "chunk_index": 18
+        },
+        "cosine_similarity": 0.5633813738822937,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "58ae8066077888d715e4ec4e1839c49a04d8d1678e7df377892c144d813d20d7",
+        "text": "> [!TIP]\n> 💡 **Key Takeaways:**\n> - Learning curves are essential tools for understanding model training progress\n> - Monitor both loss and accuracy curves, but remember they have different characteristics\n> - Overfitting shows as diverging training/validation performance\n> - Underfitting shows as poor performance on both training and validation data\n> - Tools like Weights & Biases make it easy to track and analyze learning curves\n> - Early stopping and proper regularization can address most common training issues\n>\n> 🔬 **Next Steps**: Practice analyzing learning curves on your own fine-tuning experiments. Try different hyperparameters and observe how they affect the curve shapes. This hands-on experience is the best way to develop intuition for reading training progress.\n\n## Section Quiz[[section-quiz]]\n\nTest your understanding of learning curves and training analysis:",
+        "metadata": {
+          "page": "chapter3/5",
+          "chapter": "chapter3",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 19,
+          "source": "data/transformers-nlp/chapter3/5.mdx"
+        },
+        "cosine_similarity": 0.5593824982643127,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q12",
+    "split": "dev",
+    "question": "Which checkpoint does the course choose for the French mask-filling example?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter4/2",
+    "evidence_quote": "We select the `camembert-base` checkpoint to try it out.",
+    "hits": [
+      {
+        "chunk_id": "33c24f87aa2999bc7b9502bda82a4e507e6367d49d3633a99797c27b7eb137b8",
+        "text": "in the `fill-mask` pipeline, which is completely fine. But if we were to load this checkpoint in the `text-classification` pipeline, the results would not make any sense because the head of `camembert-base` is not suitable for this task! We recommend using the task selector in the Hugging Face Hub interface in order to select the appropriate checkpoints:\n\n<div class=\"flex justify-center\">\n<img src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter4/",
+        "metadata": {
+          "page": "chapter4/2",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter4/2.mdx",
+          "chunk_index": 6,
+          "chapter": "chapter4"
+        },
+        "cosine_similarity": 0.4007575511932373,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "8935bd24bb40452f7b7b9aeccfccef62f388cefdf3ddf194efe74da54a0ca9a5",
+        "text": "', 'score': 0.0330314114689827, 'token': 528, 'token_str': 'meilleur'},\n{'sequence': 'Le camembert est parfait :)', 'score': 0.03007650189101696, 'token': 1654, 'token_str': 'parfait'}\n]\n```\n\nAs you can see, loading a model within a pipeline is extremely simple. The only thing you need to watch out for is that the chosen checkpoint is suitable for the task it's going to be used for. For example, here we are loading the `camembert-base` checkpoint in the `fill-mask` pipeline, which is completely",
+        "metadata": {
+          "chapter": "chapter4",
+          "source": "data/transformers-nlp/chapter4/2.mdx",
+          "chunk_index": 5,
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter4/2"
+        },
+        "cosine_similarity": 0.34427833557128906,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "762f29e9d21422d9aa1148e545a415d7dbf0d4ab4d59bd7afcf5b16484aa81cd",
+        "text": "ample, in the sentence *\"The capital of France is ...\"*, the words \"France\" and \"capital\" are crucial for determining that \"Paris\" should come next. This ability to focus on relevant information is what we call attention.\n\n<img src=\"https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/AttentionSceneFinal.gif\" alt=\"Visual Gif of Attention\" width=\"60%\">\n\nThis process of identifying the most relevant words to predict the next token has proven to be incredibly effective.",
+        "metadata": {
+          "chunk_index": 3,
+          "chapter": "chapter1",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/8.mdx",
+          "page": "chapter1/8"
+        },
+        "cosine_similarity": 0.3430293798446655,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q12",
+    "split": "dev",
+    "question": "Which checkpoint does the course choose for the French mask-filling example?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter4/2",
+    "evidence_quote": "We select the `camembert-base` checkpoint to try it out.",
+    "hits": [
+      {
+        "chunk_id": "48a0c4a0b54d0536b1526d64b42aa1eb41381d9687fe951f82e412befe1a55a4",
+        "text": "> [!TIP]\n> 🙋 If the terms \"masked language modeling\" and \"pretrained model\" sound unfamiliar to you, go check out [Chapter 1](/course/chapter1), where we explain all these core concepts, complete with videos!\n\n## Picking a pretrained model for masked language modeling[[picking-a-pretrained-model-for-masked-language-modeling]]\n\nTo get started, let's pick a suitable pretrained model for masked language modeling. As shown in the following screenshot, you can find a list of candidates by applying the \"Fill-Mask\" filter on the [Hugging Face Hub](https://huggingface.co/models?pipeline_tag=fill-mask&sort=downloads):\n\n<div class=\"flex justify-center\">\n<img src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter7/mlm-models.png\" alt=\"Hub models.\" width=\"80%\"/>\n</div>",
+        "metadata": {
+          "chunk_index": 6,
+          "page": "chapter7/3",
+          "source": "data/transformers-nlp/chapter7/3.mdx",
+          "chapter": "chapter7",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.32317090034484863,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "daaa499f2a02f60bc5c147e58d2783fce1902c691a780e111c41d303966dd0ce",
+        "text": "As you can see, loading a model within a pipeline is extremely simple. The only thing you need to watch out for is that the chosen checkpoint is suitable for the task it's going to be used for. For example, here we are loading the `camembert-base` checkpoint in the `fill-mask` pipeline, which is completely fine. But if we were to load this checkpoint in the `text-classification` pipeline, the results would not make any sense because the head of `camembert-base` is not suitable for this task! We recommend using the task selector in the Hugging Face Hub interface in order to select the appropriate checkpoints:\n\n<div class=\"flex justify-center\">\n<img src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter4/tasks.png\" alt=\"The task selector on the web interface.\" width=\"80%\"/>\n</div>",
+        "metadata": {
+          "page": "chapter4/2",
+          "chapter": "chapter4",
+          "source": "data/transformers-nlp/chapter4/2.mdx",
+          "chunk_index": 3,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.3164823055267334,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "da08d89904f623ebe891fc8787534875beb453bc33e72ca5b135af7cfc3dd840",
+        "text": "{/if}\n\nThe Model Hub makes selecting the appropriate model simple, so that using it in any downstream library can be done in a few lines of code. Let's take a look at how to actually use one of these models, and how to contribute back to the community.\n\nLet's say we're looking for a French-based model that can perform mask filling.\n\n<div class=\"flex justify-center\">\n<img src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter4/camembert.gif\" alt=\"Selecting the Camembert model.\" width=\"80%\"/>\n</div>\n\nWe select the `camembert-base` checkpoint to try it out. The identifier `camembert-base` is all we need to start using it! As you've seen in previous chapters, we can instantiate it using the `pipeline()` function:\n\n```py\nfrom transformers import pipeline",
+        "metadata": {
+          "chapter": "chapter4",
+          "source": "data/transformers-nlp/chapter4/2.mdx",
+          "page": "chapter4/2",
+          "chunk_index": 1,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.30798232555389404,
+        "gold_evidence_match": true
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q12",
+    "split": "dev",
+    "question": "Which checkpoint does the course choose for the French mask-filling example?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter4/2",
+    "evidence_quote": "We select the `camembert-base` checkpoint to try it out.",
+    "hits": [
+      {
+        "chunk_id": "48a0c4a0b54d0536b1526d64b42aa1eb41381d9687fe951f82e412befe1a55a4",
+        "text": "> [!TIP]\n> 🙋 If the terms \"masked language modeling\" and \"pretrained model\" sound unfamiliar to you, go check out [Chapter 1](/course/chapter1), where we explain all these core concepts, complete with videos!\n\n## Picking a pretrained model for masked language modeling[[picking-a-pretrained-model-for-masked-language-modeling]]\n\nTo get started, let's pick a suitable pretrained model for masked language modeling. As shown in the following screenshot, you can find a list of candidates by applying the \"Fill-Mask\" filter on the [Hugging Face Hub](https://huggingface.co/models?pipeline_tag=fill-mask&sort=downloads):\n\n<div class=\"flex justify-center\">\n<img src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter7/mlm-models.png\" alt=\"Hub models.\" width=\"80%\"/>\n</div>",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 6,
+          "source": "data/transformers-nlp/chapter7/3.mdx",
+          "page": "chapter7/3",
+          "chapter": "chapter7"
+        },
+        "cosine_similarity": 0.32317090034484863,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "daaa499f2a02f60bc5c147e58d2783fce1902c691a780e111c41d303966dd0ce",
+        "text": "As you can see, loading a model within a pipeline is extremely simple. The only thing you need to watch out for is that the chosen checkpoint is suitable for the task it's going to be used for. For example, here we are loading the `camembert-base` checkpoint in the `fill-mask` pipeline, which is completely fine. But if we were to load this checkpoint in the `text-classification` pipeline, the results would not make any sense because the head of `camembert-base` is not suitable for this task! We recommend using the task selector in the Hugging Face Hub interface in order to select the appropriate checkpoints:\n\n<div class=\"flex justify-center\">\n<img src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter4/tasks.png\" alt=\"The task selector on the web interface.\" width=\"80%\"/>\n</div>",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter4/2.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 3,
+          "page": "chapter4/2",
+          "chapter": "chapter4"
+        },
+        "cosine_similarity": 0.3164823055267334,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "da08d89904f623ebe891fc8787534875beb453bc33e72ca5b135af7cfc3dd840",
+        "text": "{/if}\n\nThe Model Hub makes selecting the appropriate model simple, so that using it in any downstream library can be done in a few lines of code. Let's take a look at how to actually use one of these models, and how to contribute back to the community.\n\nLet's say we're looking for a French-based model that can perform mask filling.\n\n<div class=\"flex justify-center\">\n<img src=\"https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter4/camembert.gif\" alt=\"Selecting the Camembert model.\" width=\"80%\"/>\n</div>\n\nWe select the `camembert-base` checkpoint to try it out. The identifier `camembert-base` is all we need to start using it! As you've seen in previous chapters, we can instantiate it using the `pipeline()` function:\n\n```py\nfrom transformers import pipeline",
+        "metadata": {
+          "page": "chapter4/2",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter4/2.mdx",
+          "chunk_index": 1,
+          "chapter": "chapter4"
+        },
+        "cosine_similarity": 0.30798232555389404,
+        "gold_evidence_match": true
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q13",
+    "split": "dev",
+    "question": "After training finishes, what does trainer.push_to_hub() do in the described workflow?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter4/3",
+    "evidence_quote": "Once your training is finished, you should do a final `trainer.push_to_hub()` to upload the last version of your model. It will also generate a model card with all the relevant metadata, reporting the hyperparameters used and the evaluation results!",
+    "hits": [
+      {
+        "chunk_id": "72f9f0fd04278bbf72ea68efcbf3535c68e71913753905bc729a4352871a0151",
+        "text": "ile it proceeds. Also note that as soon as the first epoch is finished, you will see some weights uploaded to the Hub and you can start playing with your model on its page.\n\n{#if fw === 'pt'}\n\nOnce the training is complete, we can finally evaluate our model (and pray we didn't spend all that compute time on nothing). The `predict()` method of the `Trainer` will return a tuple where the first elements will be the predictions of the model (here a pair with the start and end logits). We send this t",
+        "metadata": {
+          "page": "chapter7/7",
+          "source": "data/transformers-nlp/chapter7/7.mdx",
+          "chapter": "chapter7",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 99
+        },
+        "cosine_similarity": 0.6747313737869263,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "7f655d5cbadd03f093d456f2d4b038514e973352832af04ea36cbe6834722a48",
+        "text": "Note that while the training happens, each time the model is saved (here, every epoch) it is uploaded to the Hub in the background. This way, you will be able to to resume your training on another machine if necessary.\n\nOnce the training is complete, we use the `push_to_hub()` method to make sure we upload the most recent version of the model:\n\n```py\ntrainer.push_to_hub(commit_message=\"Training complete\")\n```\n\nThis command returns the URL of the commit it just did, if you want to inspect it:\n\n``",
+        "metadata": {
+          "chapter": "chapter7",
+          "source": "data/transformers-nlp/chapter7/2.mdx",
+          "page": "chapter7/2",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 73
+        },
+        "cosine_similarity": 0.6689776182174683,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "c4a8cc7b01be016637d6e7526cf159a92c2aa676b14a0653dc6edfe793e31f60",
+        "text": "uploading, where we first save the model and the tokenizer, then call `repo.push_to_hub()`. As we did before, we use the argument `blocking=False` to tell the 🤗 Hub library to push in an asynchronous process. This way, training continues normally and this (long) instruction is executed in the background.\n\nHere's the complete code for the training loop:\n\n```py\nfrom tqdm.auto import tqdm\nimport torch\n\nprogress_bar = tqdm(range(num_training_steps))\n\nfor epoch in range(num_train_epochs):\n# Training",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter7/7",
+          "chapter": "chapter7",
+          "source": "data/transformers-nlp/chapter7/7.mdx",
+          "chunk_index": 115
+        },
+        "cosine_similarity": 0.5761765241622925,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q13",
+    "split": "dev",
+    "question": "After training finishes, what does trainer.push_to_hub() do in the described workflow?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter4/3",
+    "evidence_quote": "Once your training is finished, you should do a final `trainer.push_to_hub()` to upload the last version of your model. It will also generate a model card with all the relevant metadata, reporting the hyperparameters used and the evaluation results!",
+    "hits": [
+      {
+        "chunk_id": "2e35da11ed2f906087e9859afcc03bc192f7d269d6402a679b9d412d962844d0",
+        "text": "The first step before we can define our `Trainer` is to define a `TrainingArguments` class that will contain all the hyperparameters the `Trainer` will use for training and evaluation. The only argument you have to provide is a directory where the trained model will be saved, as well as the checkpoints along the way. For all the rest, you can leave the defaults, which should work pretty well for a basic fine-tuning.\n\n```py\nfrom transformers import TrainingArguments\n\ntraining_args = TrainingArguments(\"test-trainer\")\n```\n\nIf you want to automatically upload your model to the Hub during training, pass along `push_to_hub=True` in the `TrainingArguments`. We will learn more about this in [Chapter 4](/course/chapter4/3)",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter3/3",
+          "chapter": "chapter3",
+          "chunk_index": 3,
+          "source": "data/transformers-nlp/chapter3/3.mdx"
+        },
+        "cosine_similarity": 0.5809073448181152,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "a52a61aebf5bf0c6dc2d66514c35897ccb0bc945520e85e8c5aa3528e3ab663b",
+        "text": "When you call `trainer.train()`, the `Trainer` will then upload your model to the Hub each time it is saved (here every epoch) in a repository in your namespace. That repository will be named like the output directory you picked (here `bert-finetuned-mrpc`) but you can choose a different name with `hub_model_id = \"a_different_name\"`.\n\nTo upload your model to an organization you are a member of, just pass it with `hub_model_id = \"my_organization/my_repo_name\"`.\n\nOnce your training is finished, you should do a final `trainer.push_to_hub()` to upload the last version of your model. It will also generate a model card with all the relevant metadata, reporting the hyperparameters used and the evaluation results! Here is an example of the content you might find in a such a model card:",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter4/3.mdx",
+          "page": "chapter4/3",
+          "chapter": "chapter4",
+          "chunk_index": 4
+        },
+        "cosine_similarity": 0.5694229602813721,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "c5315bd2ef5109d78ae5c30a3d8fbcf3151f2b0d7693310e6bafe9b129d18462",
+        "text": "Once the training is complete, we use the `push_to_hub()` method to make sure we upload the most recent version of the model:\n\n```py\ntrainer.push_to_hub(commit_message=\"Training complete\")\n```\n\nThis command returns the URL of the commit it just did, if you want to inspect it:\n\n```python out\n'https://huggingface.co/sgugger/bert-finetuned-ner/commit/26ab21e5b1568f9afeccdaed2d8715f571d786ed'\n```\n\nThe `Trainer` also drafts a model card with all the evaluation results and uploads it. At this stage, you can use the inference widget on the Model Hub to test your model and share it with your friends. You have successfully fine-tuned a model on a token classification task -- congratulations!\n\nIf you want to dive a bit more deeply into the training loop, we will now show you how to do the same thing using 🤗 Accelerate.\n\n## A custom training loop[[a-custom-training-loop]]",
+        "metadata": {
+          "chapter": "chapter7",
+          "page": "chapter7/2",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 45,
+          "source": "data/transformers-nlp/chapter7/2.mdx"
+        },
+        "cosine_similarity": 0.5557824969291687,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q13",
+    "split": "dev",
+    "question": "After training finishes, what does trainer.push_to_hub() do in the described workflow?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter4/3",
+    "evidence_quote": "Once your training is finished, you should do a final `trainer.push_to_hub()` to upload the last version of your model. It will also generate a model card with all the relevant metadata, reporting the hyperparameters used and the evaluation results!",
+    "hits": [
+      {
+        "chunk_id": "2e35da11ed2f906087e9859afcc03bc192f7d269d6402a679b9d412d962844d0",
+        "text": "The first step before we can define our `Trainer` is to define a `TrainingArguments` class that will contain all the hyperparameters the `Trainer` will use for training and evaluation. The only argument you have to provide is a directory where the trained model will be saved, as well as the checkpoints along the way. For all the rest, you can leave the defaults, which should work pretty well for a basic fine-tuning.\n\n```py\nfrom transformers import TrainingArguments\n\ntraining_args = TrainingArguments(\"test-trainer\")\n```\n\nIf you want to automatically upload your model to the Hub during training, pass along `push_to_hub=True` in the `TrainingArguments`. We will learn more about this in [Chapter 4](/course/chapter4/3)",
+        "metadata": {
+          "chunk_index": 3,
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter3/3",
+          "source": "data/transformers-nlp/chapter3/3.mdx",
+          "chapter": "chapter3"
+        },
+        "cosine_similarity": 0.5809073448181152,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "a52a61aebf5bf0c6dc2d66514c35897ccb0bc945520e85e8c5aa3528e3ab663b",
+        "text": "When you call `trainer.train()`, the `Trainer` will then upload your model to the Hub each time it is saved (here every epoch) in a repository in your namespace. That repository will be named like the output directory you picked (here `bert-finetuned-mrpc`) but you can choose a different name with `hub_model_id = \"a_different_name\"`.\n\nTo upload your model to an organization you are a member of, just pass it with `hub_model_id = \"my_organization/my_repo_name\"`.\n\nOnce your training is finished, you should do a final `trainer.push_to_hub()` to upload the last version of your model. It will also generate a model card with all the relevant metadata, reporting the hyperparameters used and the evaluation results! Here is an example of the content you might find in a such a model card:",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter4/3.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter4",
+          "chunk_index": 4,
+          "page": "chapter4/3"
+        },
+        "cosine_similarity": 0.5694229602813721,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "c5315bd2ef5109d78ae5c30a3d8fbcf3151f2b0d7693310e6bafe9b129d18462",
+        "text": "Once the training is complete, we use the `push_to_hub()` method to make sure we upload the most recent version of the model:\n\n```py\ntrainer.push_to_hub(commit_message=\"Training complete\")\n```\n\nThis command returns the URL of the commit it just did, if you want to inspect it:\n\n```python out\n'https://huggingface.co/sgugger/bert-finetuned-ner/commit/26ab21e5b1568f9afeccdaed2d8715f571d786ed'\n```\n\nThe `Trainer` also drafts a model card with all the evaluation results and uploads it. At this stage, you can use the inference widget on the Model Hub to test your model and share it with your friends. You have successfully fine-tuned a model on a token classification task -- congratulations!\n\nIf you want to dive a bit more deeply into the training loop, we will now show you how to do the same thing using 🤗 Accelerate.\n\n## A custom training loop[[a-custom-training-loop]]",
+        "metadata": {
+          "chunk_index": 45,
+          "page": "chapter7/2",
+          "source": "data/transformers-nlp/chapter7/2.mdx",
+          "chapter": "chapter7",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5557824969291687,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q14",
+    "split": "dev",
+    "question": "Where is the model card created in the described repository?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter4/4",
+    "evidence_quote": "Creating the model card is done through the *README.md* file you saw earlier, which is a Markdown file.",
+    "hits": [
+      {
+        "chunk_id": "85a19e37988e9f610d8b423739d38e6b4402f76fc2abb1abb7e51e99df0146a2",
+        "text": "some tips that will help you with this. Creating the model card is done through the *README.md* file you saw earlier, which is a Markdown file.\n\nThe \"model card\" concept originates from a research direction from Google, first shared in the paper [\"Model Cards for Model Reporting\"](https://arxiv.org/abs/1810.03993) by Margaret Mitchell et al. A lot of information contained here is based on that paper, and we recommend you take a look at it to understand why model cards are so important in a worl",
+        "metadata": {
+          "chapter": "chapter4",
+          "source": "data/transformers-nlp/chapter4/4.mdx",
+          "page": "chapter4/4",
+          "chunk_index": 2,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.7066361904144287,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "370c51511d41abc132ada7a4163915fdf1d00c23e3a0c7849f5a50d9ffedcb7c",
+        "text": "ob/master/examples.md).\n\n## Note[[note]]\n\nModel cards are not a requirement when publishing models, and you don't need to include all of the sections described above when you make one. However, explicit documentation of the model can only benefit future users, so we recommend that you fill in as many of the sections as possible to the best of your knowledge and ability.\n\n## Model card metadata[[model-card-metadata]]\n\nIf you have done a little exploring of the Hugging Face Hub, you should have se",
+        "metadata": {
+          "page": "chapter4/4",
+          "chapter": "chapter4",
+          "chunk_index": 10,
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter4/4.mdx"
+        },
+        "cosine_similarity": 0.6107727289199829,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "5c561611d07bd131cb24bf50a108bccf0256d6b9e36a1df5b219a107da72150e",
+        "text": "# Building a model card[[building-a-model-card]]\n\n<CourseFloatingBanner\nchapter={4}\nclassNames=\"absolute z-10 right-0 top-0\"\n/>\n\nThe model card is a file which is arguably as important as the model and tokenizer files in a model repository. It is the central definition of the model, ensuring reusability by fellow community members and reproducibility of results, and providing a platform on which other members may build their artifacts.\n\nDocumenting the training and evaluation process helps other",
+        "metadata": {
+          "chunk_index": 0,
+          "source": "data/transformers-nlp/chapter4/4.mdx",
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter4",
+          "page": "chapter4/4"
+        },
+        "cosine_similarity": 0.6059310436248779,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q14",
+    "split": "dev",
+    "question": "Where is the model card created in the described repository?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter4/4",
+    "evidence_quote": "Creating the model card is done through the *README.md* file you saw earlier, which is a Markdown file.",
+    "hits": [
+      {
+        "chunk_id": "4c607e5aad7ff3381d70e3c8acaa02507a63ed72c89c87e1c8f578f24a1619f6",
+        "text": "Therefore, creating a model card that clearly defines your model is a very important step. Here, we provide some tips that will help you with this. Creating the model card is done through the *README.md* file you saw earlier, which is a Markdown file.\n\nThe \"model card\" concept originates from a research direction from Google, first shared in the paper [\"Model Cards for Model Reporting\"](https://arxiv.org/abs/1810.03993) by Margaret Mitchell et al. A lot of information contained here is based on that paper, and we recommend you take a look at it to understand why model cards are so important in a world that values reproducibility, reusability, and fairness.\n\nThe model card usually starts with a very brief, high-level overview of what the model is for, followed by additional details in the following sections:",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter4/4.mdx",
+          "chapter": "chapter4",
+          "chunk_index": 1,
+          "document_id": "huggingface_transformers_nlp",
+          "page": "chapter4/4"
+        },
+        "cosine_similarity": 0.6242033839225769,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "efd54b6e5a9126db4dad19c50964cb42b484f41c9e7f9cfd2a63af9a4b2ea2b5",
+        "text": "Model cards are not a requirement when publishing models, and you don't need to include all of the sections described above when you make one. However, explicit documentation of the model can only benefit future users, so we recommend that you fill in as many of the sections as possible to the best of your knowledge and ability.\n\n## Model card metadata[[model-card-metadata]]\n\nIf you have done a little exploring of the Hugging Face Hub, you should have seen that some models belong to certain categories: you can filter them by tasks, languages, libraries, and more. The categories a model belongs to are identified according to the metadata you add in the model card header.\n\nFor example, if you take a look at the [`camembert-base` model card](https://huggingface.co/camembert-base/blob/main/README.md), you should see the following lines in the model card header:",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter4/4.mdx",
+          "chunk_index": 6,
+          "page": "chapter4/4",
+          "chapter": "chapter4"
+        },
+        "cosine_similarity": 0.6198254823684692,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "1ac0e2847664fe52fb1ab0bbd8c4b0755486d28d21c88d6ce00840564c3b3542",
+        "text": "# Building a model card[[building-a-model-card]]\n\n<CourseFloatingBanner\nchapter={4}\nclassNames=\"absolute z-10 right-0 top-0\"\n/>\n\nThe model card is a file which is arguably as important as the model and tokenizer files in a model repository. It is the central definition of the model, ensuring reusability by fellow community members and reproducibility of results, and providing a platform on which other members may build their artifacts.\n\nDocumenting the training and evaluation process helps others understand what to expect of a model — and providing sufficient information regarding the data that was used and the preprocessing and postprocessing that were done ensures that the limitations, biases, and contexts in which the model is and is not useful can be identified and understood.",
+        "metadata": {
+          "chapter": "chapter4",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter4/4.mdx",
+          "chunk_index": 0,
+          "page": "chapter4/4"
+        },
+        "cosine_similarity": 0.5215880274772644,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q14",
+    "split": "dev",
+    "question": "Where is the model card created in the described repository?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter4/4",
+    "evidence_quote": "Creating the model card is done through the *README.md* file you saw earlier, which is a Markdown file.",
+    "hits": [
+      {
+        "chunk_id": "4c607e5aad7ff3381d70e3c8acaa02507a63ed72c89c87e1c8f578f24a1619f6",
+        "text": "Therefore, creating a model card that clearly defines your model is a very important step. Here, we provide some tips that will help you with this. Creating the model card is done through the *README.md* file you saw earlier, which is a Markdown file.\n\nThe \"model card\" concept originates from a research direction from Google, first shared in the paper [\"Model Cards for Model Reporting\"](https://arxiv.org/abs/1810.03993) by Margaret Mitchell et al. A lot of information contained here is based on that paper, and we recommend you take a look at it to understand why model cards are so important in a world that values reproducibility, reusability, and fairness.\n\nThe model card usually starts with a very brief, high-level overview of what the model is for, followed by additional details in the following sections:",
+        "metadata": {
+          "chunk_index": 1,
+          "chapter": "chapter4",
+          "page": "chapter4/4",
+          "source": "data/transformers-nlp/chapter4/4.mdx",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.6242033839225769,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "efd54b6e5a9126db4dad19c50964cb42b484f41c9e7f9cfd2a63af9a4b2ea2b5",
+        "text": "Model cards are not a requirement when publishing models, and you don't need to include all of the sections described above when you make one. However, explicit documentation of the model can only benefit future users, so we recommend that you fill in as many of the sections as possible to the best of your knowledge and ability.\n\n## Model card metadata[[model-card-metadata]]\n\nIf you have done a little exploring of the Hugging Face Hub, you should have seen that some models belong to certain categories: you can filter them by tasks, languages, libraries, and more. The categories a model belongs to are identified according to the metadata you add in the model card header.\n\nFor example, if you take a look at the [`camembert-base` model card](https://huggingface.co/camembert-base/blob/main/README.md), you should see the following lines in the model card header:",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 6,
+          "source": "data/transformers-nlp/chapter4/4.mdx",
+          "page": "chapter4/4",
+          "chapter": "chapter4"
+        },
+        "cosine_similarity": 0.6198254823684692,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "1ac0e2847664fe52fb1ab0bbd8c4b0755486d28d21c88d6ce00840564c3b3542",
+        "text": "# Building a model card[[building-a-model-card]]\n\n<CourseFloatingBanner\nchapter={4}\nclassNames=\"absolute z-10 right-0 top-0\"\n/>\n\nThe model card is a file which is arguably as important as the model and tokenizer files in a model repository. It is the central definition of the model, ensuring reusability by fellow community members and reproducibility of results, and providing a platform on which other members may build their artifacts.\n\nDocumenting the training and evaluation process helps others understand what to expect of a model — and providing sufficient information regarding the data that was used and the preprocessing and postprocessing that were done ensures that the limitations, biases, and contexts in which the model is and is not useful can be identified and understood.",
+        "metadata": {
+          "chapter": "chapter4",
+          "page": "chapter4/4",
+          "source": "data/transformers-nlp/chapter4/4.mdx",
+          "chunk_index": 0,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.5215880274772644,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "A",
+    "id": "Q15",
+    "split": "dev",
+    "question": "Can GPT-2 attend to tokens that occur later in the sequence during masked self-attention?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/5",
+    "evidence_quote": "Within each decoder block, GPT-2 uses a *masked self-attention* layer which means GPT-2 can't attend to future tokens. It is only allowed to attend to tokens on the left.",
+    "hits": [
+      {
+        "chunk_id": "d07e97c01b05f04fa7fdea16ca9bc4e6e97b8ff79561ce6bf8a2f117d546cce8",
+        "text": "te the position of each token in the sequence. The input embeddings are passed through multiple decoder blocks to output some final hidden state. Within each decoder block, GPT-2 uses a *masked self-attention* layer which means GPT-2 can't attend to future tokens. It is only allowed to attend to tokens on the left. This is different from BERT's [`mask`] token because, in masked self-attention, an attention mask is used to set the score to `0` for future tokens.\n\n2. The output from the decoder is",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "page": "chapter1/5",
+          "chapter": "chapter1",
+          "chunk_index": 15,
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.6626892685890198,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "bc6577ebf0e7172cfd9da6c10f9b5866df1be0d77124f92f131e718c6dd2e4d4",
+        "text": "future tokens.\n\n2. The output from the decoder is passed to a language modeling head, which performs a linear transformation to convert the hidden states into logits. The label is the next token in the sequence, which are created by shifting the logits to the right by one. The cross-entropy loss is calculated between the shifted logits and the labels to output the next most likely token.\n\nGPT-2's pretraining objective is based entirely on [causal language modeling](https://huggingface.co/docs/t",
+        "metadata": {
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "page": "chapter1/5",
+          "chunk_index": 16,
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.5584983229637146,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "b7cabe513721d050b81e869e56e87a6e89eb6837c54122319be68c479ba25317",
+        "text": "g text use decoders, and tasks converting one sequence to another use encoder-decoders.\n\n### Text generation\n\nText generation involves creating coherent and contextually relevant text based on a prompt or input.\n\n[GPT-2](https://huggingface.co/docs/transformers/model_doc/gpt2) is a decoder-only model pretrained on a large amount of text. It can generate convincing (though not always true!) text given a prompt and complete other NLP tasks like question answering despite not being explicitly train",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "page": "chapter1/5",
+          "chunk_index": 13,
+          "chapter": "chapter1",
+          "document_id": "huggingface_transformers_nlp"
+        },
+        "cosine_similarity": 0.47844505310058594,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "B",
+    "id": "Q15",
+    "split": "dev",
+    "question": "Can GPT-2 attend to tokens that occur later in the sequence during masked self-attention?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/5",
+    "evidence_quote": "Within each decoder block, GPT-2 uses a *masked self-attention* layer which means GPT-2 can't attend to future tokens. It is only allowed to attend to tokens on the left.",
+    "hits": [
+      {
+        "chunk_id": "c5a4b87572f9c34b438f60c2b7824fb9670d76257d2684c3c14d3b1de7e4917a",
+        "text": "<div class=\"flex justify-center\">\n<img src=\"https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/gpt2_architecture.png\"/>\n</div>\n\n1. GPT-2 uses [byte pair encoding (BPE)](https://huggingface.co/docs/transformers/tokenizer_summary#bytepair-encoding-bpe) to tokenize words and generate a token embedding. Positional encodings are added to the token embeddings to indicate the position of each token in the sequence. The input embeddings are passed through multiple decoder blocks to output some final hidden state. Within each decoder block, GPT-2 uses a *masked self-attention* layer which means GPT-2 can't attend to future tokens. It is only allowed to attend to tokens on the left. This is different from BERT's [`mask`] token because, in masked self-attention, an attention mask is used to set the score to `0` for future tokens.",
+        "metadata": {
+          "chunk_index": 10,
+          "page": "chapter1/5",
+          "chapter": "chapter1",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/5.mdx"
+        },
+        "cosine_similarity": 0.5310006737709045,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "c0392a92ee02d2ae6812d4c7bc909dec4e9694520955c90a34520db4c93fee10",
+        "text": "2. The output from the decoder is passed to a language modeling head, which performs a linear transformation to convert the hidden states into logits. The label is the next token in the sequence, which are created by shifting the logits to the right by one. The cross-entropy loss is calculated between the shifted logits and the labels to output the next most likely token.\n\nGPT-2's pretraining objective is based entirely on [causal language modeling](https://huggingface.co/docs/transformers/glossary#causal-language-modeling), predicting the next word in a sequence. This makes GPT-2 especially good at tasks that involve generating text.\n\nReady to try your hand at text generation? Check out our complete [causal language modeling guide](https://huggingface.co/docs/transformers/tasks/language_modeling#causal-language-modeling) to learn how to finetune DistilGPT-2 and use it for inference!",
+        "metadata": {
+          "page": "chapter1/5",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 11,
+          "chapter": "chapter1",
+          "source": "data/transformers-nlp/chapter1/5.mdx"
+        },
+        "cosine_similarity": 0.4727931022644043,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "eebed88841ee3f6dd33349043305c48dcb5e2fc32ee12779b28568fed05659a9",
+        "text": "The pretraining of decoder models usually revolves around predicting the next word in the sentence.\n\nThese models are best suited for tasks involving text generation.\n\n> [!TIP]\n> Decoder models like GPT are designed to generate text by predicting one token at a time. As we explored in [How 🤗 Transformers solve tasks](https://huggingface.co/learn/llm-course/chapter1/5), they can only see previous tokens, which makes them excellent for creative text generation but less ideal for tasks requiring bidirectional understanding.\n\nRepresentatives of this family of models include:",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/6.mdx",
+          "chunk_index": 3,
+          "page": "chapter1/6",
+          "document_id": "huggingface_transformers_nlp",
+          "chapter": "chapter1"
+        },
+        "cosine_similarity": 0.44578438997268677,
+        "gold_evidence_match": false
+      }
+    ]
+  },
+  {
+    "strategy": "C",
+    "id": "Q15",
+    "split": "dev",
+    "question": "Can GPT-2 attend to tokens that occur later in the sequence during masked self-attention?",
+    "filter": null,
+    "gold_source_id": "huggingface_transformers_nlp",
+    "gold_page": "chapter1/5",
+    "evidence_quote": "Within each decoder block, GPT-2 uses a *masked self-attention* layer which means GPT-2 can't attend to future tokens. It is only allowed to attend to tokens on the left.",
+    "hits": [
+      {
+        "chunk_id": "c5a4b87572f9c34b438f60c2b7824fb9670d76257d2684c3c14d3b1de7e4917a",
+        "text": "<div class=\"flex justify-center\">\n<img src=\"https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/gpt2_architecture.png\"/>\n</div>\n\n1. GPT-2 uses [byte pair encoding (BPE)](https://huggingface.co/docs/transformers/tokenizer_summary#bytepair-encoding-bpe) to tokenize words and generate a token embedding. Positional encodings are added to the token embeddings to indicate the position of each token in the sequence. The input embeddings are passed through multiple decoder blocks to output some final hidden state. Within each decoder block, GPT-2 uses a *masked self-attention* layer which means GPT-2 can't attend to future tokens. It is only allowed to attend to tokens on the left. This is different from BERT's [`mask`] token because, in masked self-attention, an attention mask is used to set the score to `0` for future tokens.",
+        "metadata": {
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "chapter": "chapter1",
+          "page": "chapter1/5",
+          "document_id": "huggingface_transformers_nlp",
+          "chunk_index": 10
+        },
+        "cosine_similarity": 0.5310006737709045,
+        "gold_evidence_match": true
+      },
+      {
+        "chunk_id": "c0392a92ee02d2ae6812d4c7bc909dec4e9694520955c90a34520db4c93fee10",
+        "text": "2. The output from the decoder is passed to a language modeling head, which performs a linear transformation to convert the hidden states into logits. The label is the next token in the sequence, which are created by shifting the logits to the right by one. The cross-entropy loss is calculated between the shifted logits and the labels to output the next most likely token.\n\nGPT-2's pretraining objective is based entirely on [causal language modeling](https://huggingface.co/docs/transformers/glossary#causal-language-modeling), predicting the next word in a sequence. This makes GPT-2 especially good at tasks that involve generating text.\n\nReady to try your hand at text generation? Check out our complete [causal language modeling guide](https://huggingface.co/docs/transformers/tasks/language_modeling#causal-language-modeling) to learn how to finetune DistilGPT-2 and use it for inference!",
+        "metadata": {
+          "chunk_index": 11,
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/5.mdx",
+          "chapter": "chapter1",
+          "page": "chapter1/5"
+        },
+        "cosine_similarity": 0.4727931022644043,
+        "gold_evidence_match": false
+      },
+      {
+        "chunk_id": "eebed88841ee3f6dd33349043305c48dcb5e2fc32ee12779b28568fed05659a9",
+        "text": "The pretraining of decoder models usually revolves around predicting the next word in the sentence.\n\nThese models are best suited for tasks involving text generation.\n\n> [!TIP]\n> Decoder models like GPT are designed to generate text by predicting one token at a time. As we explored in [How 🤗 Transformers solve tasks](https://huggingface.co/learn/llm-course/chapter1/5), they can only see previous tokens, which makes them excellent for creative text generation but less ideal for tasks requiring bidirectional understanding.\n\nRepresentatives of this family of models include:",
+        "metadata": {
+          "chapter": "chapter1",
+          "document_id": "huggingface_transformers_nlp",
+          "source": "data/transformers-nlp/chapter1/6.mdx",
+          "chunk_index": 3,
+          "page": "chapter1/6"
+        },
+        "cosine_similarity": 0.44578438997268677,
+        "gold_evidence_match": false
+      }
+    ]
+  }
+]

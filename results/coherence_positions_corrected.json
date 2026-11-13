@@ -1,0 +1,92 @@
+[
+  {
+    "page": "chapter1/2",
+    "offset_nfc": 193,
+    "anchor": "Before jumping into Transformer models, let's do a quick overview of what natura",
+    "A_chunk_id": "823219c6a5ce9b5c569ac8187aa5bd8e7945d08f6d9fb8641590f1fe1609378e",
+    "B_chunk_id": "1949d0714244ddd490b831dd8b3321f7a0539fe577a8dff7396c76684a888b4d",
+    "C_chunk_id": "1949d0714244ddd490b831dd8b3321f7a0539fe577a8dff7396c76684a888b4d",
+    "note": "Reselected after test: original sample hit MDX banner; deterministic first prose in same 10 pages."
+  },
+  {
+    "page": "chapter1/3",
+    "offset_nfc": 454,
+    "anchor": "In this section, we will look at what Transformer models can do and use our firs",
+    "A_chunk_id": "ebad24b35ea3fbaf444d6a7d00142daa302190d21ee0c51c3e9a7afc7ee28c4a",
+    "B_chunk_id": "060b6cfeece727625a4f961cde46585daa66f47a1bf29caee0c04eb8cd4d137f",
+    "C_chunk_id": "060b6cfeece727625a4f961cde46585daa66f47a1bf29caee0c04eb8cd4d137f",
+    "note": "Reselected after test: original sample hit MDX banner; deterministic first prose in same 10 pages."
+  },
+  {
+    "page": "chapter1/4",
+    "offset_nfc": 136,
+    "anchor": "In this section, we will take a look at the architecture of Transformer models a",
+    "A_chunk_id": "527f5a6ccc9a153c556ed30d59e7f8b9863ad4d0444949f2a904f29b1f60ecaf",
+    "B_chunk_id": "3ab2e8b817aa50ea40b97d0a5e3f625ebab51bab088d35930c63d3daabc49d5a",
+    "C_chunk_id": "3ab2e8b817aa50ea40b97d0a5e3f625ebab51bab088d35930c63d3daabc49d5a",
+    "note": "Reselected after test: original sample hit MDX banner; deterministic first prose in same 10 pages."
+  },
+  {
+    "page": "chapter1/5",
+    "offset_nfc": 64,
+    "anchor": "In [Transformers, what can they do?](/course/chapter1/3), you learned about natu",
+    "A_chunk_id": "6ab034bf069a9c305b8e2ba02e0b6aa57d90bbb7ec4b4a1270e4640beb3386b5",
+    "B_chunk_id": "f3da7833a52c4564f14c61a6795c4ad139e4f89fa6b1df10b818b2e0002eed31",
+    "C_chunk_id": "f3da7833a52c4564f14c61a6795c4ad139e4f89fa6b1df10b818b2e0002eed31",
+    "note": "Reselected after test: original sample hit MDX banner; deterministic first prose in same 10 pages."
+  },
+  {
+    "page": "chapter1/6",
+    "offset_nfc": 137,
+    "anchor": "In the previous sections, we introduced the general Transformer architecture and",
+    "A_chunk_id": "e5f3bbc3bd220e15a9dfd0a1bff0527d97bbbeb3d758e86c61a35e4874aa059c",
+    "B_chunk_id": "3095b444c892c8002ad5210ea25f99a97ba90ee57a23f29573190377829129ef",
+    "C_chunk_id": "3095b444c892c8002ad5210ea25f99a97ba90ee57a23f29573190377829129ef",
+    "note": "Reselected after test: original sample hit MDX banner; deterministic first prose in same 10 pages."
+  },
+  {
+    "page": "chapter1/8",
+    "offset_nfc": 186,
+    "anchor": "So far, we've explored the transformer architecture in relation to a range of di",
+    "A_chunk_id": "5d459f7f2b91a4c97eb39225e41616a0f533e57a5dde0a74e75addbbb69a7f04",
+    "B_chunk_id": "f25afc7bfaee1845b5b468ff70d4394847af0010a39281c17b04e6aeeb3c27ee",
+    "C_chunk_id": "f25afc7bfaee1845b5b468ff70d4394847af0010a39281c17b04e6aeeb3c27ee",
+    "note": "Reselected after test: original sample hit MDX banner; deterministic first prose in same 10 pages."
+  },
+  {
+    "page": "chapter2/2",
+    "offset_nfc": 499,
+    "anchor": "Let's start with a complete example, taking a look at what happened behind the s",
+    "A_chunk_id": "9fc3636802a597d35e130afbcf750ea5b91c38b2ef0d44765dfd834975f8b531",
+    "B_chunk_id": "750dc03417a11690e5a995073989efd36696c0660a853b405519df57feda03d1",
+    "C_chunk_id": "750dc03417a11690e5a995073989efd36696c0660a853b405519df57feda03d1",
+    "note": "Reselected after test: original sample hit MDX banner; deterministic first prose in same 10 pages."
+  },
+  {
+    "page": "chapter2/3",
+    "offset_nfc": 477,
+    "anchor": "In this section, we'll take a closer look at creating and using models. We'll us",
+    "A_chunk_id": "4b65a97d0ec3ce4e89fa1ff7f6c9f9b347330922e36be1d4ebb0a830ad08ed59",
+    "B_chunk_id": "46c4aa60877ed407a98b8125c68bd58efe580fe15b1e9b4b0c1a0542b9534528",
+    "C_chunk_id": "46c4aa60877ed407a98b8125c68bd58efe580fe15b1e9b4b0c1a0542b9534528",
+    "note": "Reselected after test: original sample hit MDX banner; deterministic first prose in same 10 pages."
+  },
+  {
+    "page": "chapter2/4",
+    "offset_nfc": 481,
+    "anchor": "Tokenizers are one of the core components of the NLP pipeline. They serve one pu",
+    "A_chunk_id": "46935094ae67be1545e5f4ca39ba7a12eed3fb45137c3c583c2f499dc146ee79",
+    "B_chunk_id": "dd6d61bcc98672692dc4c5496294a71a32cf816abfa9b5206a2085ba7e0b64d8",
+    "C_chunk_id": "dd6d61bcc98672692dc4c5496294a71a32cf816abfa9b5206a2085ba7e0b64d8",
+    "note": "Reselected after test: original sample hit MDX banner; deterministic first prose in same 10 pages."
+  },
+  {
+    "page": "chapter2/5",
+    "offset_nfc": 515,
+    "anchor": "In the previous section, we explored the simplest of use cases: doing inference ",
+    "A_chunk_id": "a3927fd3dbad5a0e4dfc0179ed88f93839e2fdad5d5d08ecaf0c2f7952992a04",
+    "B_chunk_id": "25760ca961aa30f5bb0a4d531e9077b36ff81a6eef6f99185b9aa488e62e82cb",
+    "C_chunk_id": "25760ca961aa30f5bb0a4d531e9077b36ff81a6eef6f99185b9aa488e62e82cb",
+    "note": "Reselected after test: original sample hit MDX banner; deterministic first prose in same 10 pages."
+  }
+]

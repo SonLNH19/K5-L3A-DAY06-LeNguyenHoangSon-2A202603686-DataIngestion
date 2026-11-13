@@ -1,0 +1,12 @@
+{
+  "strategy": "C",
+  "review_status": "reviewed",
+  "review_method": "Student reviewed the questions, gold evidence, top-3 chunks and metrics, and confirmed the strategy after the test had been run; the initial dev review was assisted by Codex",
+  "benchmark_sha256": "96bd2bf619940e35d1e2548c80c3b03104d61351770abad686604f3f8abdf63a",
+  "indexes": {
+    "A": "5b2b32283c455b95e4cfc9e9dfbdeaa02e5b64b49654afb89fdacfad76e44e1f",
+    "B": "03e5e21e7819a5ff43d5869f1bfe89552915934723ceaf22e13bc2c31c4f6f81"
+  },
+  "rule": "dev hit3, hit1, ingest time, alphabetical",
+  "note": "See results/dev_evidence_review.csv and metrics_dev_reviewed.json."
+}
