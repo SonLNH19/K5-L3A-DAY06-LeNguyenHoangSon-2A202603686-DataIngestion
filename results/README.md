@@ -1,7 +1,7 @@
 # Kết quả và phương pháp audit
 
 - `trace_dev.json` và `trace_test.json` lưu top-3, điểm cosine, metadata và nhãn khớp evidence chính xác. `metrics_dev.json` và `metrics_test.json` chứa chỉ số tự động, chưa tính bằng chứng tương đương.
-- `dev_evidence_review.csv` lưu kết quả rà soát evidence dev với hỗ trợ của Codex; các dòng `accepted_equivalent=True` chỉ ra bằng chứng thay thế. `metrics_dev_reviewed.json` cộng thêm các trường hợp này và được dùng để chọn C trước khi chạy test.
+-`metrics_dev_reviewed.json` cộng thêm các trường hợp này và được dùng để chọn C trước khi chạy test.
 - `selected_strategy.json` lưu lựa chọn, hash benchmark/index và phương pháp đánh giá. Nhãn dev có Codex hỗ trợ rà soát và được học viên xác nhận sau khi đã xem test.
 - `metadata_audit_test.csv` lưu kết quả đối chiếu tự động 45 bản ghi metadata với manifest và nguồn; học viên xác nhận đã xem sau test. Việc đối chiếu ban đầu là tự động.
 - `grounding_audit_test.csv` chứa 15 nhãn grounding 0–2 từ top-3, có Codex hỗ trợ chấm kèm lý do và được học viên xác nhận sau test. Grounding không phải độ chính xác câu trả lời LLM.
